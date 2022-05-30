@@ -7,8 +7,8 @@ mkcdir () {
 		cd -P -- "$1"
 }
 
-alias ls="exa --icons"
-alias ll="exa --icons --long --header"
-alias la="exa --icons --long --header --all"
-alias lt="exa --icons --tree"
+alias ls="exa --icons --group-directories-first"
+alias ll="ls --long --header"
+alias la="ls --long --header --all"
+alias lt="ls --tree"
 alias lstrue="/bin/ls"
