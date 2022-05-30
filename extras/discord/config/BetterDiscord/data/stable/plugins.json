@@ -1,0 +1,20 @@
+{
+    "SendLargeMessages": false,
+    "BDFDB": true,
+    "CallTimeCounter": true,
+    "ZeresPluginLibrary": true,
+    "FreeEmojis": true,
+    "SplitLargeMessages": true,
+    "ChatAliases": true,
+    "CustomStatusPresets": true,
+    "PersonalPins": true,
+    "ThemeSettings": true,
+    "NoReplyMention": true,
+    "_lineemotes": false,
+    "magane": false,
+    "undefined": false,
+    "FreeStickers": true,
+    "MessageLoggerV2": true,
+    "XenoLib": false,
+    "SaveToRedux": true
+}

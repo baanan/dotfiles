@@ -1,6 +1,9 @@
 #!/bin/zsh
 dir=$PWD
 
+# establish Documents folder structure
+mkdir -p ~/Documents/{utilities,projects,executables}
+
 # install homebrew
 /bin/bash -c "NONINTERACTIVE=true && $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
@@ -8,7 +11,7 @@ test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/bre
 echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
 
 # install fonts
-mkdir -p ~/Documents/utilities/ && cd "$_"
+cd ~/Documents/utilities/
 git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts && cd nerd-fonts
 git sparse-checkout add patched-fonts/JetBrainsMono && ./install.sh JetBrainsMono
 git sparse-checkout add patched-fonts/Hack && ./install.sh Hack
@@ -35,7 +38,7 @@ sed -i -r "s/plugins\s*=\s*(\(\s*)((\w+ )*)(\w*\))/plugins=\1\2$plugins \4/g" ~/
 ## rg --multiline --multiline-dotall --passthru "\[start\].*\[end\]" -r "[start]${cat .zshrc}[end]" ~/.zshrc > ~/.zshrc
 cd $dir
 
-cp -r .config/ ~/ 
+cp -r config/ ~/ 
 
 cat .zprofile >> ~/.zprofile
 cat .zshrc >> ~/.zshrc
