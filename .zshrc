@@ -20,3 +20,5 @@ alias ll="ls --long --header"
 alias la="ls --long --header --all"
 alias lt="ls --tree"
 alias lstrue="/bin/ls"
+
+alias code="flatpak run com.visualstudio.code"
