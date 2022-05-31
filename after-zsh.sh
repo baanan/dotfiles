@@ -23,11 +23,17 @@ source $HOME/.cargo/env
 # install other utilites
 sudo apt install exa
 cargo install git-delta
+## bat
 sudo apt install bat
 if [ -f "/usr/bin/batcat" ]; then
-	mkdir -p ~/.local/bin
-	ln -s /usr/bin/batcat ~/.local/bin/bat
+    mkdir -p ~/.local/bin
+    ln -s /usr/bin/batcat ~/.local/bin/bat
+    export BATCONFIG=`batcat --config-file`
+else
+    export BATCONFIG=`bat --config-file`
 fi
+mkdir -p `dirname $BATCONFIG`
+echo "--theme=OneHalfDark" >> `$BATCONFIG`
 
 sudo apt install ripgrep
 sudo apt install fzf
