@@ -16,18 +16,27 @@ git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts &&
 git sparse-checkout add patched-fonts/JetBrainsMono && ./install.sh JetBrainsMono
 git sparse-checkout add patched-fonts/Hack && ./install.sh Hack
 
+# install languages
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+source $HOME/.cargo/env
+
 # install other utilites
-brew install jandedobbeleer/oh-my-posh/oh-my-posh
 sudo apt install exa
+cargo install git-delta
+sudo apt install bat
+if [ -f "/usr/bin/batcat" ]; then
+	mkdir -p ~/.local/bin
+	ln -s /usr/bin/batcat ~/.local/bin/bat
+fi
+
 sudo apt install ripgrep
 sudo apt install fzf
+
+brew install jandedobbeleer/oh-my-posh/oh-my-posh
 git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
-
-# install languages
-curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 # add zsh plugins
 plugins="zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search"
@@ -42,4 +51,4 @@ cp -r config/ ~/
 
 cat .zprofile >> ~/.zprofile
 cat .zshrc >> ~/.zshrc
-cat .profile >> ~/.profile
+cat .gitconfig >> ~/.gitconfig

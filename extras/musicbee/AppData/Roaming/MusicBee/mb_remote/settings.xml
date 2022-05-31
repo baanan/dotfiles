@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<mbremote>
+  <lastrunversion>1.1.0.1456</lastrunversion>
+  <port>3000</port>
+  <values>
+  </values>
+  <selection>All</selection>
+  <source>1</source>
+  <logs_enabled>False</logs_enabled>
+  <update_firewall>False</update_firewall>
+</mbremote>

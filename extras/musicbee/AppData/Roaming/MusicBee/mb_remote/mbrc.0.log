@@ -1,0 +1,10 @@
+2021-01-29 23:11:43.9763 [ERROR]
+MusicBeePlugin.AndroidRemote.Networking.SocketServer : 0 
+On DataReceive
+A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+2021-01-29 23:11:53.4383 [ERROR]
+MusicBeePlugin.AndroidRemote.Networking.SocketServer : 0 
+While sending message to all available clients
+An existing connection was forcibly closed by the remote host
+
