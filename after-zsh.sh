@@ -20,17 +20,23 @@ git sparse-checkout add patched-fonts/Hack && ./install.sh Hack
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
 
-# install other utilites
-sudo apt install exa
-cargo install git-delta
+# install bat
 sudo apt install bat
 if [ -f "/usr/bin/batcat" ]; then
     mkdir -p ~/.local/bin
     ln -s /usr/bin/batcat ~/.local/bin/bat
 fi
 
+# install other utilites
+sudo apt install exa
+cargo install git-delta
+
 sudo apt install ripgrep
 sudo apt install fzf
+cargo install fd-find
+
+sudo apt install mold
+sudo apt install clang
 
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
 git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
@@ -51,3 +57,4 @@ cp -r config/ ~/
 
 cat home/.zshrc >> ~/.zshrc
 cat home/.gitconfig >> ~/.gitconfig
+cat home/cargo-config.toml >> ~/.cargo/config.toml
