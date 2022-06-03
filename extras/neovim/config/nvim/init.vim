@@ -2,8 +2,6 @@
 set hidden
 set relativenumber number
 
-set t_kb=
-
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " before plugin config
@@ -84,8 +82,6 @@ Plug 'hrsh7th/vim-vsnip'
 
 """ visuals
 Plug 'git@github.com:onsails/lspkind.nvim.git'
-
-"" ctrlspace
 
 "" plugins end
 call plug#end()
