@@ -1,1 +1,3 @@
 test.sh
+.undodir/
+**/Session.vim

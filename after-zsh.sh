@@ -19,6 +19,7 @@ git sparse-checkout add patched-fonts/Hack && ./install.sh Hack
 # install languages
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
+sudo apt install default-jre
 
 # install bat
 sudo apt install bat

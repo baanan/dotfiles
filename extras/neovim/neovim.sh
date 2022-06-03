@@ -2,7 +2,7 @@
 
 # install neovim
 # sudo apt install neovim
-echo "Install Neovim?"
+echo "Install Neovim Itself?"
 read a
 
 if [[ $a =~ "^y" ]]; then
@@ -17,7 +17,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # install other dependencies
 sudo apt install ripgrep
-sudo apt install fzf
+sudo apt install npm
+sudo apt install universal-ctags
 
 # copy over config
 cp -r config/* ~/.config/
