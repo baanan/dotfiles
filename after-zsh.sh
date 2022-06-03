@@ -31,6 +31,7 @@ fi
 # install other utilites
 sudo apt install exa
 cargo install git-delta
+sudo apt install btop
 
 sudo apt install ripgrep
 sudo apt install fzf

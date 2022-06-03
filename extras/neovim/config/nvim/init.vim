@@ -1,6 +1,7 @@
 " of course
 set hidden
 set relativenumber number
+set updatetime=100
 
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
@@ -56,6 +57,7 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'thaerkh/vim-indentguides'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'bagrat/vim-buffet'
 Plug 'vim-airline/vim-airline'
