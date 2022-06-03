@@ -144,6 +144,9 @@ let mapleader = " "
 nnoremap <leader>p "+
 nnoremap <leader>r <cmd>redo<cr>
 
+inoremap <Home> 
+vnoremap <Home> 
+
 "" telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
