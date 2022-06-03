@@ -44,10 +44,10 @@ Plug 'preservim/nerdtree'
 Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'git@github.com:AndrewRadev/sideways.vim.git'
+Plug 'AndrewRadev/sideways.vim'
 
 "" visuals
-Plug 'git@github.com:joshdick/onedark.vim.git'
+Plug 'joshdick/onedark.vim'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -83,7 +83,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
 """ visuals
-Plug 'git@github.com:onsails/lspkind.nvim.git'
+Plug 'onsails/lspkind.nvim'
 
 "" plugins end
 call plug#end()
