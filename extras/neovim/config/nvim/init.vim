@@ -139,6 +139,9 @@ let g:rainbow_conf = {
 "" "nerdtree
 let g:NERDTreeGitStatusUseNerdFonts = 1 
 
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 
