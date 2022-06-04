@@ -39,13 +39,13 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'FooSoft/vim-argwrap'
+Plug 'AndrewRadev/sideways.vim'
 
 "" nerdtree
 Plug 'preservim/nerdtree'
 Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'AndrewRadev/sideways.vim'
 
 "" visuals
 Plug 'joshdick/onedark.vim'
@@ -131,6 +131,9 @@ let g:rainbow_active = 1
 let g:rainbow_conf = {
 \	'guifgs':   [ '#be5046' , '#e06c75' , '#d19a66' , '#e5c07b' , '#98c379' , '#56b6c2' , '#61afef' , '#c678dd' ] ,
 \   'ctermfgs': [       196 ,       204 ,       173 ,       180 ,       114 ,        38 ,        39 ,       170 ] ,
+\   'separately': {
+\       'nerdtree': 0,
+\   },
 \}
 
 "" "nerdtree
@@ -347,7 +350,7 @@ lua <<EOF
       -- vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
     end
 
-    local servers = { 'rust_analyzer', 'sumneko_lua', 'vimls', 'jdtls', 'bashls' }
+    local servers = { 'rust_analyzer', 'sumneko_lua', 'vimls', 'jdtls', 'bashls', 'taplo' }
     for _, lsp in pairs(servers) do
       require('lspconfig')[lsp].setup {
         on_attach = on_attach,

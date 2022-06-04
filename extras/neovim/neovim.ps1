@@ -1,5 +1,7 @@
 # NOTE: make sure the OpenSSHAgent Service is automatically started for git
 
+#Requires -RunAsAdministrator
+
 # install neovim
 scoop install neovim
 
@@ -10,12 +12,12 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 # install other dependencies
 scoop install ripgrep
 scoop install nodejs
-sudo choco install universal-ctags -y
-sudo choco install llvm
+choco install universal-ctags -y
+choco install llvm
 scoop install gcc
 
 # copy over config
-cp -r config/* ~/.config/
+cp -r -Force config/* ~/.config/
 
 # install plugins
 nvim --headless +PlugInstall +qa
