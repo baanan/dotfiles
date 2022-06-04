@@ -30,6 +30,7 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'takac/vim-hardtime'
 
@@ -63,6 +64,7 @@ Plug 'bagrat/vim-buffet'
 Plug 'vim-airline/vim-airline'
 
 Plug 'machakann/vim-highlightedyank'
+Plug 'luochen1990/rainbow'
 
 "" lsp and autocomplete
 Plug 'williamboman/nvim-lsp-installer'
@@ -123,7 +125,15 @@ autocmd VimLeave * NERDTreeClose | doautocmd BufLeave
 "" tagbar
 let g:tagbar_autoclose = 1
 
-" nerdtree
+"" vim rainbow
+let g:rainbow_active = 1
+
+let g:rainbow_conf = {
+\	'guifgs':   [ '#be5046' , '#e06c75' , '#d19a66' , '#e5c07b' , '#98c379' , '#56b6c2' , '#61afef' , '#c678dd' ] ,
+\   'ctermfgs': [       196 ,       204 ,       173 ,       180 ,       114 ,        38 ,        39 ,       170 ] ,
+\}
+
+"" "nerdtree
 let g:NERDTreeGitStatusUseNerdFonts = 1 
 
 " Start NERDTree and put the cursor back in the other window.
@@ -147,10 +157,13 @@ nnoremap <leader>r <cmd>redo<cr>
 inoremap <Home> 
 vnoremap <Home> 
 
+tnoremap <Esc> <C-\><C-n>
+
 "" telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fc <cmd>Telescope commands<cr>
+nnoremap <leader>fl <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 nnoremap <leader>f: <cmd>Telescope command_history<cr>
 nnoremap <leader>f/ <cmd>Telescope search_history<cr>
@@ -240,6 +253,9 @@ endif
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
+    require('telescope').setup {}
+    require('telescope').load_extension('fzf')
+
     require("nvim-lsp-installer").setup({
         ensure_installed = { "rust_analyzer" },
         automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
@@ -328,10 +344,10 @@ lua <<EOF
       vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
       vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
       vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-      vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
+      -- vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
     end
 
-    local servers = { 'rust_analyzer', 'sumneko_lua', 'vimls', 'jdtls', 'taplo', 'bashls' }
+    local servers = { 'rust_analyzer', 'sumneko_lua', 'vimls', 'jdtls', 'bashls' }
     for _, lsp in pairs(servers) do
       require('lspconfig')[lsp].setup {
         on_attach = on_attach,

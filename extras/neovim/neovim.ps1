@@ -1,3 +1,5 @@
+# NOTE: make sure the OpenSSHAgent Service is automatically started for git
+
 # install neovim
 scoop install neovim
 
@@ -10,6 +12,7 @@ scoop install ripgrep
 scoop install nodejs
 sudo choco install universal-ctags -y
 sudo choco install llvm
+scoop install gcc
 
 # copy over config
 cp -r config/* ~/.config/
