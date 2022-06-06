@@ -27,6 +27,7 @@ Plug 'thaerkh/vim-workspace'
 Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-unimpaired'
+Plug 'michaeljsmith/vim-indent-object'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -63,6 +64,7 @@ Plug 'bagrat/vim-buffet'
 Plug 'vim-airline/vim-airline'
 
 Plug 'machakann/vim-highlightedyank'
+Plug 'luochen1990/rainbow'
 
 "" lsp and autocomplete
 Plug 'williamboman/nvim-lsp-installer'
@@ -84,6 +86,10 @@ Plug 'hrsh7th/vim-vsnip'
 
 """ visuals
 Plug 'git@github.com:onsails/lspkind.nvim.git'
+
+"" dependents on visuals
+Plug 'folke/todo-comments.nvim'
+Plug 'folke/trouble.nvim'
 
 "" plugins end
 call plug#end()
@@ -123,7 +129,12 @@ autocmd VimLeave * NERDTreeClose | doautocmd BufLeave
 "" tagbar
 let g:tagbar_autoclose = 1
 
-" nerdtree
+"" autopairs
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutJump = 'C-n'
+let g:AutoPairsShortcutBackInsert = 'C-b'
+
+"" nerdtree
 let g:NERDTreeGitStatusUseNerdFonts = 1 
 
 " Start NERDTree and put the cursor back in the other window.
@@ -212,6 +223,21 @@ nnoremap <leader>amh <cmd>SidewaysLeft<cr>
 "" tagbar
 nmap <leader>t :TagbarToggle<CR>
 
+"" vsnip
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+"" trouble
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+
 " themes
 colorscheme onedark
 let g:airline_theme='onedark'
@@ -237,6 +263,9 @@ endif
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
+    require("trouble").setup {}
+    require("todo-comments").setup {}
+
     require("nvim-lsp-installer").setup({
         ensure_installed = { "rust_analyzer" },
         automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
