@@ -26,21 +26,28 @@ Plug 'thaerkh/vim-workspace'
 
 Plug 'preservim/nerdcommenter'
 Plug 'godlygeek/tabular'
-Plug 'tpope/vim-unimpaired'
-Plug 'michaeljsmith/vim-indent-object'
+Plug 'unblevable/quick-scope'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 
-""" argument / pair stuff
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
+""" argument stuff
 Plug 'FooSoft/vim-argwrap'
+Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/sideways.vim'
+
+""" autopairs
+Plug 'tpope/vim-endwise'
+Plug 'jiangmiao/auto-pairs'
+
+""" navigation
+Plug 'wellle/targets.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'easymotion/vim-easymotion'
 
 "" nerdtree
 Plug 'preservim/nerdtree'
@@ -58,8 +65,9 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'thaerkh/vim-indentguides'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'airblade/vim-gitgutter'
+Plug 'unblevable/quick-scope'
 
 Plug 'bagrat/vim-buffet'
 Plug 'vim-airline/vim-airline'
@@ -152,6 +160,18 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
+"" quick-scope
+let g:qs_buftype_blacklist = ['terminal', 'nofile']
+
+"" easymotion
+let g:EasyMotion_smartcase = 1
+
+augroup qs_colors
+    autocmd!
+    autocmd ColorScheme * highlight QuickScopePrimary guifg='#C678DD' gui=underline ctermfg=170 cterm=underline
+    autocmd ColorScheme * highlight QuickScopeSecondary guifg='#D19A66' gui=underline ctermfg=173 cterm=underline
+augroup END
+
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 
@@ -174,6 +194,9 @@ inoremap <Home> 
 vnoremap <Home> 
 
 tnoremap <Esc> <C-\><C-n>
+
+noremap 0 ^
+noremap ^ 0
 
 "" telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -223,10 +246,10 @@ vnoremap <C-_> <plug>NERDCommenterToggle<CR>
 "" arguments
 nnoremap <silent> <leader>az :ArgWrap<CR>
 
-omap aa <Plug>SidewaysArgumentTextobjA
-xmap aa <Plug>SidewaysArgumentTextobjA
-omap ia <Plug>SidewaysArgumentTextobjI
-xmap ia <Plug>SidewaysArgumentTextobjI
+" omap aa <Plug>SidewaysArgumentTextobjA
+" xmap aa <Plug>SidewaysArgumentTextobjA
+" omap ia <Plug>SidewaysArgumentTextobjI
+" xmap ia <Plug>SidewaysArgumentTextobjI
 
 nmap <leader>ai <Plug>SidewaysArgumentInsertBefore
 nmap <leader>aa <Plug>SidewaysArgumentAppendAfter
@@ -258,6 +281,15 @@ nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+
+"" easymotion
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+
+nmap <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+nmap s <Plug>(easymotion-overwin-f)
 
 " themes
 colorscheme onedark
