@@ -3,6 +3,8 @@ set hidden
 set relativenumber number
 set updatetime=100
 
+set mouse=a
+
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " before plugin config
@@ -190,12 +192,12 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" if has("nvim-0.5.0") || has("patch-8.1.1564")
+"   " Recently vim can merge signcolumn and number column into one
+"   set signcolumn=number
+" else
+"   set signcolumn=yes
+" endif
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :

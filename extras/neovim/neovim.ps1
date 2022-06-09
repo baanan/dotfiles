@@ -17,7 +17,15 @@ choco install llvm
 scoop install gcc
 
 # copy over config
+cp -r -Force config/nvim/* ~/Appdata/Local/nvim/
 cp -r -Force config/* ~/.config/
 
 # install plugins
 nvim --headless +PlugInstall +qa
+
+# install coc plugins
+echo ""
+$installcoc = Read-Host "Install Coc Plugins?"
+if ($installcoc -like "y*") {
+    nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-discord-rpc coc-json coc-snippets"
+}
