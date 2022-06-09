@@ -139,9 +139,9 @@ autocmd VimLeave * NERDTreeClose | doautocmd BufLeave
 let g:tagbar_autoclose = 1
 
 "" autopairs
-let g:AutoPairsFlyMode = 1
+" let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutJump = 'C-n'
-let g:AutoPairsShortcutBackInsert = 'C-b'
+" let g:AutoPairsShortcutBackInsert = 'C-b'
 
 "" vim rainbow
 let g:rainbow_active = 0
@@ -155,7 +155,7 @@ let g:rainbow_conf = {
 \}
 
 "" nerdtree
-let g:NERDTreeGitStatusUseNerdFonts = 1 
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
