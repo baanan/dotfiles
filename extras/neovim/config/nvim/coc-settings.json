@@ -1,0 +1,31 @@
+{
+    "suggest.completionItemKindLabels": {
+        "text": "",
+        "method": "",
+        "function": "",
+        "constructor": "",
+        "field": "ﰠ",
+        "variable": "",
+        "class": "ﴯ",
+        "interface": "",
+        "module": "",
+        "property": "ﰠ",
+        "unit": "塞",
+        "value": "",
+        "keyword": "",
+        "enum": "",
+        "snippet": "",
+        "color": "",
+        "file": "",
+        "reference": "",
+        "folder": "",
+        "constant": "",
+        "struct": "פּ",
+        "event": "",
+        "operator": "",
+        "typeParameter": "\uf278",
+        "default": "\uf29c"
+    },
+    "rust-analyzer.inlayHints.chainingHints.enable": false,
+    "rust-analyzer.disableProgressNotifications": true
+}

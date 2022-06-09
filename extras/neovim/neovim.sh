@@ -20,8 +20,22 @@ sudo apt install ripgrep
 sudo apt install npm
 sudo apt install universal-ctags
 
+echo "Install Node.js?"
+read a
+
+if [[ $a =~ "^y" ]]; then
+	curl -sL install-node.vercel.app/lts | sudo bash
+fi
+
 # copy over config
 cp -r config/* ~/.config/
 
 # install plugins
 nvim --headless +PlugInstall +qa
+
+echo "Install Coc Plugins?"
+read a
+
+if [[ $a =~ "^y" ]]; then
+	nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-discord-rpc coc-json coc-snippets"
+fi
