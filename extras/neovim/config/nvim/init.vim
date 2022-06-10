@@ -26,7 +26,8 @@ Plug 'tpope/vim-repeat'
 Plug 'simnalamburt/vim-mundo'
 Plug 'thaerkh/vim-workspace'
 
-Plug 'preservim/nerdcommenter'
+" Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'unblevable/quick-scope'
 
@@ -391,8 +392,8 @@ nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <F5> :MundoToggle<CR>
 
 "" nerdcommenter
-nnoremap <C-_> <plug>NERDCommenterInvert<CR>
-vnoremap <C-_> <plug>NERDCommenterToggle<CR>
+nnoremap <C-_> <plug>CommentaryLine
+vnoremap <C-_> <plug>Commentary
 
 "" arguments
 nnoremap <silent> <leader>az :ArgWrap<CR>
