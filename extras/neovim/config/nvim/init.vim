@@ -51,6 +51,7 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'easymotion/vim-easymotion'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 "" nerdtree
 Plug 'preservim/nerdtree'
@@ -71,6 +72,9 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'unblevable/quick-scope'
+
+Plug 'kevinhwang91/nvim-hlslens'
+Plug 'petertriho/nvim-scrollbar'
 
 Plug 'bagrat/vim-buffet'
 Plug 'vim-airline/vim-airline'
@@ -164,6 +168,13 @@ let g:qs_buftype_blacklist = ['terminal', 'nofile']
 
 "" easymotion
 let g:EasyMotion_smartcase = 1
+
+""" nvim hlslens
+aug VMlens
+    au!
+    au User visual_multi_start lua require('vmlens').start()
+    au User visual_multi_exit lua require('vmlens').exit()
+aug END
 
 augroup qs_colors
     autocmd!
@@ -431,6 +442,17 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 nmap s <Plug>(easymotion-overwin-f)
 
+"" hlslens
+nnoremap n <Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>
+nnoremap N <Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>
+
+nnoremap * *<Cmd>lua require('hlslens').start()<CR>
+nnoremap # #<Cmd>lua require('hlslens').start()<CR>
+nnoremap g* g*<Cmd>lua require('hlslens').start()<CR>
+nnoremap g# g#<Cmd>lua require('hlslens').start()<CR>
+
+nnoremap <leader>l :noh<CR>
+
 " themes
 colorscheme onedark
 let g:airline_theme='onedark'
@@ -461,7 +483,20 @@ lua <<EOF
     require('telescope').setup {}
     require('telescope').load_extension('fzf')
 
-  -- Setup nvim-cmp.
+    require("scrollbar.handlers.search").setup()
+    require("scrollbar").setup({
+        handle = { color = "#3E4452", cterm = 237 },
+        marks = {
+            Search = { color = "#D19A66", cterm = 173 }, -- dark yellow
+            Error  = { color = "#E06C75", cterm = 204 }, -- red
+            Warn   = { color = "#E5C07B", cterm = 180 }, -- yellow
+            Info   = { color = "#61AFEF", cterm = 39  }, -- blue
+            Hint   = { color = "#56B6C2", cterm = 38  }, -- cyan
+            Misc   = { color = "#C678DD", cterm = 170 }, -- purple
+        }
+    })
+
+    -- Setup nvim-cmp.
     local cmp = require'cmp'
     local lspkind = require('lspkind')
 
