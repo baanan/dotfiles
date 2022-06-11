@@ -16,6 +16,11 @@ choco install universal-ctags -y
 choco install llvm
 scoop install gcc
 
+# install python
+scoop install python
+start ("~\scoop\apps\python\current\" + (ls -n ~\scoop\apps\python\current | rg "^install-pep"))
+python -m pip install --user --upgrade pynvim
+
 # copy over config
 cp -r -Force config/nvim/* ~/Appdata/Local/nvim/
 cp -r -Force config/* ~/.config/
