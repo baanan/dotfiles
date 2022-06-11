@@ -455,6 +455,8 @@ nnoremap <leader>l :noh<CR>
 
 " themes
 colorscheme onedark
+hi Search guibg=#3B4048 guifg=#ABB2BF
+
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 
