@@ -145,6 +145,7 @@ let g:tagbar_autoclose = 1
 " let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutJump = 'C-n'
 " let g:AutoPairsShortcutBackInsert = 'C-b'
+au FileType rust     let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>', 'r#"': '"#'})
 
 "" vim rainbow
 let g:rainbow_active = 0
