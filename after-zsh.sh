@@ -20,6 +20,7 @@ git sparse-checkout add patched-fonts/Hack && ./install.sh Hack
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
 sudo apt install default-jre
+sudo apt install python3-pip
 
 # install bat
 sudo apt install bat

@@ -17,14 +17,21 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # install other dependencies
 sudo apt install ripgrep
-sudo apt install npm
 sudo apt install universal-ctags
+sudo apt install xclip
+sudo npm install --location=global neovim
+
+sudo apt install python3-pip
+python3 -m pip install --user --upgrade pynvim
 
 echo "Install Node.js?"
 read a
 
 if [[ $a =~ "^y" ]]; then
-	curl -sL install-node.vercel.app/lts | sudo bash
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	nvm install node
 fi
 
 # copy over config
@@ -37,5 +44,5 @@ echo "Install Coc Plugins?"
 read a
 
 if [[ $a =~ "^y" ]]; then
-	nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-discord-rpc coc-json coc-snippets"
+	nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
 fi
