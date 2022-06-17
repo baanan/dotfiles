@@ -32,5 +32,5 @@ nvim --headless +PlugInstall +qa
 echo ""
 $installcoc = Read-Host "Install Coc Plugins?"
 if ($installcoc -like "y*") {
-    nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-discord-rpc coc-json coc-snippets"
+    nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
 }

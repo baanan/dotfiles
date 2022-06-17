@@ -20,6 +20,8 @@ endfunction
 " plugins
 call plug#begin()
 
+Plug 'andweeb/presence.nvim'
+
 "" utilities
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -103,6 +105,20 @@ Plug 'preservim/tagbar'
 "" dependents on visuals
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
+
+" generic keybinds" keybinds
+let mapleader = " "
+
+nnoremap <leader>p "+
+nnoremap <leader>u <cmd>redo<cr>
+
+inoremap <Home> 
+vnoremap <Home> 
+
+tnoremap <Esc> <C-\><C-n>
+
+noremap 0 ^
+noremap ^ 0
 
 "" plugins end
 call plug#end()
@@ -264,7 +280,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -280,11 +296,11 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+xnoremap <leader>rf  <Plug>(coc-codeaction-cursor)
+nnoremap <leader>rf  <Plug>(coc-codeaction-cursor)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
+" nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -348,20 +364,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " nnoremap <silent><nowait> <leader>ck  :<C-u>CocPrev<CR>
 " " Resume latest coc list.
 " nnoremap <silent><nowait> <leader>cp  :<C-u>CocListResume<CR>
-
-" keybinds
-let mapleader = " "
-
-nnoremap <leader>p "+
-nnoremap <leader>r <cmd>redo<cr>
-
-inoremap <Home> 
-vnoremap <Home> 
-
-tnoremap <Esc> <C-\><C-n>
-
-noremap 0 ^
-noremap ^ 0
 
 "" telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -437,7 +439,9 @@ nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
 "" easymotion
+omap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>j <Plug>(easymotion-j)
+omap <Leader>k <Plug>(easymotion-k)
 nmap <Leader>k <Plug>(easymotion-k)
 
 nmap <Leader>w <Plug>(easymotion-bd-w)
