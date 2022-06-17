@@ -84,6 +84,7 @@ Plug 'luochen1990/rainbow'
 
 "" coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rafamadriz/friendly-snippets'
 
 "" command line completion
 Plug 'hrsh7th/cmp-cmdline'
