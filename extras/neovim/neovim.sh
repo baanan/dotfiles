@@ -38,7 +38,7 @@ fi
 cp -r config/* ~/.config/
 
 # install plugins
-nvim --headless +PlugInstall +qa
+# nvim --headless +PlugInstall +qa
 
 echo "Install Coc Plugins?"
 read a
