@@ -26,7 +26,7 @@ cp -r -Force config/nvim/* ~/Appdata/Local/nvim/
 cp -r -Force config/* ~/.config/
 
 # install plugins
-nvim --headless +PlugInstall +qa
+# nvim --headless +PlugInstall +qa
 
 # install coc plugins
 echo ""
