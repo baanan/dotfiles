@@ -1,3 +1,5 @@
 # dotfiles
 
-My dotfiles for pop os, i'll add a way to automatically install kde plasma later.
+My dotfiles for pop os.
+
+My Neovim also has an installer for windows.
