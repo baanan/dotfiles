@@ -53,7 +53,7 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'easymotion/vim-easymotion'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'mg979/vim-visual-multi', { 'branch': 'master', 'commit': 'd5b820655e17c6ccd363885e5614652e4cffae95' }
 Plug 'bkad/CamelCaseMotion'
 
 "" nerdtree
