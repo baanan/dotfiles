@@ -54,6 +54,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'easymotion/vim-easymotion'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'bkad/CamelCaseMotion'
 
 "" nerdtree
 Plug 'preservim/nerdtree'
@@ -364,6 +365,28 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " nnoremap <silent><nowait> <leader>ck  :<C-u>CocPrev<CR>
 " " Resume latest coc list.
 " nnoremap <silent><nowait> <leader>cp  :<C-u>CocListResume<CR>
+"
+
+"" camel case motion
+" let g:camelcasemotion_key = '<leader>'
+noremap <leader>W W
+noremap <leader>B B
+noremap <leader>E E
+noremap <leader>gE gE
+
+noremap <silent> W <Plug>CamelCaseMotion_w
+noremap <silent> B <Plug>CamelCaseMotion_b
+noremap <silent> E <Plug>CamelCaseMotion_e
+noremap <silent> gE <Plug>CamelCaseMotion_ge
+
+onoremap i<leader>W iW
+xnoremap i<leader>W iW
+
+onoremap <silent> iW <Plug>CamelCaseMotion_iw
+xnoremap <silent> iW <Plug>CamelCaseMotion_iw
+
+imap <silent> <S-Left> <C-o><Plug>CamelCaseMotion_b
+imap <silent> <S-Right> <C-o><Plug>CamelCaseMotion_w
 
 "" telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
