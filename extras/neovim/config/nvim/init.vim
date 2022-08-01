@@ -49,6 +49,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'simnalamburt/vim-mundo'
 Plug 'Shatur/neovim-session-manager'
+Plug 'stevearc/aerial.nvim'
 
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
@@ -78,16 +79,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'bkad/CamelCaseMotion'
 
-"" nerdtree
-" Plug 'preservim/nerdtree'
-" Plug 'PhilRunninger/nerdtree-visual-selection'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-
 "" visuals
 Plug 'joshdick/onedark.vim'
 
-" Plug 'declancm/cinnamon.nvim'
 " Plug 'glepnir/dashboard-nvim'
 
 Plug 'sheerun/vim-polyglot'
@@ -126,7 +120,7 @@ Plug 'onsails/lspkind.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
 " Plug 'preservim/tagbar'
-Plug 'stevearc/aerial.nvim'
+Plug 'Canop/nvim-bacon'
 
 "" dependents on visuals
 Plug 'folke/todo-comments.nvim'
@@ -415,7 +409,8 @@ nnoremap <leader>fd <cmd>Telescope lsp_definitions<cr>
 "" bufferline
 nnoremap <silent> gb :BufferLinePick<CR>
 
-noremap <Leader><Tab> :bd<CR>
+" nnoremap <Leader><Tab> :bd<CR>
+nnoremap <Leader><Tab> :bp<bar>sp<bar>bn<bar>bd<CR>
 
 nnoremap <silent> <Tab> :BufferLineCycleNext<CR>
 nnoremap <silent> <S-Tab> :BufferLineCyclePrev<CR>
@@ -508,6 +503,10 @@ nmap <C-j> :lua require('smart-splits').move_cursor_down()<CR>
 nmap <C-k> :lua require('smart-splits').move_cursor_up()<CR>
 nmap <C-l> :lua require('smart-splits').move_cursor_right()<CR>
 
+""" bacon
+nnoremap ! :BaconLoad<CR>:w<CR>:BaconNext<CR>
+nnoremap , :BaconList<CR>
+
 " themes
 colorscheme onedark
 hi Search guibg=#3B4048 guifg=#ABB2BF
@@ -597,13 +596,19 @@ lua <<EOF
 
   -- lazygit terminal
   local Terminal  = require('toggleterm.terminal').Terminal
-  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+  local bacon = Terminal:new({ cmd = "bacon", hidden = true, direction = "vertical", size = 35 })
 
   function _lazygit_toggle()
     lazygit:toggle()
   end
 
+  function _bacon_toggle()
+    bacon:toggle()
+  end
+
   vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+  vim.api.nvim_set_keymap("n", "<leader>bc", "<cmd>lua _bacon_toggle()<CR>", {noremap = true, silent = true})
 
   vim.opt.termguicolors = true
   require("bufferline").setup{}

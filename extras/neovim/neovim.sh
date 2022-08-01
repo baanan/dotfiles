@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+# TODO: bacon
+
 # install neovim
 # sudo apt install neovim
 echo "Install Neovim Itself?"
@@ -24,6 +26,12 @@ brew install jesseduffield/lazygit/lazygit
 
 sudo apt install python3-pip
 python3 -m pip install --user --upgrade pynvim
+
+# bacon
+cargo install --locked bacon
+if ! rg -q "^export_locations" $(bacon --prefs); then 
+	sed -i '1s/^/export_locations = true\n/' $(bacon --prefs)
+fi
 
 # ueberzug
 sudo apt install libx11-dev
