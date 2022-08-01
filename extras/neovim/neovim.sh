@@ -20,9 +20,29 @@ sudo apt install ripgrep
 sudo apt install universal-ctags
 sudo apt install xclip
 sudo npm install --location=global neovim
+brew install jesseduffield/lazygit/lazygit
 
 sudo apt install python3-pip
 python3 -m pip install --user --upgrade pynvim
+
+# ueberzug
+sudo apt install libx11-dev
+sudo apt-get install libxext-dev
+pip install ueberzug
+
+# neovide
+echo "Install Neovide?"
+read a
+
+if [[ $a =~ "^y" ]]; then
+	# install 0.9.0
+	wget https://github.com/neovide/neovide/releases/download/0.9.0/neovide.tar.gz
+	tar --gunzip -xf neovide.tar.gz
+	mv target/release/neovide ~/Documents/executables/neovide
+	# cleanup
+	rm neovide.tar.gz
+	rm -r target
+fi
 
 echo "Install Node.js?"
 read a

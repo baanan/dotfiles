@@ -1,4 +1,5 @@
 # NOTE: make sure the OpenSSHAgent Service is automatically started for git
+# TODO: neovide installer
 
 #Requires -RunAsAdministrator
 
@@ -15,6 +16,7 @@ scoop install nodejs
 choco install universal-ctags -y
 choco install llvm
 scoop install gcc
+scoop install lazygit
 
 # install python
 scoop install python
