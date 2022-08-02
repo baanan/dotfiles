@@ -2,4 +2,4 @@
 
 My dotfiles for pop os.
 
-My Neovim also has an installer for windows.
+The Neovim config also has an installer for windows.
