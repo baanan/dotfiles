@@ -1,5 +1,3 @@
 # dotfiles
 
-My dotfiles for pop os.
-
-The Neovim config also has an installer for windows.
+My dotfiles for pop os, sometimes mac, and even more rarely windows.
