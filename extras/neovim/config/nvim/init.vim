@@ -1,15 +1,31 @@
 " TODO: switch to packer and lua since it seems nice
 " TODO: add dashboard once that's done 
+if has('mac')
+  set clipboard=unnamed
+endif
 
 if exists("g:neovide")
-  set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h8
+  let g:neovide_remember_window_size = v:true
 
-  let s:fontsize = 8
+  if has('mac')
+    let s:fontsize = 14
+    set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h14
 
-  function! AdjustFontSize(amount)
-    let s:fontsize = s:fontsize+a:amount
-    :execute "set guifont=JetBrainsMonoNL\\ Nerd\\ Font\\ Mono:h" . s:fontsize
-  endfunction
+    function! AdjustFontSize(amount)
+      let s:fontsize = s:fontsize+a:amount
+      :execute "set guifont=JetBrainsMono\\ Nerd\\ Font\\ Mono:h" . s:fontsize
+    endfunction
+
+  else
+    let s:fontsize = 8
+    set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h8
+
+    function! AdjustFontSize(amount)
+      let s:fontsize = s:fontsize+a:amount
+      :execute "set guifont=JetBrainsMonoNL\\ Nerd\\ Font\\ Mono:h" . s:fontsize
+    endfunction
+
+  endif
 
   " In normal mode, pressing numpad's+ increases the font
   nnoremap <C-+> :call AdjustFontSize(1)<CR>
@@ -216,10 +232,11 @@ set updatetime=300
 set shortmess+=c
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  \ coc#pum#visible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
