@@ -72,6 +72,7 @@ Plug 'godlygeek/tabular'
 Plug 'unblevable/quick-scope'
 Plug 'mrjones2014/smart-splits.nvim'
 Plug 'kwkarlwang/bufresize.nvim'
+Plug 'famiu/bufdelete.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -427,7 +428,8 @@ nnoremap <leader>fd <cmd>Telescope lsp_definitions<cr>
 nnoremap <silent> gb :BufferLinePick<CR>
 
 " nnoremap <Leader><Tab> :bd<CR>
-nnoremap <Leader><Tab> :bp<bar>sp<bar>bn<bar>bd<CR>
+" nnoremap <Leader><Tab> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <Leader><Tab> :Bd<CR>
 
 nnoremap <silent> <Tab> :BufferLineCycleNext<CR>
 nnoremap <silent> <S-Tab> :BufferLineCyclePrev<CR>
@@ -457,7 +459,9 @@ nnoremap <F5> :MundoToggle<CR>
 
 "" nerdcommenter
 nnoremap <C-_> <plug>CommentaryLine
+nnoremap <C-/> <plug>CommentaryLine
 vnoremap <C-_> <plug>Commentary
+vnoremap <C-/> <plug>Commentary
 
 "" arguments
 nnoremap <silent> <leader>az :ArgWrap<CR>

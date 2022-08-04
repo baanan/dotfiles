@@ -2,3 +2,4 @@ test.sh
 .undodir/
 **/Session.vim
 *.swp
+**/.DS_Store
