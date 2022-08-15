@@ -1,3 +1,41 @@
+" TODO: switch to packer and lua since it seems nice
+" TODO: add dashboard once that's done 
+if has('mac')
+  set clipboard=unnamed
+endif
+
+if exists("g:neovide")
+  let g:neovide_remember_window_size = v:true
+
+  if has('mac')
+    let s:fontsize = 14
+    set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h14
+
+    function! AdjustFontSize(amount)
+      let s:fontsize = s:fontsize+a:amount
+      :execute "set guifont=JetBrainsMono\\ Nerd\\ Font\\ Mono:h" . s:fontsize
+    endfunction
+
+  else
+    let s:fontsize = 8
+    set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h8
+
+    function! AdjustFontSize(amount)
+      let s:fontsize = s:fontsize+a:amount
+      :execute "set guifont=JetBrainsMonoNL\\ Nerd\\ Font\\ Mono:h" . s:fontsize
+    endfunction
+
+  endif
+
+  " In normal mode, pressing numpad's+ increases the font
+  nnoremap <C-+> :call AdjustFontSize(1)<CR>
+  nnoremap <C--> :call AdjustFontSize(-1)<CR>
+
+  " In insert mode, pressing ctrl + numpad's+ increases the font
+  inoremap <C-+> <Esc>:call AdjustFontSize(1)<CR>a
+  inoremap <C--> <Esc>:call AdjustFontSize(-1)<CR>a
+endif
+
 " of course
 set hidden
 set relativenumber number
@@ -8,14 +46,14 @@ set mouse=a
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " before plugin config
-function! g:BuffetSetCustomColors()
-    hi! BuffetTrunc cterm=NONE ctermbg=173 ctermfg=235 guibg=#d19a66 guifg=#282c34
-    hi! BuffetTab cterm=NONE ctermbg=170 ctermfg=235 guibg=#c678dd guifg=#282c34
+" function! g:BuffetSetCustomColors()
+"     hi! BuffetTrunc cterm=NONE ctermbg=173 ctermfg=235 guibg=#d19a66 guifg=#282c34
+"     hi! BuffetTab cterm=NONE ctermbg=170 ctermfg=235 guibg=#c678dd guifg=#282c34
 
-    hi! BuffetCurrentBuffer cterm=NONE ctermbg=180 ctermfg=235 guibg=#e5c07b guifg=#282c34
-    hi! BuffetActiveBuffer cterm=NONE ctermbg=237 ctermfg=145 guibg=#3e4452 guifg=#abb2bf
-    hi! BuffetBuffer cterm=NONE ctermbg=236 ctermfg=145 guibg=#2c323c guifg=#abb2bf
-endfunction
+"     hi! BuffetCurrentBuffer cterm=NONE ctermbg=180 ctermfg=235 guibg=#e5c07b guifg=#282c34
+"     hi! BuffetActiveBuffer cterm=NONE ctermbg=237 ctermfg=145 guibg=#3e4452 guifg=#abb2bf
+"     hi! BuffetBuffer cterm=NONE ctermbg=236 ctermfg=145 guibg=#2c323c guifg=#abb2bf
+" endfunction
 
 " plugins
 call plug#begin()
@@ -26,18 +64,20 @@ Plug 'andweeb/presence.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'simnalamburt/vim-mundo'
-Plug 'thaerkh/vim-workspace'
+Plug 'Shatur/neovim-session-manager'
+Plug 'stevearc/aerial.nvim'
 
-" Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'unblevable/quick-scope'
+Plug 'mrjones2014/smart-splits.nvim'
+Plug 'kwkarlwang/bufresize.nvim'
+Plug 'famiu/bufdelete.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-
-" Plug 'takac/vim-hardtime'
+Plug 'stevearc/dressing.nvim'
 
 """ argument stuff
 Plug 'FooSoft/vim-argwrap'
@@ -56,14 +96,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'bkad/CamelCaseMotion'
 
-"" nerdtree
-Plug 'preservim/nerdtree'
-Plug 'PhilRunninger/nerdtree-visual-selection'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
 "" visuals
 Plug 'joshdick/onedark.vim'
+
+" Plug 'glepnir/dashboard-nvim'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -79,7 +115,6 @@ Plug 'unblevable/quick-scope'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'petertriho/nvim-scrollbar'
 
-Plug 'bagrat/vim-buffet'
 Plug 'vim-airline/vim-airline'
 
 Plug 'machakann/vim-highlightedyank'
@@ -101,11 +136,17 @@ Plug 'onsails/lspkind.nvim'
 "" rust
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
-Plug 'preservim/tagbar'
+" Plug 'preservim/tagbar'
+Plug 'Canop/nvim-bacon'
 
 "" dependents on visuals
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+let g:neo_tree_remove_legacy_commands = 1
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v2.x' }
 
 " generic keybinds" keybinds
 let mapleader = " "
@@ -135,26 +176,11 @@ let g:hardtime_allow_different_key = 1
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_buffer_patterns = [ "NERD.*", "__Tagbar__.", "/doc/", "/.git/" ]
 
-"" vim buffet
-let g:buffet_show_index = 1
-let g:buffet_powerline_separators = 1
-let g:buffet_tab_icon = "\uf00a"
-let g:buffet_left_trunc_icon = "\uf0a8"
-let g:buffet_right_trunc_icon = "\uf0a9"
-
 "" other utilities
 let g:highlightedyank_highlight_duration = 250
 
-"" nerdcommenter
-let g:NERDSpaceDelims = 1
-let g:NERDCommentEmptyLines = 1
-let g:NERDDefaultAlign = 'left'
-
 "" vim-workspace
 let g:workspace_create_new_tabs = 0
-
-""" fix for nerdtree
-autocmd VimLeave * NERDTreeClose | doautocmd BufLeave
 
 "" tagbar
 let g:tagbar_autoclose = 1
@@ -176,12 +202,6 @@ let g:rainbow_conf = {
 \   },
 \}
 
-"" nerdtree
-let g:NERDTreeGitStatusUseNerdFonts = 1
-
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
 "" quick-scope
 let g:qs_buftype_blacklist = ['terminal', 'nofile']
 
@@ -201,15 +221,6 @@ augroup qs_colors
     autocmd ColorScheme * highlight QuickScopeSecondary guifg='#D19A66' gui=underline ctermfg=173 cterm=underline
 augroup END
 
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
-
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
 "" coc
 " Give more space for displaying messages.
 set cmdheight=2
@@ -221,20 +232,12 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-" if has("nvim-0.5.0") || has("patch-8.1.1564")
-"   " Recently vim can merge signcolumn and number column into one
-"   set signcolumn=number
-" else
-"   set signcolumn=yes
-" endif
-
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  \ coc#pum#visible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -270,11 +273,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -288,11 +291,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder.
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -372,7 +375,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 noremap <leader>W W
 noremap <leader>B B
 noremap <leader>E E
-noremap <leader>gE gE
+" noremap <leader>gE gE
 
 noremap <silent> W <Plug>CamelCaseMotion_w
 noremap <silent> B <Plug>CamelCaseMotion_b
@@ -403,36 +406,62 @@ nnoremap <leader>f" <cmd>Telescope registers<cr>
 nnoremap <leader>fr <cmd>Telescope lsp_references<cr>
 nnoremap <leader>fd <cmd>Telescope lsp_definitions<cr>
 
-"" vim buffet
-nmap <leader>1 <Plug>BuffetSwitch(1)
-nmap <leader>2 <Plug>BuffetSwitch(2)
-nmap <leader>3 <Plug>BuffetSwitch(3)
-nmap <leader>4 <Plug>BuffetSwitch(4)
-nmap <leader>5 <Plug>BuffetSwitch(5)
-nmap <leader>6 <Plug>BuffetSwitch(6)
-nmap <leader>7 <Plug>BuffetSwitch(7)
-nmap <leader>8 <Plug>BuffetSwitch(8)
-nmap <leader>9 <Plug>BuffetSwitch(9)
-nmap <leader>0 <Plug>BuffetSwitch(10)
+" "" vim buffet
+" nmap <leader>1 <Plug>BuffetSwitch(1)
+" nmap <leader>2 <Plug>BuffetSwitch(2)
+" nmap <leader>3 <Plug>BuffetSwitch(3)
+" nmap <leader>4 <Plug>BuffetSwitch(4)
+" nmap <leader>5 <Plug>BuffetSwitch(5)
+" nmap <leader>6 <Plug>BuffetSwitch(6)
+" nmap <leader>7 <Plug>BuffetSwitch(7)
+" nmap <leader>8 <Plug>BuffetSwitch(8)
+" nmap <leader>9 <Plug>BuffetSwitch(9)
+" nmap <leader>0 <Plug>BuffetSwitch(10)
 
-noremap <Tab> :bn<CR>
-noremap <S-Tab> :bp<CR>
-noremap <Leader><Tab> :Bw<CR>
-noremap <Leader><S-Tab> :Bw!<CR>
-noremap <C-t> :tabnew split<CR>
+" noremap <Tab> :bn<CR>
+" noremap <S-Tab> :bp<CR>
+" noremap <Leader><Tab> :Bw<CR>
+" noremap <Leader><S-Tab> :Bw!<CR>
+" noremap <C-t> :tabnew split<CR>
+
+"" bufferline
+nnoremap <silent> gb :BufferLinePick<CR>
+
+" nnoremap <Leader><Tab> :bd<CR>
+" nnoremap <Leader><Tab> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <Leader><Tab> :Bd<CR>
+
+nnoremap <silent> <Tab> :BufferLineCycleNext<CR>
+nnoremap <silent> <S-Tab> :BufferLineCyclePrev<CR>
+
+nnoremap <silent> <leader>bl :BufferLineMoveNext<CR>
+nnoremap <silent> <leader>bh :BufferLineMovePrev<CR>
+
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <silent><leader>$ <Cmd>BufferLineGoToBuffer -1<CR>
 
 "" nerdtree
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <leader>n :Neotree<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" " nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
 
 "" mundo
 nnoremap <F5> :MundoToggle<CR>
 
 "" nerdcommenter
 nnoremap <C-_> <plug>CommentaryLine
+nnoremap <C-/> <plug>CommentaryLine
 vnoremap <C-_> <plug>Commentary
+vnoremap <C-/> <plug>Commentary
 
 "" arguments
 nnoremap <silent> <leader>az :ArgWrap<CR>
@@ -451,7 +480,7 @@ nnoremap <leader>aml <cmd>SidewaysRight<cr>
 nnoremap <leader>amh <cmd>SidewaysLeft<cr>
 
 "" tagbar
-nmap <leader>t :TagbarToggle<CR>
+nmap <leader>t <cmd>AerialToggle<CR>
 
 "" trouble
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
@@ -483,6 +512,22 @@ nnoremap g# g#<Cmd>lua require('hlslens').start()<CR>
 
 nnoremap <leader>l :noh<CR>
 
+""" smart splits
+" resizing splits
+nmap <A-h> :lua require('smart-splits').resize_left()<CR>
+nmap <A-j> :lua require('smart-splits').resize_down()<CR>
+nmap <A-k> :lua require('smart-splits').resize_up()<CR>
+nmap <A-l> :lua require('smart-splits').resize_right()<CR>
+" moving between splits
+nmap <C-h> :lua require('smart-splits').move_cursor_left()<CR>
+nmap <C-j> :lua require('smart-splits').move_cursor_down()<CR>
+nmap <C-k> :lua require('smart-splits').move_cursor_up()<CR>
+nmap <C-l> :lua require('smart-splits').move_cursor_right()<CR>
+
+""" bacon
+nnoremap ! :BaconLoad<CR>:w<CR>:BaconNext<CR>
+nnoremap , :BaconList<CR>
+
 " themes
 colorscheme onedark
 hi Search guibg=#3B4048 guifg=#ABB2BF
@@ -494,79 +539,158 @@ let g:airline_powerline_fonts = 1
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
+    if (has("nvim"))
+        "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+    "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+    " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+    if (has("termguicolors"))
+        set termguicolors
+    endif
 endif
 
 set completeopt=menu,menuone,noselect
 
+  " local home = os.getenv('HOME')
+  " local db = require('dashboard')
+
+  " db.preview_command = 'ueberzug'
+  " db.preview_file_path = home .. '/Downloads/aquacum.png'
+  " db.preview_file_height = 12
+  " db.preview_file_width = 12
+
+  " db.custom_center = {
+  "   {icon = '  ',
+  "   desc = 'Current folder session                  ',
+  "   shortcut = 'SPC s f',
+  "   action ='SessionManager load_current_dir_session'},
+  "   {icon = '  ',
+  "   desc = 'Recently latest session                 ',
+  "   shortcut = 'SPC s l',
+  "   action ='SessionManager load_last_session'},
+  "   {icon = '  ',
+  "   desc = 'Load Previous Session                   ',
+  "   shortcut = 'SPC s p',
+  "   action ='SessionManager load_session'},
+  "   {icon = '  ',
+  "   desc = 'Recently opened files                   ',
+  "   action =  'DashboardFindHistory',
+  "   shortcut = 'SPC f h'},
+  "   {icon = '  ',
+  "   desc = 'Find  File                              ',
+  "   action = 'Telescope find_files find_command=rg,--hidden,--files',
+  "   shortcut = 'SPC f f'},
+  "   {icon = '  ',
+  "   desc ='File Browser                             ',
+  "   action =  'Neotree float',
+  "   shortcut = 'SPC f b'},
+  "   {icon = '  ',
+  "   desc = 'Find  word                              ',
+  "   action = 'Telescope live_grep',
+  "   shortcut = 'SPC f w'},
+  " }
+
 lua <<EOF
-    require("trouble").setup {}
-    require("todo-comments").setup {}
+  -- require('cinnamon').setup()
+  require('aerial').setup({})
 
-    require('telescope').setup {}
-    require('telescope').load_extension('fzf')
+  require('smart-splits').setup({
+    resize_mode = {
+      hooks = {
+        on_leave = require('bufresize').register
+      }
+    }
+  })
 
-    require("scrollbar.handlers.search").setup()
-    require("scrollbar").setup({
-        handle = { color = "#3E4452", cterm = 237 },
-        marks = {
-            Search = { color = "#D19A66", cterm = 173 }, -- dark yellow
-            Error  = { color = "#E06C75", cterm = 204 }, -- red
-            Warn   = { color = "#E5C07B", cterm = 180 }, -- yellow
-            Info   = { color = "#61AFEF", cterm = 39  }, -- blue
-            Hint   = { color = "#56B6C2", cterm = 38  }, -- cyan
-            Misc   = { color = "#C678DD", cterm = 170 }, -- purple
-        }
+  require("toggleterm").setup{
+    open_mapping = 'gt',
+    direction = 'tab'
+  }
+
+  require("neo-tree").setup({
+    window = {
+      width = 25
+    }
+  })
+
+  -- lazygit terminal
+  local Terminal  = require('toggleterm.terminal').Terminal
+  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+  local bacon = Terminal:new({ cmd = "bacon", hidden = true, direction = "vertical", size = 35 })
+
+  function _lazygit_toggle()
+    lazygit:toggle()
+  end
+
+  function _bacon_toggle()
+    bacon:toggle()
+  end
+
+  vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+  vim.api.nvim_set_keymap("n", "<leader>bc", "<cmd>lua _bacon_toggle()<CR>", {noremap = true, silent = true})
+
+  vim.opt.termguicolors = true
+  require("bufferline").setup{}
+
+  require("trouble").setup {}
+  require("todo-comments").setup {}
+
+  require('telescope').setup {}
+  require('telescope').load_extension('fzf')
+
+  require("scrollbar.handlers.search").setup()
+  require("scrollbar").setup({
+    handle = { color = "#3E4452", cterm = 237 },
+    marks = {
+      Search = { color = "#D19A66", cterm = 173 }, -- dark yellow
+      Error  = { color = "#E06C75", cterm = 204 }, -- red
+      Warn   = { color = "#E5C07B", cterm = 180 }, -- yellow
+      Info   = { color = "#61AFEF", cterm = 39  }, -- blue
+      Hint   = { color = "#56B6C2", cterm = 38  }, -- cyan
+      Misc   = { color = "#C678DD", cterm = 170 }, -- purple
+    }
+  })
+
+  -- Setup nvim-cmp.
+  local cmp = require'cmp'
+  local lspkind = require('lspkind')
+
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    formatting = {
+      format = lspkind.cmp_format({
+        mode = "symbol_text",
+      }),
+    },
+  })
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
     })
-
-    -- Setup nvim-cmp.
-    local cmp = require'cmp'
-    local lspkind = require('lspkind')
-
-    cmp.setup({
-        snippet = {
-          expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
-        formatting = {
-          format = lspkind.cmp_format({
-            mode = "symbol_text",
-          }),
-        },
-    })
-
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline('/', {
-
-        sources = {
-          { name = 'buffer' }
-        }
-    })
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = 'path' }
-        }, {
-          { name = 'cmdline' }
-        })
-    })
+  })
 EOF

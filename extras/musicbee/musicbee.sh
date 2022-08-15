@@ -60,6 +60,10 @@ cp -r AppData/* ${WINEPREFIX}drive_c/users/$WHO/AppData/
 # add alias
 echo "# MusicBee Alias\nalias MusicBee='WINEPREFIX=${WINEPREFIX} wine ${WINEPREFIX}drive_c/Program\ Files/MusicBee/MusicBee.exe'" >> ~/.zshrc
 
+# add cjk fonts
+cd ~/Documents/executables/musicbee/.wine
+winetricks cjkfonts
+
 # remove megacmd if wanted
 echo
 echo Remove Megacmd?
