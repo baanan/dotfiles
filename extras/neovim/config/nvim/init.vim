@@ -1,5 +1,17 @@
 " TODO: switch to packer and lua since it seems nice
 " TODO: add dashboard once that's done 
+
+" map <Home> 
+
+nmap <Home> 
+vmap <Home> 
+omap <Home> 
+xmap <Home> 
+smap <Home> 
+imap <Home> 
+cmap <Home> 
+tmap <Home> 
+
 if has('mac')
   set clipboard=unnamed
 endif
@@ -17,8 +29,8 @@ if exists("g:neovide")
     endfunction
 
   else
-    let s:fontsize = 8
-    set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h8
+    let s:fontsize = 10
+    set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h10
 
     function! AdjustFontSize(amount)
       let s:fontsize = s:fontsize+a:amount
@@ -153,9 +165,6 @@ let mapleader = " "
 
 nnoremap <leader>p "+
 nnoremap <leader>u <cmd>redo<cr>
-
-inoremap <Home> 
-vnoremap <Home> 
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -606,7 +615,8 @@ lua <<EOF
 
   require("toggleterm").setup{
     open_mapping = 'gt',
-    direction = 'tab'
+    direction = 'tab',
+    shell = vim.fn.has('windows') and 'pwsh' or nil,
   }
 
   require("neo-tree").setup({
