@@ -1,0 +1,1 @@
+/home/thate/Documents/projects/dotfiles/common/neovim/apple/apple.sh

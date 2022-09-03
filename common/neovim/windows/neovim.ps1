@@ -1,0 +1,1 @@
+/home/thate/Documents/projects/dotfiles/windows/neovim/neovim.ps1
