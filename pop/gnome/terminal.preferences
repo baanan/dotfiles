@@ -1,0 +1,19 @@
+[legacy/profiles:]
+list=['fc3b9b70-afcb-45be-bfa4-84bbc85ce640']
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+use-theme-transparency=false
+use-transparent-background=true
+
+[legacy/profiles:/:fc3b9b70-afcb-45be-bfa4-84bbc85ce640]
+background-color='#282c34'
+bold-color='#dcdfe4'
+bold-color-same-as-fg=true
+font='Iosevka Fixed Slab 12'
+foreground-color='#dcdfe4'
+palette=['#282c34', '#e06c75', '#98c379', '#e5c07b', '#61afef', '#c678dd', '#56b6c2', '#dcdfe4', '#282c34', '#e06c75', '#98c379', '#e5c07b', '#61afef', '#c678dd', '#56b6c2', '#dcdfe4']
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='One Half Dark'

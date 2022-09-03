@@ -1,0 +1,1 @@
+/home/thate/Documents/projects/dotfiles/windows/neovim/updateconfig.ps1
