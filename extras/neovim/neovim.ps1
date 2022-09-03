@@ -18,6 +18,11 @@ choco install llvm
 scoop install gcc
 scoop install lazygit
 
+# install bacon
+cargo install --locked bacon
+# remember to run the following command in a rust project to finish installing 
+# rg --passthru "# (export_locations = true)" -r '$1' $(bacon --prefs) > tmp.toml && mv -Force tmp.toml $(bacon --prefs)
+
 # install python
 scoop install python
 start ("~\scoop\apps\python\current\" + (ls -n ~\scoop\apps\python\current | rg "^install-pep"))

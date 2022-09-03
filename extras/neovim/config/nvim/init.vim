@@ -89,6 +89,7 @@ Plug 'famiu/bufdelete.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'fannheyward/telescope-coc.nvim'
 Plug 'stevearc/dressing.nvim'
 
 """ argument stuff
@@ -242,7 +243,7 @@ set updatetime=300
 set shortmess+=c
 
 inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#_select_confirm() :
+  \ pumvisible() ? coc#_select_confirm() :
   \ coc#expandableOrJumpable() ?
   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
   \ <SID>check_back_space() ? "\<TAB>" :
@@ -434,7 +435,7 @@ nnoremap <leader>fd <cmd>Telescope lsp_definitions<cr>
 " noremap <C-t> :tabnew split<CR>
 
 "" bufferline
-nnoremap <silent> gb :BufferLinePick<CR>
+nnoremap <silent> <leader>bp :BufferLinePick<CR>
 
 " nnoremap <Leader><Tab> :bd<CR>
 " nnoremap <Leader><Tab> :bp<bar>sp<bar>bn<bar>bd<CR>
@@ -523,15 +524,15 @@ nnoremap <leader>l :noh<CR>
 
 """ smart splits
 " resizing splits
-nmap <A-h> :lua require('smart-splits').resize_left()<CR>
-nmap <A-j> :lua require('smart-splits').resize_down()<CR>
-nmap <A-k> :lua require('smart-splits').resize_up()<CR>
-nmap <A-l> :lua require('smart-splits').resize_right()<CR>
+nmap <silent> <A-h> :lua require('smart-splits').resize_left()<CR>
+nmap <silent> <A-j> :lua require('smart-splits').resize_down()<CR>
+nmap <silent> <A-k> :lua require('smart-splits').resize_up()<CR>
+nmap <silent> <A-l> :lua require('smart-splits').resize_right()<CR>
 " moving between splits
-nmap <C-h> :lua require('smart-splits').move_cursor_left()<CR>
-nmap <C-j> :lua require('smart-splits').move_cursor_down()<CR>
-nmap <C-k> :lua require('smart-splits').move_cursor_up()<CR>
-nmap <C-l> :lua require('smart-splits').move_cursor_right()<CR>
+nmap <silent> <C-h> :lua require('smart-splits').move_cursor_left()<CR>
+nmap <silent> <C-j> :lua require('smart-splits').move_cursor_down()<CR>
+nmap <silent> <C-k> :lua require('smart-splits').move_cursor_up()<CR>
+nmap <silent> <C-l> :lua require('smart-splits').move_cursor_right()<CR>
 
 """ bacon
 nnoremap ! :BaconLoad<CR>:w<CR>:BaconNext<CR>
@@ -642,13 +643,24 @@ lua <<EOF
   vim.api.nvim_set_keymap("n", "<leader>bc", "<cmd>lua _bacon_toggle()<CR>", {noremap = true, silent = true})
 
   vim.opt.termguicolors = true
-  require("bufferline").setup{}
+  require("bufferline").setup{
+    options = {
+      offsets = {{filetype = "neo-tree", text = "File Explorer", text_align = "center", padding = 1}},
+    }
+  }
 
   require("trouble").setup {}
   require("todo-comments").setup {}
 
-  require('telescope').setup {}
+  require("telescope").setup({
+    extensions = {
+      coc = {
+          prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+      }
+    },
+  })
   require('telescope').load_extension('fzf')
+  require('telescope').load_extension('coc')
 
   require("scrollbar.handlers.search").setup()
   require("scrollbar").setup({
