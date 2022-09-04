@@ -8,6 +8,7 @@ cd (( pwd | rg -o "^.*dotfiles") + "\common\neovim")
 
 # install neovim
 scoop install neovim
+scoop install neovide
 
 # install vim plug
 iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
@@ -17,9 +18,10 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 scoop install ripgrep
 scoop install nodejs
 choco install universal-ctags -y
-choco install llvm
+choco install llvm -y
 scoop install gcc
 scoop install lazygit
+scoop install cmake
 
 # install bacon
 cargo install --locked bacon
@@ -36,7 +38,7 @@ cp -r -Force config/nvim/* ~/Appdata/Local/nvim/
 cp -r -Force config/* ~/.config/
 
 # install plugins
-# nvim --headless +PlugInstall +qa
+nvim +PlugInstall
 
 # install coc plugins
 echo ""

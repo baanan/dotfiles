@@ -1,5 +1,5 @@
 # Prompt
-Import-Module posh-git
+# Import-Module posh-git
 # Import-Module oh-my-posh
 
 ## Use posh config
@@ -25,7 +25,7 @@ Set-Alias grep rg
 Set-Alias nano code
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 ## Directory Alias
-$Documents = "C:\Users\thate\Documents2"
+# $Documents = "~\Documents_"
 
 # Utilities
 function which ($command) {
@@ -37,20 +37,12 @@ function prev () {
   (history)[-1] | iex
 }
 
-function view ($rest) {mpv --config-dir=C:\Users\thate\.config\mpv $rest}
-
-function ls_sorted {
-  return ls -File | sort LastWriteTimeUtc -Descending
-}
-
-function ls_before ($file) {
-  $local:file_time = (ls -n | rg $file | Get-ChildItem).LastWriteTimeUtc
-  return ls_sorted | where {$_.LastWriteTimeUtc -le $local:file_time}
-}
-
 # z -ListFiles | rg \s1\s*$ | rg '^(.+)(?:\d/\d{2}/\d{4})' -or '$1' | ForEach-Object { cd $_.Trim() && z -Remove }
 
 $env:PYTHONIOENCODING="utf-8"
 iex "$(thefuck --alias fuck)"
 
 $env:XDG_CONFIG_HOME="$HOME\.config\"
+
+# neovide
+$env:NEOVIDE_MULTIGRID = "true"
