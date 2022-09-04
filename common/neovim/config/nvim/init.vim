@@ -159,7 +159,7 @@ Plug 'Canop/nvim-bacon'
 "" dependents on visuals
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.1.0'}
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 let g:neo_tree_remove_legacy_commands = 1
 Plug 'MunifTanjim/nui.nvim'
@@ -621,10 +621,11 @@ lua <<EOF
     }
   })
 
+
   require("toggleterm").setup{
     open_mapping = 'gt',
     direction = 'tab',
-    shell = vim.fn.has('windows') and 'pwsh' or nil,
+    shell = vim.fn.has('unix') and vim.o.shell or 'pwsh',
   }
 
   require("neo-tree").setup({
@@ -649,13 +650,8 @@ lua <<EOF
   local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
   local bacon = Terminal:new({ cmd = "bacon", hidden = true, direction = "vertical", size = 35 })
 
-  function _lazygit_toggle()
-    lazygit:toggle()
-  end
-
-  function _bacon_toggle()
-    bacon:toggle()
-  end
+  function _lazygit_toggle() lazygit:toggle() end
+  function _bacon_toggle() bacon:toggle() end
 
   vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n", "<leader>bc", "<cmd>lua _bacon_toggle()<CR>", {noremap = true, silent = true})
