@@ -46,3 +46,4 @@ $installcoc = Read-Host "Install Coc Plugins?"
 if ($installcoc -like "y*") {
     nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
 }
+

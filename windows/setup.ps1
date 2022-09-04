@@ -15,7 +15,6 @@ scoop install sudo
 #     exit
 # }
 
-
 # install languages
 scoop install python && "~\scoop\apps\python\current\install-pep-514.reg"
 curl https://win.rustup.rs/x86_64 --output rustup-init.exe; ./rustup-init.exe; rm rustup-init.exe
@@ -61,6 +60,10 @@ Install-Module z
 pip install thefuck
 $env:PSModulePath += ';C:\Users\thate\Documents\PowerShell\Modules'
 
+
+# install powertoys 
+winget install powertoys -s winget
+# Note: remap caps to home
 
 # copy profile
 mkdir ~/Documents/PowerShell

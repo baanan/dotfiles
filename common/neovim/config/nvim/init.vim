@@ -247,18 +247,19 @@ set updatetime=300
 set shortmess+=c
 
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#pum#visible() ? coc#_select_confirm() :
   \ coc#expandableOrJumpable() ?
   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
+  \ CheckBackSpace() ? "\<TAB>" :
   \ coc#refresh()
 
-function! s:check_back_space() abort
+function! CheckBackSpace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -439,7 +440,9 @@ nnoremap <leader>fd <cmd>Telescope lsp_definitions<cr>
 " noremap <C-t> :tabnew split<CR>
 
 "" bufferline
-nnoremap <silent> <leader>bp :BufferLinePick<CR>
+nnoremap <C-Tab> :tabn<CR>
+
+nnoremap <silent> <leader>bb :BufferLinePick<CR>
 
 " nnoremap <Leader><Tab> :bd<CR>
 " nnoremap <Leader><Tab> :bp<bar>sp<bar>bn<bar>bd<CR>
@@ -628,6 +631,17 @@ lua <<EOF
     window = {
       width = 25
     }
+  })
+
+  require('session_manager').setup({
+    autosave_last_session = true, -- Automatically save last session on exit and on session switch.
+    autosave_ignore_not_normal = false, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
+    autosave_ignore_filetypes = { -- All buffers of these file types will be closed before the session is saved.
+      'gitcommit',
+      'toggleterm',
+    }, 
+    autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
+    max_path_length = 80,  -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
   })
 
   -- lazygit terminal
