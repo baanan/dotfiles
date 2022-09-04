@@ -1,3 +1,5 @@
+$dir = $PWD
+
 # install package managers
 #   scoop
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
@@ -40,6 +42,7 @@ scoop install fzf
 
 # install fonts
 #     iosevka (may have stolen from the nerd font installer)
+cd ../common/iosevka/iosevka-nerd-font
 $shellApp = New-Object -ComObject shell.application
 $fonts = $shellApp.NameSpace(0x14)
 Get-ChildItem -Filter *.ttf | 
@@ -51,6 +54,7 @@ cd ~/Documents_/utilities/
 git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts && cd nerd-fonts
 git sparse-checkout add patched-fonts/JetBrainsMono && ./install.ps1 JetBrainsMono
 git sparse-checkout add patched-fonts/Hack && ./install.ps1 Hack
+cd $dir
 
 
 # install powershell utilites
