@@ -68,3 +68,5 @@ cat Microsoft.PowerShell_profile.ps1 > $PROFILE
 
 # copy powershell config
 ./updateconfig.ps1
+# copy terminal config
+cp terminal\* C:\Users\thate\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\
