@@ -31,6 +31,8 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
 sudo nala install default-jre
 sudo nala install python3-pip
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install node
 
 # install bat
 sudo nala install bat
@@ -72,3 +74,4 @@ cp -r config/* ~/.config/
 cat home/.zshrc >> ~/.zshrc
 cat home/.gitconfig >> ~/.gitconfig
 cat home/cargo-config.toml >> ~/.cargo/config.toml
+cat home/.profile >> ~/.profile
