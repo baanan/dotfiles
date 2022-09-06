@@ -3,6 +3,7 @@
 # TODO: bacon
 
 # make sure you start in the correct directory
+dir=$PWD
 cd `pwd | grep -o "^.*dotfiles"`/common/neovim
 
 # install neovim
@@ -82,3 +83,6 @@ fi
 # set up global gitignore
 git config --global core.excludesFile '~/.gitignore'
 cat home/.gitignore >> ~/.gitignore
+
+# go back to original dir
+cd $dir

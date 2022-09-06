@@ -4,6 +4,7 @@
 #Requires -RunAsAdministrator
 
 # make sure you start in the correct directory
+$dir = $PWD
 cd (( pwd | rg -o "^.*dotfiles") + "\common\neovim")
 
 # install neovim
@@ -50,3 +51,6 @@ if ($installcoc -like "y*") {
 # set up global gitignore
 git config --global core.excludesFile "$Env:USERPROFILE\.gitignore"
 cat home/.gitignore >> ~/.gitignore
+
+# go back to original dir
+cd $dir
