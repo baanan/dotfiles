@@ -472,6 +472,8 @@ nnoremap <leader>n :Neotree<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
 "" mundo
+set undofile
+set undodir=~/.vim/undo
 nnoremap <F5> :MundoToggle<CR>
 
 "" nerdcommenter

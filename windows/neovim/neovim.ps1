@@ -47,3 +47,6 @@ if ($installcoc -like "y*") {
     nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
 }
 
+# set up global gitignore
+git config --global core.excludesFile "$Env:USERPROFILE\.gitignore"
+cat home/.gitignore >> ~/.gitignore

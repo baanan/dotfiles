@@ -78,3 +78,7 @@ read a
 if [[ $a =~ "^y" ]]; then
 	nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
 fi
+
+# set up global gitignore
+git config --global core.excludesFile '~/.gitignore'
+cat home/.gitignore >> ~/.gitignore

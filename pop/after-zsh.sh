@@ -75,3 +75,6 @@ cat home/.zshrc >> ~/.zshrc
 cat home/.gitconfig >> ~/.gitconfig
 cat home/cargo-config.toml >> ~/.cargo/config.toml
 cat home/.profile >> ~/.profile
+
+# setup global gitignore
+git config --global core.excludesFile '~/.gitignore'
