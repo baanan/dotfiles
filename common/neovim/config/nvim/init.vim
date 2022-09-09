@@ -201,7 +201,7 @@ let g:tagbar_autoclose = 1
 
 "" autopairs
 " let g:AutoPairsFlyMode = 1
-let g:AutoPairsShortcutJump = 'C-n'
+let g:AutoPairsShortcutJump = '<C-n>'
 " let g:AutoPairsShortcutBackInsert = 'C-b'
 au FileType rust     let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>', 'r#"': '"#'})
 
