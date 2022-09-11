@@ -1,5 +1,7 @@
 " TODO: switch to packer and lua
 " TODO: switch W and <leader>W
+" TODO: add some primeagen maps
+" TODO: fix coc enter
 " TODO: add dashboard once that's done 
 
 " map <Home> 
