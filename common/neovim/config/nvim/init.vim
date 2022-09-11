@@ -1,4 +1,5 @@
-" TODO: switch to packer and lua since it seems nice
+" TODO: switch to packer and lua
+" TODO: switch W and <leader>W
 " TODO: add dashboard once that's done 
 
 " map <Home> 
