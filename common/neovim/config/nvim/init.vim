@@ -154,7 +154,6 @@ Plug 'onsails/lspkind.nvim'
 "" rust
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
-" Plug 'preservim/tagbar'
 Plug 'Canop/nvim-bacon'
 
 "" dependents on visuals
@@ -202,7 +201,7 @@ let g:tagbar_autoclose = 1
 
 "" autopairs
 " let g:AutoPairsFlyMode = 1
-let g:AutoPairsShortcutJump = 'C-n'
+" let g:AutoPairsShortcutJump = 'C-n'
 " let g:AutoPairsShortcutBackInsert = 'C-b'
 au FileType rust     let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>', 'r#"': '"#'})
 
@@ -626,7 +625,7 @@ lua <<EOF
 
 
   require("toggleterm").setup{
-    open_mapping = 'gt',
+    -- open_mapping = 'gt',
     direction = 'tab',
     shell = vim.fn.has('unix') and vim.o.shell or 'pwsh',
   }
