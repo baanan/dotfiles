@@ -9,7 +9,7 @@ local inoremap = Remap.inoremap
 local nmap = Remap.nmap
 
 -- argwrap
-nnoremap("<silent>", "<leader>az :ArgWrap<CR>")
+nnoremap("<leader>az", ":ArgWrap<CR>")
 
 -- autopairs
 vim.cmd[[

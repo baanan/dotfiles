@@ -26,12 +26,13 @@ vim.cmd[[
 ]]
 
 -- globally rebind home to escape
-for mode in {'n', 'v', 'o', 'x', 's', 'i', 'c', 't'} do
+local modes = {'n', 'v', 'o', 'x', 's', 'i', 'c', 't'}
+for _, mode in ipairs(modes) do
   vim.api.nvim_set_keymap(mode, "<Home>", "^[", {})
 end
 
 -- keybinds
-vim.opt.mapleader = " "
+vim.g.mapleader = " "
 
 nnoremap("<leader>c", [["+]])
 nnoremap("<leader>u", "<cmd>redo<cr>")

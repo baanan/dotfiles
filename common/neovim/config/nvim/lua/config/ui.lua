@@ -23,26 +23,26 @@ nnoremap("<C-Tab>", ":tabn<CR>")
 nnoremap("<Leader><Tab>", ":Bd<CR>")
 
 --    pick
-nnoremap("<silent>", "<leader>bb :BufferLinePick<CR>")
+nnoremap("<leader>bb", ":BufferLinePick<CR>")
 --    movement
-nnoremap("<silent>", "<Tab> :BufferLineCycleNext<CR>")
-nnoremap("<silent>", "<S-Tab> :BufferLineCyclePrev<CR>")
+nnoremap("<Tab>", ":BufferLineCycleNext<CR>")
+nnoremap("<S-Tab>", ":BufferLineCyclePrev<CR>")
 
 --    moving buffers
-nnoremap("<silent>", "<leader>bl :BufferLineMoveNext<CR>")
-nnoremap("<silent>", "<leader>bh :BufferLineMovePrev<CR>")
+nnoremap("<leader>bl", ":BufferLineMoveNext<CR>")
+nnoremap("<leader>bh", ":BufferLineMovePrev<CR>")
 
 --    hotkeys
-nnoremap("<silent><leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>")
-nnoremap("<silent><leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>")
-nnoremap("<silent><leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>")
-nnoremap("<silent><leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>")
-nnoremap("<silent><leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>")
-nnoremap("<silent><leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>")
-nnoremap("<silent><leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>")
-nnoremap("<silent><leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>")
-nnoremap("<silent><leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>")
-nnoremap("<silent><leader>$", "<Cmd>BufferLineGoToBuffer -1<CR>")
+nnoremap("<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>")
+nnoremap("<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>")
+nnoremap("<leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>")
+nnoremap("<leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>")
+nnoremap("<leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>")
+nnoremap("<leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>")
+nnoremap("<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>")
+nnoremap("<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>")
+nnoremap("<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>")
+nnoremap("<leader>$", "<Cmd>BufferLineGoToBuffer -1<CR>")
 
 -- neotree
 nnoremap("<leader>n", ":Neotree<CR>")
