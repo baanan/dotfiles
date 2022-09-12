@@ -2,7 +2,6 @@
 --   onedark
 --   todo-comments
 --   hlslens
---   rainbow
 
 -- onedark
 vim.cmd("colorscheme onedark")
@@ -20,4 +19,3 @@ vim.cmd([[
     aug END
 ]])
 
--- rainbow
