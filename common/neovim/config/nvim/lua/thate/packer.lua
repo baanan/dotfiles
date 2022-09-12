@@ -1,9 +1,11 @@
 local cmd = vim.cmd
 
+-- TODO: bring the config out into a seperate file
+
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- UTILITES
+  -- UTILITES (utilites.lua)
   use 'tpope/vim-fugitive'     -- git
   use 'simnalamburt/vim-mundo' -- undo tree
   use 'stevearc/aerial.nvim'   -- tagtree
@@ -12,53 +14,17 @@ return require('packer').startup(function(use)
   use 'famiu/bufdelete.nvim'   -- :bd fixer
   use 'andweeb/presence.nvim'  -- rich presence
 
-  use {
-    'Shatur/neovim-session-manager', -- session manager
+  use { 'Shatur/neovim-session-manager', -- session manager
     requires = 'nvim-lua/plenary.nvim',
-    config = function ()
-      require('session_manager').setup({
-        autosave_ignore_not_normal = false,
-        autosave_ignore_filetypes = {
-          'gitcommit',
-          'toggleterm',
-        },
-    })
-    end
   }
 
-  use {
-    'mrjones2014/smart-splits.nvim', -- better split resizing
-    config = function ()
-      require('smart-splits').setup({
-        resize_mode = {
-          hooks = {
-            on_leave = require('bufresize').register
-          }
-        }
-      })
-    end
-  }
+  -- splits (splits.lua)
+  use 'mrjones2014/smart-splits.nvim' -- better split resizing
+  use "kwkarlwang/bufresize.nvim"     -- buffers keep proportions
 
-  use {
-    "kwkarlwang/bufresize.nvim", -- buffers keep proportions
-    config = function() require("bufresize").setup() end
-  }
-
-  -- telescope
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+  -- telescope (telescope.lua)
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = 'nvim-lua/plenary.nvim',
-    config = function ()
-      require("telescope").setup({
-        extensions = {
-          coc = {
-              prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-          }
-        },
-      })
-      require('telescope').load_extension('fzf')
-      require('telescope').load_extension('coc')
-    end
   }
 
       -- speed up and fzf syntax
@@ -67,19 +33,12 @@ return require('packer').startup(function(use)
   use 'stevearc/dressing.nvim'         -- changes default selectors to telescope
 
 
-  -- delimiter and argument stuff
+  -- delimiter and argument stuff (delim-arg.lua)
   use 'FooSoft/vim-argwrap'      -- collapsing and expanding delimiters
   use 'AndrewRadev/sideways.vim' -- moving and moving around arguments
   use 'tpope/vim-endwise'        -- automatically ending structures like lua functions
+  use 'jiangmiao/auto-pairs'     -- inserts delimiters in pairs
   use { 'tpope/vim-surround', requires = 'tpope/vim-repeat' } -- delimiter utilites
-  use {
-    'jiangmiao/auto-pairs',     -- inserts delimiters in pairs
-    function ()
-      cmd[[
-        au FileType rust     let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>', 'r#"': '"#'})
-      ]]
-    end
-  }
 
   -- navigation
   use 'wellle/targets.vim'              -- adds various text objects (arguments, next delimiters)
@@ -93,14 +52,8 @@ return require('packer').startup(function(use)
 
 
 
-  -- VISUALS
-  use {
-    'joshdick/onedark.vim',
-    config = function ()
-      cmd("colorscheme onedark")
-      cmd("hi Search guibg=#3B4048 guifg=#ABB2BF")
-    end
-  }
+  -- VISUALS (visuals.lua)
+  use 'joshdick/onedark.vim'
 
   use 'jeffkreeftmeijer/vim-numbertoggle'   -- numbers switch to absolute when it makes sense
   use 'airblade/vim-gitgutter'              -- shows git diff next to numbers
@@ -108,48 +61,29 @@ return require('packer').startup(function(use)
   use 'machakann/vim-highlightedyank'       -- yanks highlight what they yank
   use 'luochen1990/rainbow'                 -- rainbow delimiters
 
-
-  use {
-    "folke/trouble.nvim", -- diagnostics list
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function() require("trouble").setup {} end
-  }
-
-  use {
-    "akinsho/toggleterm.nvim", tag = '*', -- terminal
-    config = function()
-      require("toggleterm").setup{
-        -- open_mapping = 'gt',
-        direction = 'tab',
-        shell = vim.fn.has('unix') and vim.o.shell or 'pwsh',
-      }
-    end
-  }
-
-  use {
-    "folke/todo-comments.nvim", -- todo highlighting
+  use { "folke/todo-comments.nvim",         -- todo highlighting
     requires = "nvim-lua/plenary.nvim",
-    config = function() require("todo-comments").setup {} end
   }
 
-  use {
-    'vim-airline/vim-airline', -- statusline
-    config = function ()
-      vim.g.airline_theme = 'onedark'
-      vim.g.airline_powerline_fonts = 1
-    end
+  use { 'kevinhwang91/nvim-hlslens',        -- better find highlighting
+    requires = 'mg979/vim-visual-multi',
   }
+
+  -- syntax highlighting (treesitter.lua)
+  use 'sheerun/vim-polyglot' -- various language packs for syntax highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter', -- treesitter stuff
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+
+
+  -- UI (ui.lua)
+
+  use 'vim-airline/vim-airline' -- statusline
 
   use {
     'akinsho/bufferline.nvim', tag = "v2.*",
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function ()
-      require("bufferline").setup{
-        options = {
-          offsets = {{filetype = "neo-tree", text = "File Explorer", text_align = "center", padding = 1}},
-        }
-      }
-    end
   }
 
   cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
@@ -164,53 +98,17 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'kevinhwang91/nvim-hlslens', -- better find highlighting
-    requires = 'mg979/vim-visual-multi',
-    config = function ()
-      cmd([[
-          aug VMlens
-              au!
-              au User visual_multi_start lua require('vmlens').start()
-              au User visual_multi_exit lua require('vmlens').exit()
-          aug END
-      ]])
-    end
-  }
-
-  use {
     'petertriho/nvim-scrollbar', -- scrollbar
     requires = 'kevinhwang91/nvim-hlslens',
-    config = function ()
-      require("scrollbar.handlers.search").setup()
-      require("scrollbar").setup({
-        handle = { color = "#3E4452", cterm = 237 },
-        marks = {
-          Search = { color = "#D19A66", cterm = 173 }, -- dark yellow
-          Error  = { color = "#E06C75", cterm = 204 }, -- red
-          Warn   = { color = "#E5C07B", cterm = 180 }, -- yellow
-          Info   = { color = "#61AFEF", cterm = 39  }, -- blue
-          Hint   = { color = "#56B6C2", cterm = 38  }, -- cyan
-          Misc   = { color = "#C678DD", cterm = 170 }, -- purple
-        }
-      })
-    end
   }
 
+  use { "akinsho/toggleterm.nvim", tag = '*', } -- terminal 
 
-  -- syntax highlighting
-  use 'sheerun/vim-polyglot' -- various languague packs for syntax highlighting
   use {
-    'nvim-treesitter/nvim-treesitter', -- treesitter stuff
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    config = function ()
-      require('nvim-treesitter.configs').setup {
-        ensure_installed = { "rust", "toml", "regex", "vim", "lua", "java", "json", "python", "yaml", "bash" },
-        hightlight = { enable = true },
-        sync_install = true,
-      }
-    end
+    "folke/trouble.nvim", -- diagnostics list
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function() require("trouble").setup {} end
   }
-
 
 
 
@@ -219,7 +117,7 @@ return require('packer').startup(function(use)
   use { 'neoclide/coc.nvim', branch = 'release' }
   use 'rafamadriz/friendly-snippets'
 
-  -- cmp (yes all of this is for command line)
+  -- cmp (yes all of this is for command line) (cmp.lua)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/cmp-buffer'
 
