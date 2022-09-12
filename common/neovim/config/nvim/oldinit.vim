@@ -326,6 +326,7 @@ nnoremap <leader>rf  <Plug>(coc-codeaction-cursor)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Run the Code Lens action on the current line.
+" rebind please
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects

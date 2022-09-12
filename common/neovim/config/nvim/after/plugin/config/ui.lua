@@ -6,6 +6,9 @@
 --   toggleterm
 --   trouble
 
+local Remap = require("thate.keymap")
+local nnoremap = Remap.nnoremap
+
 -- bufferline
 require("bufferline").setup{
   options = {
@@ -40,5 +43,15 @@ require("toggleterm").setup{
   direction = 'tab',
   shell = vim.fn.has('unix') and vim.o.shell or 'pwsh',
 }
+
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+local bacon = Terminal:new({ cmd = "bacon", hidden = true, direction = "vertical", size = 35 })
+
+function _lazygit_toggle() lazygit:toggle() end
+function _bacon_toggle() bacon:toggle() end
+
+nnoremap("<leader>g", "<cmd>lua _lazygit_toggle()<CR>")
+nnoremap("<leader>bc", "<cmd>lua _bacon_toggle()<CR>")
 
 -- trouble

@@ -1,5 +1,24 @@
 -- toc 
+--   highlightedyank
+--   hlslens
 --   rainbow
+
+local Remap = require("thate.keymap")
+local nnoremap = Remap.nnoremap
+
+-- highlightedyank
+vim.g.highlightedyank_highlight_duration = 250
+
+-- hlslens
+nnoremap("n", "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>")
+nnoremap("N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>")
+
+nnoremap("*", "*<Cmd>lua require('hlslens').start()<CR>")
+nnoremap("#", "#<Cmd>lua require('hlslens').start()<CR>")
+nnoremap("g*", "g*<Cmd>lua require('hlslens').start()<CR>")
+nnoremap("g#", "g#<Cmd>lua require('hlslens').start()<CR>")
+
+nnoremap("<leader>l", ":noh<CR>")
 
 -- rainbow
 vim.g.rainbow_active = 0

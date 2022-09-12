@@ -8,7 +8,6 @@ return require('packer').startup(function(use)
   -- UTILITES (utilites.lua)
   use 'tpope/vim-fugitive'     -- git
   use 'simnalamburt/vim-mundo' -- undo tree
-  use 'stevearc/aerial.nvim'   -- tagtree
   use 'tpope/vim-commentary'   -- commenter
   use 'godlygeek/tabular'      -- :Tab
   use 'famiu/bufdelete.nvim'   -- :bd fixer
@@ -40,7 +39,7 @@ return require('packer').startup(function(use)
   use 'jiangmiao/auto-pairs'     -- inserts delimiters in pairs
   use { 'tpope/vim-surround', requires = 'tpope/vim-repeat' } -- delimiter utilites
 
-  -- navigation
+  -- navigation (navigation.lua)
   use 'wellle/targets.vim'              -- adds various text objects (arguments, next delimiters)
   use 'bkad/CamelCaseMotion'            -- motions inside of different cases
   use 'unblevable/quick-scope'          -- f / F helper
@@ -79,6 +78,7 @@ return require('packer').startup(function(use)
 
   -- UI (ui.lua)
 
+  use 'stevearc/aerial.nvim'    -- tagtree
   use 'vim-airline/vim-airline' -- statusline
 
   use {
