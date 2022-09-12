@@ -1,4 +1,7 @@
-" TODO: switch to packer and lua since it seems nice
+" TODO: switch to packer and lua
+" TODO: switch W and <leader>W
+" TODO: add some primeagen maps
+" TODO: fix coc enter
 " TODO: add dashboard once that's done 
 
 " map <Home> 
@@ -153,7 +156,6 @@ Plug 'onsails/lspkind.nvim'
 "" rust
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
-" Plug 'preservim/tagbar'
 Plug 'Canop/nvim-bacon'
 
 "" dependents on visuals
@@ -625,7 +627,7 @@ lua <<EOF
 
 
   require("toggleterm").setup{
-    open_mapping = 'gt',
+    -- open_mapping = 'gt',
     direction = 'tab',
     shell = vim.fn.has('unix') and vim.o.shell or 'pwsh',
   }
