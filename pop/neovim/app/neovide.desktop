@@ -2,7 +2,7 @@
 Name=Neovide
 GenericName=Text Editor
 Comment=Edit text files
-TryExec=neovide
+TryExec=neovide 
 Exec=neovide %F
 Terminal=false
 Type=Application

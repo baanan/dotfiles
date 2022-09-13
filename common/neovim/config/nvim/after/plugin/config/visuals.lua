@@ -1,11 +1,6 @@
 -- toc 
---   onedark
 --   todo-comments
 --   hlslens
-
--- onedark
-vim.cmd("colorscheme onedark")
-vim.cmd("hi Search guibg=#3B4048 guifg=#ABB2BF")
 
 -- todo-comments
 require("todo-comments").setup{}

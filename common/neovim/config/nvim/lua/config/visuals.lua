@@ -1,4 +1,5 @@
 -- toc 
+--   onedark
 --   highlightedyank
 --   hlslens
 --   rainbow
@@ -6,12 +7,16 @@
 local Remap = require("thate.keymap")
 local nnoremap = Remap.nnoremap
 
+-- onedark
+vim.cmd("colorscheme onedark")
+vim.cmd("hi Search guibg=#3B4048 guifg=#ABB2BF")
+
 -- highlightedyank
 vim.g.highlightedyank_highlight_duration = 250
 
 -- hlslens
-nnoremap("n", "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>")
-nnoremap("N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>")
+nnoremap("n", "<Cmd>execute('normal! ' . v:count1 . 'nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>")
+nnoremap("N", "<Cmd>execute('normal! ' . v:count1 . 'Nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>")
 
 nnoremap("*", "*<Cmd>lua require('hlslens').start()<CR>")
 nnoremap("#", "#<Cmd>lua require('hlslens').start()<CR>")

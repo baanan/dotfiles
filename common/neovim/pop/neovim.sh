@@ -53,6 +53,8 @@ if [[ $a =~ "^y" ]]; then
 	# cleanup
 	rm neovide.tar.gz
 	rm -r target
+	# add NEOVIDE_MULTIGRID environment variable
+	echo export NEOVIDE_MULTIGRID = true >> ~/.zshenv
 fi
 
 echo "Install Node.js?"

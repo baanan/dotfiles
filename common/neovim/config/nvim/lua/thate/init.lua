@@ -1,3 +1,5 @@
+-- TODO: fix weird bug where smart splits goes into insert mode when bacon's on the side
+
 require("thate.packer")
 require("thate.general")
 

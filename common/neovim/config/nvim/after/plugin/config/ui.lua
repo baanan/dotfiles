@@ -42,6 +42,8 @@ require("toggleterm").setup{
   -- open_mapping = 'gt',
   direction = 'tab',
   shell = vim.fn.has('unix') and vim.o.shell or 'pwsh',
+  autochdir = true,
+  start_in_insert = false,
 }
 
 local Terminal  = require('toggleterm.terminal').Terminal
@@ -51,6 +53,7 @@ local bacon = Terminal:new({ cmd = "bacon", hidden = true, direction = "vertical
 function _lazygit_toggle() lazygit:toggle() end
 function _bacon_toggle() bacon:toggle() end
 
+nnoremap("gt", "<cmd>ToggleTerm<CR>")
 nnoremap("<leader>g", "<cmd>lua _lazygit_toggle()<CR>")
 nnoremap("<leader>bc", "<cmd>lua _bacon_toggle()<CR>")
 

@@ -2,6 +2,8 @@ local Remap = require("thate.keymap")
 local noremap = Remap.noremap
 local nnoremap = Remap.nnoremap
 local tnoremap = Remap.tnoremap
+local xnoremap = Remap.xnoremap
+local vnoremap = Remap.vnoremap
 
 vim.opt.termguicolors = true
 
@@ -41,3 +43,15 @@ tnoremap("<Esc>", [[<C-\><C-n>]])
 
 noremap("0", "^")
 noremap("^", "0")
+
+noremap("<leader>c", [["+]]) -- clipboard
+
+-- stolen from the primeagen
+--     see config.visuals hlslens for n/N
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+
+xnoremap("<leader>p", [["_dP]]) -- keeps old clipboard
+
+nnoremap("<leader>d", [["_d]]) -- deletes but doesn't change clipboard
+vnoremap("<leader>d", [["_d]])
