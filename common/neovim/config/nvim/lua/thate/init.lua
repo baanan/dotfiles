@@ -15,5 +15,6 @@ if vim.fn.has('win32') == 1 then
   vim.cmd('source ' .. vim.opt.runtimepath:get()[1] .. [[\lua\config\coc.vim]])
   vim.cmd('source ' .. vim.opt.runtimepath:get()[1] .. [[\lua\config\neovide.vim]])
 else
+  vim.cmd('source ' .. vim.opt.runtimepath:get()[1] .. [[/lua/config/coc.vim]])
   vim.cmd('source ' .. vim.opt.runtimepath:get()[1] .. [[/lua/config/neovide.vim]])
 end
