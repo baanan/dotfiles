@@ -18,7 +18,6 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 

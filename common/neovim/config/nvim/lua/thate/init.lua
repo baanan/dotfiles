@@ -1,5 +1,3 @@
--- TODO: fix weird bug where smart splits goes into insert mode when bacon's on the side
-
 require("thate.packer")
 require("thate.general")
 
@@ -10,11 +8,14 @@ require("config.splits")
 require("config.ui")
 require("config.utilites")
 require("config.visuals")
+require("config.dashboard")
+
+local dir = vim.opt.runtimepath:get()[1]
 
 if vim.fn.has('win32') == 1 then
-  vim.cmd('source ' .. vim.opt.runtimepath:get()[1] .. [[\lua\config\coc.vim]])
-  vim.cmd('source ' .. vim.opt.runtimepath:get()[1] .. [[\lua\config\neovide.vim]])
+  vim.cmd('source ' .. dir .. [[\lua\config\coc.vim]])
+  vim.cmd('source ' .. dir .. [[\lua\config\neovide.vim]])
 else
-  vim.cmd('source ' .. vim.opt.runtimepath:get()[1] .. [[/lua/config/coc.vim]])
-  vim.cmd('source ' .. vim.opt.runtimepath:get()[1] .. [[/lua/config/neovide.vim]])
+  vim.cmd('source ' .. dir .. [[/lua/config/coc.vim]])
+  vim.cmd('source ' .. dir .. [[/lua/config/neovide.vim]])
 end

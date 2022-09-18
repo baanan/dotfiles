@@ -1,29 +1,33 @@
-let g:neovide_remember_window_size = v:true
+if exists("g:neovide")
 
-if has('mac')
-  let s:fontsize = 14
-  set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h14
+  let g:neovide_remember_window_size = v:true
 
-  function! AdjustFontSize(amount)
-    let s:fontsize = s:fontsize+a:amount
-    :execute "set guifont=JetBrainsMono\\ Nerd\\ Font\\ Mono:h" . s:fontsize
-  endfunction
+  if has('mac')
+    let s:fontsize = 14
+    set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h14
 
-else
-  let s:fontsize = 11
-  set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h11
+    function! AdjustFontSize(amount)
+      let s:fontsize = s:fontsize+a:amount
+      :execute "set guifont=JetBrainsMono\\ Nerd\\ Font\\ Mono:h" . s:fontsize
+    endfunction
 
-  function! AdjustFontSize(amount)
-    let s:fontsize = s:fontsize+a:amount
-    :execute "set guifont=JetBrainsMonoNL\\ Nerd\\ Font\\ Mono:h" . s:fontsize
-  endfunction
+  else
+    let s:fontsize = 13
+    set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h13
+
+    function! AdjustFontSize(amount)
+      let s:fontsize = s:fontsize+a:amount
+      :execute "set guifont=JetBrainsMonoNL\\ Nerd\\ Font\\ Mono:h" . s:fontsize
+    endfunction
+
+  endif
+
+  " In normal mode, pressing numpad's+ increases the font
+  nnoremap <C-+> :call AdjustFontSize(1)<CR>
+  nnoremap <C--> :call AdjustFontSize(-1)<CR>
+
+  " In insert mode, pressing ctrl + numpad's+ increases the font
+  inoremap <C-+> <Esc>:call AdjustFontSize(1)<CR>a
+  inoremap <C--> <Esc>:call AdjustFontSize(-1)<CR>a
 
 endif
-
-" In normal mode, pressing numpad's+ increases the font
-nnoremap <C-+> :call AdjustFontSize(1)<CR>
-nnoremap <C--> :call AdjustFontSize(-1)<CR>
-
-" In insert mode, pressing ctrl + numpad's+ increases the font
-inoremap <C-+> <Esc>:call AdjustFontSize(1)<CR>a
-inoremap <C--> <Esc>:call AdjustFontSize(-1)<CR>a

@@ -1,7 +1,5 @@
 local cmd = vim.cmd
 
--- TODO: bring the config out into a seperate file
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
@@ -28,8 +26,9 @@ return require('packer').startup(function(use)
 
       -- speed up and fzf syntax
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'fannheyward/telescope-coc.nvim' -- changes coc selectors to telescope
-  use 'stevearc/dressing.nvim'         -- changes default selectors to telescope
+  use "nvim-telescope/telescope-file-browser.nvim" -- fullscreen file browser
+  use 'fannheyward/telescope-coc.nvim'             -- changes coc selectors to telescope
+  use 'stevearc/dressing.nvim'                     -- changes default selectors to telescope
 
 
   -- delimiter and argument stuff (delim-arg.lua)
@@ -80,6 +79,7 @@ return require('packer').startup(function(use)
 
   use 'stevearc/aerial.nvim'    -- tagtree
   use 'vim-airline/vim-airline' -- statusline
+  use 'glepnir/dashboard-nvim'  -- dashboard
 
   use {
     'akinsho/bufferline.nvim', tag = "v2.*",

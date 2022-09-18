@@ -4,6 +4,7 @@ local nnoremap = Remap.nnoremap
 local tnoremap = Remap.tnoremap
 local xnoremap = Remap.xnoremap
 local vnoremap = Remap.vnoremap
+local cnoremap = Remap.cnoremap
 
 vim.opt.termguicolors = true
 
@@ -45,6 +46,8 @@ noremap("0", "^")
 noremap("^", "0")
 
 noremap("<leader>c", [["+]]) -- clipboard
+
+cnoremap("<C-v>", [[<C-r>"]]) -- pasting in command line
 
 -- stolen from the primeagen
 --     see config.visuals hlslens for n/N
