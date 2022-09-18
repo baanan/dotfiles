@@ -14,10 +14,18 @@ require('session_manager').setup({
 })
 
 -- fugitive
---     automatically update git repos
-if vim.api.nvim_eval('!empty(FugitiveGitDir())') == 1 then
-  vim.api.nvim_command('G pull')
-end
+--     automatically update git repos after session load
+local config_group = vim.api.nvim_create_augroup('idk', {})
+
+vim.api.nvim_create_autocmd({ 'User' }, {
+  pattern = "SessionLoadPost",
+  group = config_group,
+  callback = function()
+    if vim.api.nvim_eval('!empty(FugitiveGitDir())') == 1 then
+      vim.api.nvim_command('G pull')
+    end
+  end,
+})
 
 -- aerial
 require('aerial').setup({})
