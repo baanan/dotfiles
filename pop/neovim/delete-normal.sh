@@ -1,1 +1,1 @@
-/home/thate/Documents/projects/dotfiles/common/neovim/pop/delete-normal.sh
+C:/home/thate/Documents/projects/dotfiles/common/neovim/pop/delete-normal.sh
