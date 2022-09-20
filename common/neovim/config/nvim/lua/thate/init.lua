@@ -8,7 +8,6 @@ require("config.splits")
 require("config.ui")
 require("config.utilites")
 require("config.visuals")
-require("config.dashboard")
 
 local dir = vim.opt.runtimepath:get()[1]
 
