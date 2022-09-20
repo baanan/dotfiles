@@ -26,10 +26,13 @@ return require('packer').startup(function(use)
 
       -- speed up and fzf syntax
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use "nvim-telescope/telescope-file-browser.nvim" -- fullscreen file browser
+  use 'nvim-telescope/telescope-media-files.nvim'  -- media in telescope using ueberzug
   use 'fannheyward/telescope-coc.nvim'             -- changes coc selectors to telescope
   use 'stevearc/dressing.nvim'                     -- changes default selectors to telescope
 
+  use { 'nvim-telescope/telescope-file-browser.nvim', -- fullscreen file browser
+    requires = 'nvim-lua/popup.nvim'
+  }
 
   -- delimiter and argument stuff (delim-arg.lua)
   use 'FooSoft/vim-argwrap'      -- collapsing and expanding delimiters

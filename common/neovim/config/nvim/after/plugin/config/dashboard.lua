@@ -129,7 +129,7 @@ else
             }
         }
 
-        math.randomseed(os.time())
+        -- math.randomseed(os.time())
         local num = math.random(1, 4)
 
         return list[num]
