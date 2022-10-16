@@ -10,11 +10,12 @@ local Remap = require("thate.keymap")
 local nnoremap = Remap.nnoremap
 
 -- aerial
-require("aerial").setup {
+require("aerial").setup({
   layout = {
-    width = 25
+    width = 25,
+    default_direction = "prefer_left",
   }
-}
+})
 
 -- bufferline
 require("bufferline").setup{
