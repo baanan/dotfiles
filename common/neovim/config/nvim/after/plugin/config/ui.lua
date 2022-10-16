@@ -1,5 +1,5 @@
 -- toc 
---   airline
+--   aerial
 --   bufferline
 --   neotree
 --   scrollbar
@@ -9,10 +9,20 @@
 local Remap = require("thate.keymap")
 local nnoremap = Remap.nnoremap
 
+-- aerial
+require("aerial").setup {
+  layout = {
+    width = 25
+  }
+}
+
 -- bufferline
 require("bufferline").setup{
   options = {
-    offsets = {{filetype = "neo-tree", text = "File Explorer", text_align = "center", padding = 1}},
+    offsets = {
+      {filetype = "neo-tree", text = "File Explorer", text_align = "center", padding = 1},
+      {filetype = "aerial",   text = "Tag Tree",      text_align = "center", padding = 1},
+    },
   }
 }
 
@@ -40,7 +50,8 @@ require("scrollbar").setup({
 -- toggleterm
 require("toggleterm").setup{
   -- open_mapping = 'gt',
-  direction = 'tab',
+  size = 45,
+  direction = 'vertical',
   shell = vim.fn.has('unix') and vim.o.shell or 'pwsh',
   autochdir = true,
   start_in_insert = false,
@@ -48,7 +59,7 @@ require("toggleterm").setup{
 
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-local bacon = Terminal:new({ cmd = "bacon", hidden = true, direction = "vertical", size = 35 })
+local bacon = Terminal:new({ cmd = "bacon", hidden = true, direction = "vertical", size = 45 })
 
 function _lazygit_toggle() lazygit:toggle() end
 function _bacon_toggle() bacon:toggle() end

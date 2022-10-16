@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: kitty
+
 sudo apt update
 
 # install zsh and oh-my-zsh

@@ -46,6 +46,7 @@ nnoremap("<leader>$", "<Cmd>BufferLineGoToBuffer -1<CR>")
 
 -- neotree
 nnoremap("<leader>n", ":Neotree<CR>")
+nnoremap("<leader>sf", ":Neotree reveal_force_cwd<CR>") -- "show file"
 
 -- trouble
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>")
