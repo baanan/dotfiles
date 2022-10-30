@@ -27,7 +27,12 @@ echo
 
 winecfg
 
-winetricks -q --force dotnet461 xmllite gdiplus
+winetricks -q --force dotnet461 xmllite gdiplus 
+
+## fonts
+winetricks corefonts cjkfonts 
+
+wine regedit segoe-cjk.reg # add Source Han Sans fallback to Segoe UI
 
 # install megacmd 
 # wget -O mega.deb "https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd-xUbuntu_22.04_amd64.deb"
@@ -60,10 +65,6 @@ cp -r AppData/* ${WINEPREFIX}drive_c/users/$WHO/AppData/
 
 # add alias
 echo "# MusicBee Alias\nalias MusicBee='WINEPREFIX=${WINEPREFIX} wine ${WINEPREFIX}drive_c/Program\ Files/MusicBee/MusicBee.exe'" >> ~/.zshrc
-
-# add cjk fonts
-cd ~/Documents/executables/musicbee/.wine
-winetricks cjkfonts
 
 # remove megacmd if wanted
 echo
