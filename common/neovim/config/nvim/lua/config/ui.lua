@@ -10,7 +10,15 @@ local nnoremap = Remap.nnoremap
 local nmap = Remap.nmap
 
 -- aerial
-nmap("<leader>t", "<cmd>AerialToggle<CR>")
+local manager = require("neo-tree.sources.manager")
+local renderer = require("neo-tree.ui.renderer")
+nmap("<leader>t", function ()
+  if renderer.tree_is_visible(manager.get_state("filesystem")) then
+    manager.close_all()
+  end
+
+  vim.cmd[[AerialToggle]]
+end)
 
 -- airline
 vim.g.airline_theme = 'onedark'
@@ -45,8 +53,17 @@ nnoremap("<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>")
 nnoremap("<leader>$", "<Cmd>BufferLineGoToBuffer -1<CR>")
 
 -- neotree
-nnoremap("<leader>n", ":Neotree<CR>")
-nnoremap("<leader>sf", ":Neotree reveal_force_cwd<CR>") -- "show file"
+nnoremap("<leader>n", function ()
+  local win = require("aerial.window")
+
+  if win.is_open() then
+    win.close()
+  end
+
+  vim.cmd[[Neotree]]
+end)
+
+nnoremap("<leader>bs", ":Neotree reveal_force_cwd<CR>") -- "buffer show"
 
 -- trouble
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>")

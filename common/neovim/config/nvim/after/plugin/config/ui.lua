@@ -39,12 +39,12 @@ require("scrollbar.handlers.search").setup()
 require("scrollbar").setup({
   handle = { color = "#3E4452", cterm = 237 },
   marks = {
-    Search = { color = "#D19A66", cterm = 173 }, -- dark yellow
-    Error  = { color = "#E06C75", cterm = 204 }, -- red
-    Warn   = { color = "#E5C07B", cterm = 180 }, -- yellow
-    Info   = { color = "#61AFEF", cterm = 39  }, -- blue
-    Hint   = { color = "#56B6C2", cterm = 38  }, -- cyan
-    Misc   = { color = "#C678DD", cterm = 170 }, -- purple
+    Search = { "#D19A66" }, -- dark yellow
+    Error  = { "#E06C75" }, -- red
+    Warn   = { "#E5C07B" }, -- yellow
+    Info   = { "#61AFEF" }, -- blue
+    Hint   = { "#56B6C2" }, -- cyan
+    Misc   = { "#C678DD" }, -- purple
   }
 })
 

@@ -4,12 +4,17 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- UTILITES (utilites.lua)
-  use 'tpope/vim-fugitive'     -- git
-  use 'simnalamburt/vim-mundo' -- undo tree
-  use 'tpope/vim-commentary'   -- commenter
-  use 'godlygeek/tabular'      -- :Tab
-  use 'famiu/bufdelete.nvim'   -- :bd fixer
-  use 'andweeb/presence.nvim'  -- rich presence
+  use 'tpope/vim-fugitive'      -- git
+  use 'simnalamburt/vim-mundo'  -- undo tree
+  use 'tpope/vim-commentary'    -- commenter
+  use 'godlygeek/tabular'       -- :Tab
+  use 'famiu/bufdelete.nvim'    -- :bd fixer
+  use 'andweeb/presence.nvim'   -- rich presence
+  use 'chiedo/vim-case-convert' -- case conversion
+
+  use { 'chentoast/marks.nvim', -- mark utilites 
+    config = function() require "marks".setup {} end
+  }
 
   use { 'Shatur/neovim-session-manager', -- session manager
     requires = 'nvim-lua/plenary.nvim',

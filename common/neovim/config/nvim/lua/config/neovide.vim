@@ -12,8 +12,8 @@ if exists("g:neovide")
     endfunction
 
   else
-    let s:fontsize = 13
-    set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h13
+    let s:fontsize = 12
+    set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h12
 
     function! AdjustFontSize(amount)
       let s:fontsize = s:fontsize+a:amount
