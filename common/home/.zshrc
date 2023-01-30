@@ -1,4 +1,4 @@
-
+zle_highlight+=(paste:none)
 
 # set fzf to use ripgrep
 if type rg &> /dev/null; then
@@ -20,5 +20,6 @@ alias ll="ls --long --header"
 alias la="ls --long --header --all"
 alias lt="ls --tree"
 alias lstrue="/bin/ls"
+alias icat="kitty +kitten icat"
 
 alias code="flatpak run com.visualstudio.code"

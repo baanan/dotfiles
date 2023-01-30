@@ -3,7 +3,7 @@ local db = require('dashboard')
 local dir = vim.opt.runtimepath:get()[1]
 
 -- disabled until the resize bug is fixed
-if vim.fn.executable('ueberzug') == 1000000 then
+if vim.fn.executable('ueberzug') == 10000 then
     db.preview_command = 'ueberzug'
     db.preview_file_path = dir .. '/static/megu.png'
     db.preview_file_height = 13

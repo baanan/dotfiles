@@ -1,3 +1,5 @@
+-- TODO: lazy package manager
+
 local cmd = vim.cmd
 
 return require('packer').startup(function(use)
@@ -9,7 +11,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'    -- commenter
   use 'godlygeek/tabular'       -- :Tab
   use 'famiu/bufdelete.nvim'    -- :bd fixer
-  use 'andweeb/presence.nvim'   -- rich presence
+  use 'andweeb/presence.nvim'   -- discord rich presence
   use 'chiedo/vim-case-convert' -- case conversion
 
   use { 'chentoast/marks.nvim', -- mark utilites 
