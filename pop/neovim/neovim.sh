@@ -1,1 +1,1 @@
-C:/home/thate/Documents/projects/dotfiles/common/neovim/pop/neovim.sh
+../../common/neovim/pop/neovim.sh

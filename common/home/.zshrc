@@ -1,4 +1,6 @@
 
+# add homebrew to PATH
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # set fzf to use ripgrep
 if type rg &> /dev/null; then

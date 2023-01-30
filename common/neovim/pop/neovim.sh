@@ -45,14 +45,13 @@ read a
 
 if [[ $a =~ "^y" ]]; then
 	# install 0.9.0
-	wget https://github.com/neovide/neovide/releases/download/0.9.0/neovide.tar.gz
+	wget https://github.com/neovide/neovide/releases/download/0.10.3/neovide.tar.gz
 	tar --gunzip -xf neovide.tar.gz
-	mv target/release/neovide ~/Documents/executables/neovide
+	sudo mv neovide /usr/bin/
 	# cleanup
 	rm neovide.tar.gz
-	rm -r target
 	# add NEOVIDE_MULTIGRID environment variable
-	echo export NEOVIDE_MULTIGRID = true >> ~/.zshenv
+	echo export NEOVIDE_MULTIGRID=true >> ~/.zshenv
 fi
 
 echo "Install Node.js?"

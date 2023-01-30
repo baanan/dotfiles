@@ -1,1 +1,1 @@
-C:/home/thate/Documents/projects/dotfiles/common/neovim/pop/updateconfig.sh
+../../common/neovim/pop/updateconfig.sh

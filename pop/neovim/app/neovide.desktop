@@ -1,9 +1,8 @@
 [Desktop Entry]
 Name=Neovide
 GenericName=Text Editor
-Comment=Edit text files
-TryExec=neovide 
-Exec=neovide %F
+Comment=Edit text files 
+Exec=neovide --multigrid %F
 Terminal=false
 Type=Application
 Keywords=Text;editor;
