@@ -12,9 +12,10 @@
 #define SCROLLS_PER_TICK 3.0f
 
 // Emulate Windows' "Enhanced Pointer Precision" for my mouse (1000 Hz) by approximating it with a linear accel
-#define SENSITIVITY 0.40f
+#define SENSITIVITY 0.4f
 #define ACCELERATION 0.055f
-#define SENS_CAP 3.0f
+#define SENS_CAP 0.0f
+#define SPEED_CAP 3.0f
 #define OFFSET 0.0f
 #define POST_SCALE_X 1.0f
 #define POST_SCALE_Y 1.0f

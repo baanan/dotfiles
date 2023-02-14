@@ -48,7 +48,7 @@ git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM
 
 # add zsh plugins
 plugins="zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search"
-gsed -i -r "s/plugins\s*=\s*(\(\s*)((\w+ )*)(\w*\))/plugins=\1\2$plugins \4/g" ~/.zshrc
+sed -i -r "s/plugins\s*=\s*(\(\s*)((\w+ )*)(\w*\))/plugins=\1\2$plugins \4/g" ~/.zshrc
 
 # copy over .config
 ## replace with below once ripgrep issue 2020 is fixed
