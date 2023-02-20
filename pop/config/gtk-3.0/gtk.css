@@ -1,0 +1,40 @@
+/* shrink headerbars (don't forget semicolons after each property) */
+headerbar {
+    min-height: 0px;
+    padding-left: 0px; /* same as childrens vertical margins for nicer proportions */
+    padding-right: 0px;
+    background-color: #2d2d2d;
+}
+
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+    margin-top: 0px; /* same as headerbar side padding for nicer proportions */
+    margin-bottom: 0px;
+}
+
+/* shrink ssd titlebars */
+.default-decoration {
+    min-height: 0; /* let the entry and button drive the titlebar size */
+    padding: 0px;
+    background-color: #2d2d2d;
+}
+
+.default-decoration .titlebutton {
+    /* min-height: 0px; /1* tweak these two props to reduce button size *1/ */
+    min-width: 22px;
+}
+
+window.ssd headerbar.titlebar {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 6px;
+    min-height: 0;
+}
+
+window.ssd headerbar.titlebar button.titlebutton {
+    padding-top: 3px;
+    padding-bottom:3px;
+    min-height: 0;
+}
