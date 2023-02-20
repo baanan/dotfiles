@@ -1,0 +1,64 @@
+[blur-my-shell]
+brightness=0.42999999999999999
+color=(0.0, 0.10588237643241882, 0.14901961386203766, 0.13333334028720856)
+
+[blur-my-shell/applications]
+whitelist=['Gnome-terminal', 'kitty']
+
+[blur-my-shell/dash-to-dock]
+blur=false
+
+[blur-my-shell/panel]
+blur=true
+brightness=0.5
+customize=true
+noise-amount=0.0
+override-background=true
+sigma=125
+static-blur=true
+
+[dash-to-dock]
+manualhide=true
+
+[dash-to-panel]
+animate-appicon-hover=false
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
+appicon-margin=4
+appicon-padding=4
+available-monitors=[1, 0]
+click-action='TOGGLE-CYCLE'
+hotkeys-overlay-combo='TEMPORARILY'
+leftbox-padding=-1
+panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}'
+panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
+panel-lengths='{"0":100,"1":100}'
+panel-sizes='{"0":39,"1":39}'
+primary-monitor=1
+status-icon-padding=-1
+trans-bg-color='#0c0c0e'
+trans-panel-opacity=0.5
+trans-use-custom-bg=true
+trans-use-custom-opacity=true
+tray-padding=-1
+window-preview-title-position='TOP'
+
+[gtktitlebar]
+hide-window-titlebars='always'
+
+[pop-shell]
+show-skip-taskbar=true
+show-title=true
+smart-gaps=false
+
+[rounded-window-corners]
+border-color=(0.5, 0.5, 0.5, 1.0)
+border-width=0
+custom-rounded-corner-settings=@a{sv} {}
+enable-preferences-entry=false
+global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 16>, 'smoothing': <uint32 0>, 'enabled': <true>}
+settings-version=uint32 5
+skip-libadwaita-app=true
+tweak-kitty-terminal=false
+
+[user-theme]
+name='MochaTheme-2'
