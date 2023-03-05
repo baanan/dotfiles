@@ -9,7 +9,7 @@
  */
 
 // Changes behaviour of the scroll-wheel. Default is 3.0f
-#define SCROLLS_PER_TICK 3.0f
+#define SCROLLS_PER_TICK 6.0f
 
 // Emulate Windows' "Enhanced Pointer Precision" for my mouse (1000 Hz) by approximating it with a linear accel
 #define SENSITIVITY 0.4f
