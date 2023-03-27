@@ -1,6 +1,7 @@
 // Maximum number of packets allowed to be sent from the mouse at once. Linux's default value is 8, which at
 // least causes EOVERFLOW for my mouse (SteelSeries Rival 600). Increase this, if 'dmesg -w' tells you to!
-#define BUFFER_SIZE 16
+/* #define BUFFER_SIZE 16 */
+#define BUFFER_SIZE 32
 
 /*
  * This should be your desired acceleration. It needs to end with an f.
@@ -12,14 +13,23 @@
 #define SCROLLS_PER_TICK 6.0f
 
 // Emulate Windows' "Enhanced Pointer Precision" for my mouse (1000 Hz) by approximating it with a linear accel
-#define SENSITIVITY 0.4f
 #define ACCELERATION 0.055f
-#define SENS_CAP 0.0f
-#define SPEED_CAP 3.0f
-#define OFFSET 0.0f
-#define POST_SCALE_X 1.0f
-#define POST_SCALE_Y 1.0f
+#define SENSITIVITY 1.0f // "sensitivity" is a lie, use post_scale
+#define SENS_CAP 3.0f // NOT 1 more than rawaccel
 #define SPEED_CAP 0.0f
+#define OFFSET 0.0f
+
+// dpi change 
+// actually divide 1000/your_DPI
+// nevermind
+/* #define PRE_SCALE_X 0.83f */
+/* #define PRE_SCALE_Y 0.83f */
+#define PRE_SCALE_X 1.0f
+#define PRE_SCALE_Y 1.0f
+
+// Sens Multiplier
+#define POST_SCALE_X 0.3f
+#define POST_SCALE_Y 0.3f
 
 // Prescaler for different DPI values. 1.0f at 400 DPI. To adjust it for <your_DPI>, calculate 400/your_DPI
 
@@ -28,8 +38,8 @@
 /* #define PRE_SCALE_Y 1.0f */
 
 // Generic @ 1200 DPI
-#define PRE_SCALE_X 0.33f
-#define PRE_SCALE_Y 0.33f
+/* #define PRE_SCALE_X 0.33f */
+/* #define PRE_SCALE_Y 0.33f */
 
 // Steelseries Rival 110 @ 7200 DPI
 //#define PRE_SCALE_X 0.0555555f
