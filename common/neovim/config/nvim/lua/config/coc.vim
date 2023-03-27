@@ -1,3 +1,5 @@
+let g:coc_global_extensions=[ 'coc-omnisharp', "coc-rust-analyzer", "coc-sumneko-lua", "coc-vimlsp", "coc-java", "coc-sh", "coc-json", "coc-snippets" ]
+
 " Give more space for displaying messages.
 set cmdheight=2
 

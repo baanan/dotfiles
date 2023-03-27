@@ -72,12 +72,12 @@ cp -r config/* ~/.config/
 # install plugins
 # nvim --headless +PlugInstall +qa
 
-echo "Install Coc Plugins?"
-read a
+# echo "Install Coc Plugins?"
+# read a
 
-if [[ $a =~ "^y" ]]; then
-	nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
-fi
+# if [[ $a =~ "^y" ]]; then
+# 	nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
+# fi
 
 # set up global gitignore
 git config --global core.excludesFile '~/.gitignore'
