@@ -1,6 +1,36 @@
+[aylurs-widgets]
+background-clock=false
+battery-bar=false
+dash-board=true
+dash-button-enable=true
+dash-button-icon-path='/usr/share/icons/Pop/scalable/actions/view-app-grid-symbolic.svg'
+dash-button-label=''
+dash-button-offset=0
+dash-button-position=0
+dash-button-show-icon=true
+dash-hide-activities=false
+dash-links-names=['reddit', 'youtube', 'gmail', 'twitter', 'github']
+dash-links-urls=['https://www.reddit.com/', 'https://www.youtube.com/', 'https://www.gmail.com/', 'https://twitter.com/', 'https://www.github.com/']
+date-menu-tweaks=false
+dynamic-panel=false
+media-player=true
+media-player-colored-player-icon=false
+media-player-enable-controls=false
+media-player-enable-track=true
+media-player-position=1
+media-player-show-loop-shuffle=true
+media-player-show-player-icon=false
+media-player-show-volume=true
+notification-indicator=false
+power-menu=false
+window-headerbar=false
+workspace-indicator=false
+
 [blur-my-shell]
 brightness=0.42999999999999999
 color=(0.0, 0.10588237643241882, 0.14901961386203766, 0.13333334028720856)
+color-and-noise=true
+hacks-level=3
 
 [blur-my-shell/applications]
 whitelist=['Gnome-terminal', 'kitty']
@@ -13,12 +43,15 @@ blur=true
 brightness=0.5
 customize=true
 noise-amount=0.0
-override-background=true
+noise-lightness=0.0
+override-background=false
 sigma=125
-static-blur=true
+static-blur=false
+unblur-in-overview=true
 
 [dash-to-dock]
 manualhide=true
+show-mounts=false
 
 [dash-to-panel]
 animate-appicon-hover=false
@@ -26,15 +59,24 @@ animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
 appicon-margin=4
 appicon-padding=4
 available-monitors=[1, 0]
-click-action='TOGGLE-CYCLE'
+click-action='TOGGLE-SHOWPREVIEW'
+dot-position='BOTTOM'
+group-apps=true
 hotkeys-overlay-combo='TEMPORARILY'
 leftbox-padding=-1
 panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}'
-panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
+panel-element-positions='{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"centered"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"centered"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
 panel-lengths='{"0":100,"1":100}'
 panel-sizes='{"0":39,"1":39}'
 primary-monitor=1
+progress-show-count=true
+show-appmenu=false
+show-apps-icon-file=''
+show-apps-override-escape=true
+show-favorites-all-monitors=true
+show-running-apps=true
 status-icon-padding=-1
+stockgs-keep-top-panel=false
 trans-bg-color='#0c0c0e'
 trans-panel-opacity=0.5
 trans-use-custom-bg=true
@@ -45,20 +87,44 @@ window-preview-title-position='TOP'
 [gtktitlebar]
 hide-window-titlebars='always'
 
+[openweather]
+menu-alignment=100.0
+position-in-panel='center'
+position-index=2
+pressure-unit='atm'
+show-comment-in-panel=false
+unit='fahrenheit'
+use-system-icons=true
+wind-direction=false
+wind-speed-unit='mph'
+
+[pop-cosmic]
+show-applications-button=false
+show-workspaces-button=false
+
 [pop-shell]
 show-skip-taskbar=true
 show-title=true
 smart-gaps=false
 
 [rounded-window-corners]
-border-color=(0.5, 0.5, 0.5, 1.0)
-border-width=0
-custom-rounded-corner-settings=@a{sv} {}
+black-list=['Steam', 'kitty', 'Overwatch.exe', 'gnome-terminal-server', 'steam_app_0', 'explorer.exe']
+border-color=(0.65098047256469727, 0.89019608497619629, 0.63137257099151611, 1.0)
+border-width=1
+custom-rounded-corner-settings={'musicbee.exe': <{'padding': <{'left': <uint32 4>, 'right': <uint32 4>, 'top': <uint32 1>, 'bottom': <uint32 4>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 13>, 'smoothing': <uint32 0>, 'enabled': <true>}>}
 enable-preferences-entry=false
-global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 16>, 'smoothing': <uint32 0>, 'enabled': <true>}
+focused-shadow={'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}
+global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 13>, 'smoothing': <uint32 0>, 'enabled': <true>}
 settings-version=uint32 5
 skip-libadwaita-app=true
+skip-libhandy-app=false
 tweak-kitty-terminal=false
+unfocused-shadow={'horizontal_offset': 0, 'vertical_offset': 2, 'blur_offset': 12, 'spread_radius': -1, 'opacity': 65}
 
 [user-theme]
 name='MochaTheme-2'
+
+[vitals]
+hide-icons=false
+show-network=true
+show-system=true

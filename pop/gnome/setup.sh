@@ -4,16 +4,26 @@ chmod +x gnome-shell-extension-installer
 sudo mv gnome-shell-extension-installer /usr/bin/
 
 # install extensions
+## ui
 gnome-shell-extension-installer 3193 # blur my shell
 gnome-shell-extension-installer 1160 # dash to panel
-gnome-shell-extension-installer 1319 # gsconnect
-gnome-shell-extension-installer 750  # openweather
 gnome-shell-extension-installer 5237 # rounded window corners
+## widgets
+gnome-shell-extension-installer 750  # openweather
+gnome-shell-extension-installer 5338 # aylur's widgets
+## utilites
+gnome-shell-extension-installer 1319 # gsconnect
 gnome-shell-extension-installer 19 # user themes
+gnome-shell-extension-installer 1401 # bluetooth quick connect
+# disable unredirect fullscreen windows - only for games
 
 ## copy over config
 ### schemas
 fd -g '*/schemas/org.gnome.shell.extensions.*.gschema.xml' -x cp {} /usr/share/glib-2.0/schemas
+
+## extra (cursed) config
+ln -s $PWD/patch-widgets.sh ~/Documents/scripts/
+./patch-widgets.sh
 
 # install themes
 ## adw-gtk3
