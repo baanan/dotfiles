@@ -20,6 +20,13 @@ require("aerial").setup({
 -- bufferline
 require("bufferline").setup{
   options = {
+    close_command = function(bufnum)
+        require('bufdelete').bufdelete(bufnum, true)
+    end,
+    right_mouse_command = function(bufnum)
+        require('bufdelete').bufdelete(bufnum, true)
+    end,
+    -- left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
     offsets = {
       {filetype = "neo-tree", text = "File Explorer", text_align = "center", padding = 1},
       {filetype = "aerial",   text = "Tag Tree",      text_align = "center", padding = 1},

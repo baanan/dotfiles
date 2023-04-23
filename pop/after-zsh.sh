@@ -70,6 +70,7 @@ cd $dir
 
 # pop-specific config
 cp -r config/* ~/.config/
+cp home/* ~
 
 cd ../common/
 
