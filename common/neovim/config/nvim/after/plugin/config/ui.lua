@@ -18,14 +18,15 @@ require("aerial").setup({
 })
 
 -- bufferline
-require("bufferline").setup{
-  options = {
-    offsets = {
-      {filetype = "neo-tree", text = "File Explorer", text_align = "center", padding = 1},
-      {filetype = "aerial",   text = "Tag Tree",      text_align = "center", padding = 1},
-    },
-  }
-}
+--   moved to packer
+require("bufferline").setup({
+  -- options = {
+  --   offsets = {
+  --     {filetype = "neo-tree", text = "File Explorer", text_align = "center", padding = 1},
+  --     {filetype = "aerial",   text = "Tag Tree",      text_align = "center", padding = 1},
+  --   },
+  -- }
+})
 
 -- neotree
 require("neo-tree").setup({

@@ -25,3 +25,15 @@ vim.cmd([[
     aug END
 ]])
 
+require("indent_blankline").setup {
+    filetype_exclude = {
+        "lspinfo",
+        "packer",
+        "checkhealth",
+        "help",
+        "man",
+        "",
+        "dashboard",
+    }
+}
+
