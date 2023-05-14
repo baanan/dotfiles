@@ -120,7 +120,13 @@ function dashboard.load()
         theme = 'hyper',
         config = {
             header = random_header(),
+            shortcut = {
+                { desc = '󰊳  Update ', group = 'DBUpdate', key = 'u', action = 'PackerSync' },
+                { desc = '  ThatEpicBanana', group = 'DBUser' },
+                { desc = '  Load Recent ', group = 'DBRecent', key = "s", action = 'SessionManager load_last_session' },
+            },
             project = {
+                limit = 6,
                 action = function (path)
                     local session_manager = require('session_manager.utils')
                     -- get the full session using the name
@@ -137,33 +143,16 @@ function dashboard.load()
     }
 
     vim.cmd("highlight DashboardHeader guifg=" .. random_color())
-
--- db.custom_center = {
---     {icon = '  ',
---     desc = 'Load most recent session                ',
---     shortcut = 'SPC s s',
---     action ='SessionManager load_last_session'},
---     {icon = '  ',
---     desc = 'Load past session                       ',
---     shortcut = 'SPC s l',
---     action ='SessionManager load_session'},
---     {icon = '  ',
---     desc ='File Browser                            ',
---     action =  'Telescope file_browser',
---     shortcut = 'SPC f b'},
---     {icon = '  ',
---     desc = 'Find  File                              ',
---     action = 'Telescope find_files find_command=rg,--hidden,--files',
---     shortcut = 'SPC f f'},
---     -- {icon = '  ',
---     -- desc = 'Recently opened files                   ',
---     -- action =  'DashboardFindHistory',
---     -- shortcut = 'SPC f r'},
---     -- {icon = '  ',
---     -- desc = 'Find  word                              ',
---     -- action = 'Telescope live_grep',
---     -- shortcut = 'SPC f w'},
--- }
 end
+
+local colors = vim.api.nvim_call_function("onedark#GetColors", {})
+local green, blue, purple, dark_yellow = colors.green.gui, colors.blue.gui, colors.purple.gui, colors.dark_yellow.gui
+
+vim.cmd("highlight DBUpdate guifg=" .. green)
+vim.cmd("highlight DBUser guifg=" .. blue)
+vim.cmd("highlight DBRecent guifg=" .. purple)
+vim.cmd("highlight DashboardProjectIcon guifg=" .. dark_yellow)
+vim.cmd("highlight DashboardProjectTitle guifg=" .. blue)
+vim.cmd("highlight DashboardMruTitle guifg=" .. blue)
 
 return dashboard
