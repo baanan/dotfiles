@@ -2,7 +2,7 @@
 dir=$PWD
 
 # establish Documents folder structure
-mkdir -p ~/Documents/{utilities,projects,executables}
+mkdir -p ~/Documents/{utilities,projects,executables,scripts}
 
 # install nala
 sudo apt install nala
@@ -49,6 +49,7 @@ sudo nala install btop
 sudo nala install ripgrep
 sudo nala install fzf
 cargo install fd-find
+cargo install sd
 
 sudo nala install mold
 sudo nala install clang
@@ -70,7 +71,6 @@ cd $dir
 
 # pop-specific config
 cp -r config/* ~/.config/
-cp home/* ~
 
 cd ../common/
 

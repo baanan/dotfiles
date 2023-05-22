@@ -10,9 +10,8 @@ echo "Install Neovim Itself?"
 read a
 
 if [[ $a =~ "^y" ]]; then
-	wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
-	sudo apt install ./nvim-linux64.deb
-	rm ./nvim-linux64.deb
+	sudo add-apt-repository ppa:neovim-ppa/unstable
+	sudo nala install neovim -y
 fi
 
 # install vim plug
@@ -20,13 +19,14 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # install other dependencies
-sudo nala install ripgrep
-sudo nala install universal-ctags
-sudo nala install xclip
+sudo nala install ripgrep -y
+sudo nala install universal-ctags -y
+sudo nala install xclip -y
 brew install jesseduffield/lazygit/lazygit
 
-sudo apt install python3-pip
-python3 -m pip install --user --upgrade pynvim
+# sudo apt install python3-pip -y
+# python3 -m pip install --user --upgrade pynvim
+sudo nala install python3-neovim
 
 # bacon
 cargo install --locked bacon

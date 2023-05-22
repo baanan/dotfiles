@@ -1,5 +1,6 @@
 require("thate.packer")
 require("thate.general")
+require("thate.autocommands")
 
 require("config.delim-arg")
 require("config.navigation")

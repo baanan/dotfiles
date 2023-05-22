@@ -2,6 +2,19 @@
 
 local cmd = vim.cmd
 
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
@@ -90,16 +103,21 @@ return require('packer').startup(function(use)
 
   use 'stevearc/aerial.nvim'    -- tagtree
   use 'vim-airline/vim-airline' -- statusline
-  use 'glepnir/dashboard-nvim'  -- dashboard
 
   use {
-    'akinsho/bufferline.nvim', tag = "v2.*",
-    requires = 'kyazdani42/nvim-web-devicons',
+    'glepnir/dashboard-nvim', -- dashboard
+    event = 'VimEnter',
+    config = function()
+      require("thate.dashboard").load()
+    end,
+    requires = {'nvim-tree/nvim-web-devicons'}
   }
+
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
   cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
   use {
-    "nvim-neo-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim", -- file manager
     branch = "v2.x",
     requires = {
       "nvim-lua/plenary.nvim",
@@ -140,8 +158,12 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
 
 
-
   -- RUST
   use 'rust-lang/rust.vim'
   use 'Canop/nvim-bacon'
+  
+  
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)

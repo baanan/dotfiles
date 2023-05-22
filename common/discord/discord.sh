@@ -16,13 +16,13 @@ sudo mv betterdiscordctl /usr/local/bin
 betterdiscordctl install
 
 # copy over config
-cp -r BetterDiscord ~/.var/app/com.discordapp.Discord/config/
-cd ~/.var/app/com.discordapp.Discord/config/BetterDiscord/themes/
+cp -r BetterDiscord ~/.config/BetterDiscord/
+cd ~/.config/BetterDiscord/themes/
 
-wget https://github.com/catppuccin/discord/blob/main/themes/latte.theme.css 
-wget https://github.com/catppuccin/discord/blob/main/themes/frappe.theme.css 
-wget https://github.com/catppuccin/discord/blob/main/themes/macchiato.theme.css 
-wget https://github.com/catppuccin/discord/blob/main/themes/mocha.theme.css 
+wget https://raw.githubusercontent.com/catppuccin/discord/main/themes/latte.theme.css
+wget https://raw.githubusercontent.com/catppuccin/discord/main/themes/frappe.theme.css
+wget https://raw.githubusercontent.com/catppuccin/discord/main/themes/macchiato.theme.css
+wget https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css
 
 # go back to original dir
 cd $dir

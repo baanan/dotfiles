@@ -29,5 +29,6 @@
     "rust-analyzer.inlayHints.chainingHints.enable": false,
     "rust-analyzer.disableProgressNotifications": true,
     "diagnostic.virtualText": true,
-    "diagnostic.virtualTextCurrentLineOnly": false
+    "diagnostic.virtualTextCurrentLineOnly": false,
+    "sumneko-lua.enableNvimLuaDev": true
 }

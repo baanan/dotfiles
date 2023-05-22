@@ -28,8 +28,8 @@ ln -s $PWD/patch-widgets.sh ~/Documents/scripts/
 # install themes
 ## adw-gtk3
 ### get
-wget https://github.com/lassekongo83/adw-gtk3/releases/latest/download/adw-gtk3v4-3.tar.xz
-tar -xf adw-gtk3v4-3.tar.xz --directory /usr/share/themes/
+wget https://github.com/lassekongo83/adw-gtk3/releases/latest/download/adw-gtk3v4-6.tar.xz
+sudo tar -xf adw-gtk3v4-6.tar.xz --directory /usr/share/themes/
 ### install
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 ### flatpak
@@ -41,11 +41,11 @@ git clone --filter=blob:none --sparse https://github.com/lime-desu/MochaTheme.gi
 cd MochaTheme
 git sparse-checkout add MochaTheme-2
 ### remove panel outline (because of dash to panel)
-rg --passthru --multiline "#panel \{[^}]*\}" --replace "" MochaTheme-2/gnome-shell/gnome-shell.css > tmp.css && mv tmp.css MochaTheme-2/gnome-shell/gnome-shell.css
+sd -f m "#panel \{[^}]*\}" "" MochaTheme-2/gnome-shell/gnome-shell.css
 ### install
 mv MochaTheme-2 ~/.themes/
 ### cleanup
-cd .. && rm -r MochaTheme
+cd .. && rm -rf MochaTheme
 
 # other applications
 flatpak install com.github.GradienceTeam.Gradience
