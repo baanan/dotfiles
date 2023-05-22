@@ -29,7 +29,13 @@ echo
 
 winecfg
 
-winetricks -q --force dotnet461 xmllite gdiplus 
+winetricks -q --force dotnet48 xmllite gdiplus 
+
+echo
+echo set it back to win 10
+echo
+
+winecfg
 
 ## fonts
 winetricks corefonts cjkfonts 

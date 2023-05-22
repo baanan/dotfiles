@@ -2,7 +2,7 @@
 dir=$PWD
 
 # establish Documents folder structure
-mkdir -p ~/Documents/{utilities,projects,executables}
+mkdir -p ~/Documents/{utilities,projects,executables,scripts}
 
 # install nala
 sudo apt install nala
@@ -49,6 +49,7 @@ sudo nala install btop
 sudo nala install ripgrep
 sudo nala install fzf
 cargo install fd-find
+cargo install sd
 
 sudo nala install mold
 sudo nala install clang
@@ -67,9 +68,6 @@ sed -i -r "s/plugins\s*=\s*(\(\s*)((\w+ )*)(\w*\))/plugins=\1\2$plugins \4/g" ~/
 ## replace with below once ripgrep issue 2020 is fixed
 ## rg --multiline --multiline-dotall --passthru "\[start\].*\[end\]" -r "[start]${cat .zshrc}[end]" ~/.zshrc > ~/.zshrc
 cd $dir
-
-# pop-specific config
-cp -r config/* ~/.config/
 
 cd ../common/
 
