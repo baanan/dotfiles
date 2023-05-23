@@ -69,6 +69,9 @@ sed -i -r "s/plugins\s*=\s*(\(\s*)((\w+ )*)(\w*\))/plugins=\1\2$plugins \4/g" ~/
 ## rg --multiline --multiline-dotall --passthru "\[start\].*\[end\]" -r "[start]${cat .zshrc}[end]" ~/.zshrc > ~/.zshrc
 cd $dir
 
+# pop-specific config
+cp -r config/* ~/.config/
+
 cd ../common/
 
 # generic config

@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
   use 'famiu/bufdelete.nvim'    -- :bd fixer
   use 'andweeb/presence.nvim'   -- discord rich presence
   use 'chiedo/vim-case-convert' -- case conversion
+  use 'lambdalisue/suda.vim'    -- sudo write / read
 
   use { 'chentoast/marks.nvim', -- mark utilites 
     config = function() require "marks".setup {} end
