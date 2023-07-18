@@ -1,5 +1,7 @@
 let g:coc_global_extensions=[ "coc-rust-analyzer", "coc-sumneko-lua", "coc-vimlsp", "coc-java", "coc-sh", "coc-json", "coc-snippets" ]
 
+let g:coc_node_path = '/home/thate/.nvm/versions/node/v19.3.0/bin/node'
+
 " Give more space for displaying messages.
 set cmdheight=2
 
