@@ -31,12 +31,4 @@ brew install neovide
 cat 'NEOVIDE_MULTIGRID="true"' >> ~/.zshrc
 
 # copy over config
-cp -r config/* ~/.config/
-
-# install plugins
-echo "Install Coc Plugins?"
-read a
-
-if [[ $a =~ "^y" ]]; then
-	nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
-fi
+cp -r config ~/.config/nvim

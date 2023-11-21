@@ -5,18 +5,7 @@ dir=$PWD
 cd `pwd | grep -o "^.*dotfiles"`/common/neovim
 
 # install neovim
-# sudo apt install neovim
-echo "Install Neovim Itself?"
-read a
-
-if [[ $a =~ "^y" ]]; then
-	sudo add-apt-repository ppa:neovim-ppa/unstable
-	sudo nala install neovim -y
-fi
-
-# install vim plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+brew install neovim
 
 # install other dependencies
 sudo nala install ripgrep -y
@@ -44,12 +33,15 @@ echo "Install Neovide?"
 read a
 
 if [[ $a =~ "^y" ]]; then
-	# install 0.9.0
-	wget https://github.com/neovide/neovide/releases/download/0.10.3/neovide.tar.gz
-	tar --gunzip -xf neovide.tar.gz
-	sudo mv neovide /usr/bin/
-	# cleanup
-	rm neovide.tar.gz
+	# install dependencies
+	sudo apt install -y curl \
+	    gnupg ca-certificates git \
+	    gcc-multilib g++-multilib cmake libssl-dev pkg-config \
+	    libfreetype6-dev libasound2-dev libexpat1-dev libxcb-composite0-dev \
+	    libbz2-dev libsndio-dev freeglut3-dev libxmu-dev libxi-dev libfontconfig1-dev \
+	    libxcursor-dev
+	# install neovide itself
+	cargo install --git https://github.com/neovide/neovide
 	# add NEOVIDE_MULTIGRID environment variable
 	echo export NEOVIDE_MULTIGRID=true >> ~/.zshenv
 fi
@@ -67,17 +59,7 @@ fi
 npm install --location=global neovim
 
 # copy over config
-cp -r config/* ~/.config/
-
-# install plugins
-# nvim --headless +PlugInstall +qa
-
-# echo "Install Coc Plugins?"
-# read a
-
-# if [[ $a =~ "^y" ]]; then
-# 	nvim "+CocInstall coc-rust-analyzer coc-sumneko-lua coc-vimlsp coc-java coc-sh coc-json coc-snippets"
-# fi
+cp -r config ~/.config/nvim
 
 # set up global gitignore
 git config --global core.excludesFile '~/.gitignore'

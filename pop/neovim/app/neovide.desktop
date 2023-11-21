@@ -2,7 +2,7 @@
 Name=Neovide
 GenericName=Text Editor
 Comment=Edit text files 
-Exec=neovide --multigrid %F
+Exec=env -u WAYLAND_DISPLAY neovide %F
 Terminal=false
 Type=Application
 Keywords=Text;editor;
