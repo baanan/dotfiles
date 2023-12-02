@@ -72,4 +72,10 @@ return {
       return not vim.g.neovide
     end,
   },
+  {
+    "nvimdev/dashboard-nvim",
+    keys = {
+      { "<leader>dd", "<cmd>only<cr><cmd>Dashboard<cr>", desc = "Open Dashboard" },
+    },
+  },
 }
