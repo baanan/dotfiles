@@ -6,7 +6,7 @@ local remap = require("util.keymaps")
 local nnoremap = remap.nnoremap
 local noremap = remap.noremap
 
-nnoremap("<leader>c", [["+]])
+nnoremap("<leader>cc", [["+]])
 nnoremap("<leader>u", "<cmd>redo<cr>")
 
 noremap("0", "^")

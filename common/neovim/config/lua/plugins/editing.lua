@@ -39,4 +39,17 @@ return {
       { "s", "<plug>(easymotion-overwin-f)", desc = "Jump to a character anywhere" },
     },
   },
+  -- motion in different cases
+  {
+    "bkad/CamelCaseMotion",
+    keys = {
+      { "gw", "<plug>CamelCaseMotion_w", mode = { "n", "v", "o" } },
+      { "gb", "<plug>CamelCaseMotion_b", mode = { "n", "v", "o" } },
+      { "ge", "<plug>CamelCaseMotion_e", mode = { "n", "v", "o" } },
+      { "gE", "<plug>CamelCaseMotion_ge", mode = { "n", "v", "o" } },
+      { "gw", "<plug>CamelCaseMotion_iw", mode = { "o", "x" } },
+      { "gb", "<plug>CamelCaseMotion_ib", mode = { "o", "x" } },
+      { "ge", "<plug>CamelCaseMotion_ie", mode = { "o", "x" } },
+    },
+  },
 }
