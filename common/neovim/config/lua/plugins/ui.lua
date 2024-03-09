@@ -1,3 +1,4 @@
+local Util = require("lazyvim.util")
 return {
   {
     "mrjones2014/smart-splits.nvim", -- better split resizing
@@ -76,6 +77,54 @@ return {
     "nvimdev/dashboard-nvim",
     keys = {
       { "<leader>dd", "<cmd>only<cr><cmd>Dashboard<cr>", desc = "Open Dashboard" },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        pickers = {
+          git_files = { recurse_submodules = true },
+        },
+      },
+    },
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      {
+        "<leader>fe",
+        function()
+          local win = require("aerial.window")
+          if win.is_open() then
+            win.close()
+          end
+          require("neo-tree.command").execute({ toggle = true, action = "show", dir = Util.root(), reveal = true })
+        end,
+        desc = "Explorer NeoTree (root dir)",
+      },
+    },
+  },
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    keys = {
+      {
+        "<leader>a",
+        function()
+          local manager = require("neo-tree.sources.manager")
+          local renderer = require("neo-tree.ui.renderer")
+          if renderer.tree_is_visible(manager.get_state("filesystem")) then
+            manager.close_all()
+          end
+          require("aerial").open({ focus = false, direction = "left" })
+        end,
+      },
     },
   },
 }

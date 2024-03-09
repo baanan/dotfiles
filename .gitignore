@@ -3,4 +3,4 @@ test.sh
 **/Session.vim
 *.swp
 **/.DS_Store
-lazy-lock.json
+**/lazy-lock.json
