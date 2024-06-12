@@ -22,7 +22,7 @@ return {
       end,
     },
   },
-  {
-    "andweeb/presence.nvim",
-  },
+  -- {
+  --   "andweeb/presence.nvim",
+  -- },
 }
