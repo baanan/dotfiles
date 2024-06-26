@@ -54,4 +54,10 @@ return {
       inlay_hints = { enabled = false },
     },
   },
+  {
+    "ldelossa/nvim-dap-projects",
+    init = function()
+      require("nvim-dap-projects").search_project_config()
+    end,
+  },
 }
