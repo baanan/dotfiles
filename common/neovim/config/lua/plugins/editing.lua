@@ -23,22 +23,34 @@ return {
   -- same with easymotion
   { "folke/flash.nvim", enabled = false },
   {
-    -- also see persistence in util for a small change that needed to be made
-    "easymotion/vim-easymotion",
-    dependencies = {
-      "tpope/vim-repeat",
+    "smoka7/hop.nvim",
+    version = "*",
+    opts = {
+      keys = "etovxqpdygfblzhckisuran",
     },
-    init = function()
-      vim.g.EasyMotion_do_mapping = 0 -- disable default keybinds
-      vim.g.EasyMotion_smartcase = 1 -- ignore case when searching
-    end,
     keys = {
-      { "<leader>j", "<plug>(easymotion-j)", mode = { "n", "o" }, desc = "Select a line above" },
-      { "<leader>k", "<plug>(easymotion-k)", mode = { "n", "o" }, desc = "Select a line below" },
-      { "<leader>L", "<plug>(easymotion-overwin-line)", desc = "Jump to a line anywhere" },
-      { "s", "<plug>(easymotion-overwin-f)", desc = "Jump to a character anywhere" },
+      { "s", "<cmd>HopChar1MW<cr>", desc = "Hop to any specified character anywhere on the screen" },
+      { "<leader>j", "<cmd>HopLineStartAC<cr>", desc = "Hop to any line below the current one" },
+      { "<leader>k", "<cmd>HopLineStartBC<cr>", desc = "Hop to any line above the current one" },
     },
   },
+  -- {
+  --   -- also see persistence in util for a small change that needed to be made
+  --   "easymotion/vim-easymotion",
+  --   dependencies = {
+  --     "tpope/vim-repeat",
+  --   },
+  --   init = function()
+  --     vim.g.EasyMotion_do_mapping = 0 -- disable default keybinds
+  --     vim.g.EasyMotion_smartcase = 1 -- ignore case when searching
+  --   end,
+  --   keys = {
+  --     { "<leader>j", "<plug>(easymotion-j)", mode = { "n", "o" }, desc = "Select a line above" },
+  --     { "<leader>k", "<plug>(easymotion-k)", mode = { "n", "o" }, desc = "Select a line below" },
+  --     { "<leader>L", "<plug>(easymotion-overwin-line)", desc = "Jump to a line anywhere" },
+  --     { "s", "<plug>(easymotion-overwin-f)", desc = "Jump to a character anywhere" },
+  --   },
+  -- },
   -- motion in different cases
   {
     "bkad/CamelCaseMotion",
