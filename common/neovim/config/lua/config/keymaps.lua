@@ -7,7 +7,6 @@ local nnoremap = remap.nnoremap
 local noremap = remap.noremap
 
 nnoremap("<leader>cc", [["+]])
-nnoremap("<leader>u", "<cmd>redo<cr>")
 
 noremap("0", "^")
 noremap("^", "0")
