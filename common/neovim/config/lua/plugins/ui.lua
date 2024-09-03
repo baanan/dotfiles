@@ -56,11 +56,13 @@ return {
   { "kwkarlwang/bufresize.nvim" }, -- buffers keep proportions
   {
     "akinsho/toggleterm.nvim",
-    lazy = true,
     version = "*",
     opts = {
       size = 45,
       open_mapping = false,
+    },
+    keys = {
+      { "<leader>t", "<cmd>ToggleTerm direction=vertical size=60<cr>" },
     },
     init = function()
       require("util.keymaps").tnoremap("<Esc>", [[<C-\><C-n>]])
