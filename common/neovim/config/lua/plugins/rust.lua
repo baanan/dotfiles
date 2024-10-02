@@ -3,7 +3,7 @@ return {
   {
     "Canop/nvim-bacon",
     dependencies = {
-      "akinsho/toggleterm.nvim",
+      { "akinsho/toggleterm.nvim" },
     },
     init = function()
       -- create bacon terminal when started so it can be opened later
@@ -20,6 +20,7 @@ return {
           -- toggle the bacon terminal
           bacon:toggle()
         end,
+        desc = "Open Bacon (Rust)",
       },
     },
   },

@@ -11,6 +11,12 @@ return {
   },
   {
     "AndrewRadev/sideways.vim",
+    init = function()
+      require("which-key").add({
+        { "<leader>a", group = "arguments" },
+        { "<leader>am", group = "move" },
+      })
+    end,
     keys = {
       { "<leader>ai", "<Plug>SidewaysArgumentInsertBefore", silent = true, desc = "Add argument before current" },
       { "<leader>aa", "<Plug>SidewaysArgumentAppendAfter", silent = true, desc = "Add argument after current" },

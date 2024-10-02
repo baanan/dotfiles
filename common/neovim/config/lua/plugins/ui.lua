@@ -58,11 +58,19 @@ return {
     "akinsho/toggleterm.nvim",
     version = "*",
     opts = {
-      size = 45,
-      open_mapping = false,
+      size = function(term)
+        if term.direction == "horizontal" then
+          return 10
+        elseif term.direction == "vertical" then
+          return 45
+        end
+      end,
+      direction = "vertical",
+      open_mapping = false, -- we do it manually, lazily
     },
     keys = {
-      { "<leader>t", "<cmd>ToggleTerm direction=vertical size=60<cr>" },
+      { "<c-t>", "<cmd>ToggleTerm<cr>", desc = "Open Terminal" },
+      { "<c-s-t>", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Open Terminal" },
     },
     init = function()
       require("util.keymaps").tnoremap("<Esc>", [[<C-\><C-n>]])

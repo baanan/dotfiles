@@ -5,6 +5,7 @@
 local remap = require("util.keymaps")
 local nnoremap = remap.nnoremap
 local noremap = remap.noremap
+local unmap = remap.unmap
 
 nnoremap("<leader>cc", [["+]])
 
@@ -12,3 +13,6 @@ noremap("0", "^")
 noremap("^", "0")
 
 noremap("<leader>c", [["+]]) -- clipboard
+
+unmap("<leader>l") -- because of latex
+nnoremap("<leader>la", "<cmd>Lazy<cr>")
