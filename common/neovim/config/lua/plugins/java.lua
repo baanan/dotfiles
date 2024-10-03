@@ -1,49 +1,49 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "java" } },
-  },
-  {
-    "nvim-java/nvim-java",
-    ft = "java",
-    keys = {
-      { "<leader>vr", "<cmd>JavaRunnerRunMain<cr>", desc = "Run the Main Class" },
-      { "<leader>vs", "<cmd>JavaRunnerStopMain<cr>", desc = "Stop the Main Class" },
-      { "<leader>vl", "<cmd>JavaRunnerToggleLogs<cr>", desc = "Open the Logger Window" },
-      { "<leader>vb", "<cmd>JavaBuildBuildWorkspace<cr>", desc = "Build the Workspace" },
-      { "<leader>vp", "<cmd>JavaProfile<cr>", desc = "Open the Profiles UI" },
-      { "<leader>vtrc", "<cmd>JavaTestRunCurrentClass<cr>", desc = "Run the Current Test Class" },
-      { "<leader>vtrm", "<cmd>JavaTestRunCurrentMethod<cr>", desc = "Run the Current Test Method" },
-      { "<leader>vtdc", "<cmd>JavaTestDebugCurrentClass<cr>", desc = "Debug the Current Test Class" },
-      { "<leader>vtdm", "<cmd>JavaTestDebugCurrentMethod<cr>", desc = "Debug the Current Test Method" },
-      { "<leader>vtv", "<cmd>JavaTestViewLastReport<cr>", desc = "View the Last Test Report" },
-    },
-    dependencies = {
-      {
-        "neovim/nvim-lspconfig",
-        opts = {
-          servers = {
-            jdtls = {
-              -- your jdtls configuration goes here
-            },
-          },
-          setup = {
-            jdtls = function()
-              require("java").setup({
-                -- your nvim-java configuration goes here
-              })
-            end,
-          },
-        },
-      },
-    },
-    config = function()
-      require("which-key").add({
-        { "<leader>v", desc = "+java" },
-        { "<leader>vt", desc = "+test" },
-        { "<leader>vtr", desc = "+run" },
-        { "<leader>vtd", desc = "+debug" },
-      })
-    end,
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = { ensure_installed = { "java" } },
+  -- },
+  -- {
+  --   "nvim-java/nvim-java",
+  --   ft = "java",
+  --   keys = {
+  --     { "<leader>vr", "<cmd>JavaRunnerRunMain<cr>", desc = "Run the Main Class" },
+  --     { "<leader>vs", "<cmd>JavaRunnerStopMain<cr>", desc = "Stop the Main Class" },
+  --     { "<leader>vl", "<cmd>JavaRunnerToggleLogs<cr>", desc = "Open the Logger Window" },
+  --     { "<leader>vb", "<cmd>JavaBuildBuildWorkspace<cr>", desc = "Build the Workspace" },
+  --     { "<leader>vp", "<cmd>JavaProfile<cr>", desc = "Open the Profiles UI" },
+  --     { "<leader>vtrc", "<cmd>JavaTestRunCurrentClass<cr>", desc = "Run the Current Test Class" },
+  --     { "<leader>vtrm", "<cmd>JavaTestRunCurrentMethod<cr>", desc = "Run the Current Test Method" },
+  --     { "<leader>vtdc", "<cmd>JavaTestDebugCurrentClass<cr>", desc = "Debug the Current Test Class" },
+  --     { "<leader>vtdm", "<cmd>JavaTestDebugCurrentMethod<cr>", desc = "Debug the Current Test Method" },
+  --     { "<leader>vtv", "<cmd>JavaTestViewLastReport<cr>", desc = "View the Last Test Report" },
+  --   },
+  --   dependencies = {
+  --     {
+  --       "neovim/nvim-lspconfig",
+  --       opts = {
+  --         servers = {
+  --           jdtls = {
+  --             -- your jdtls configuration goes here
+  --           },
+  --         },
+  --         setup = {
+  --           jdtls = function()
+  --             require("java").setup({
+  --               -- your nvim-java configuration goes here
+  --             })
+  --           end,
+  --         },
+  --       },
+  --     },
+  --   },
+  --   config = function()
+  --     require("which-key").add({
+  --       { "<leader>v", desc = "+java" },
+  --       { "<leader>vt", desc = "+test" },
+  --       { "<leader>vtr", desc = "+run" },
+  --       { "<leader>vtd", desc = "+debug" },
+  --     })
+  --   end,
+  -- },
 }
