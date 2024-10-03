@@ -33,7 +33,6 @@ return {
   --               -- your nvim-java configuration goes here
   --             })
   --           end,
-  --         },
   --       },
   --     },
   --   },
