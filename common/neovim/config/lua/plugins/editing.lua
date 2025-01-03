@@ -10,16 +10,16 @@ return {
     },
   },
   -- jiangmiao/auto-pairs is more feature-rich
-  { "echasnovski/mini.pairs", enabled = false },
-  {
-    "jiangmiao/auto-pairs",
-    init = function()
-      -- add some rust-specific auto pairs
-      vim.cmd([[
-        au FileType rust     let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>', 'r#"': '"#'})
-      ]])
-    end,
-  },
+  -- { "echasnovski/mini.pairs", enabled = false },
+  -- {
+  --   "jiangmiao/auto-pairs",
+  --   init = function()
+  --     -- add some rust-specific auto pairs
+  --     vim.cmd([[
+  --       au FileType rust     let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>', 'r#"': '"#'})
+  --     ]])
+  --   end,
+  -- },
   -- same with easymotion
   { "folke/flash.nvim", enabled = false },
   {

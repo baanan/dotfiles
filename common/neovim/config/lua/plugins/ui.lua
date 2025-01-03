@@ -84,22 +84,6 @@ return {
     end,
   },
   {
-    "nvimdev/dashboard-nvim",
-    keys = {
-      { "<leader>dd", "<cmd>only<cr><cmd>Dashboard<cr>", desc = "Open Dashboard" },
-    },
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        pickers = {
-          git_files = { recurse_submodules = true },
-        },
-      },
-    },
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
       {
@@ -137,31 +121,31 @@ return {
       },
     },
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "LazyFile",
-    opts = {
-      indent = {
-        char = "│",
-        tab_char = "│",
-      },
-      scope = { show_start = true, show_end = true },
-      exclude = {
-        filetypes = {
-          "help",
-          "alpha",
-          "dashboard",
-          "neo-tree",
-          "Trouble",
-          "trouble",
-          "lazy",
-          "mason",
-          "notify",
-          "toggleterm",
-          "lazyterm",
-        },
-      },
-    },
-    main = "ibl",
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   event = "LazyFile",
+  --   opts = {
+  --     indent = {
+  --       char = "│",
+  --       tab_char = "│",
+  --     },
+  --     scope = { show_start = true, show_end = true },
+  --     exclude = {
+  --       filetypes = {
+  --         "help",
+  --         "alpha",
+  --         "dashboard",
+  --         "neo-tree",
+  --         "Trouble",
+  --         "trouble",
+  --         "lazy",
+  --         "mason",
+  --         "notify",
+  --         "toggleterm",
+  --         "lazyterm",
+  --       },
+  --     },
+  --   },
+  --   main = "ibl",
+  -- },
 }
