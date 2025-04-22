@@ -24,14 +24,14 @@ return {
   },
   -- using ultisnips for vim snippets
   -- it's powerful and Gilles Castel's snippets are all in in
-  {
-    "SirVer/ultisnips",
-    init = function()
-      vim.g.UltiSnipsExpandTrigger = "<tab>"
-      vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
-      vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
-    end,
-  },
+  -- {
+  --   "SirVer/ultisnips",
+  --   init = function()
+  --     vim.g.UltiSnipsExpandTrigger = "<tab>"
+  --     vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
+  --     vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
+  --   end,
+  -- },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {

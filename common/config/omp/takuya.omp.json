@@ -91,6 +91,15 @@
           "type": "java"
         },
         {
+          "background": "#ffffff",
+          "foreground": "#5178c4",
+          "leading_diamond": " \ue0b6",
+          "style": "diamond",
+          "template": "\uf313 {{ .Type }}",
+          "trailing_diamond": "\ue0b4",
+          "type": "nix-shell"
+        },
+        {
           "background": "#40c4ff",
           "foreground": "#ffffff",
           "invert_powerline": true,
@@ -129,6 +138,5 @@
       "type": "prompt"
     }
   ],
-  "osc99": true,
   "version": 2
 }
