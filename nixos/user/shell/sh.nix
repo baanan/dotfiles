@@ -13,6 +13,10 @@
     autosuggestion.enable = true;
     historySubstringSearch.enable = true;
 
+    initExtra = ''
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+    '';
+
     oh-my-zsh = {
       enable = true;
       plugins = [ "z" ];
