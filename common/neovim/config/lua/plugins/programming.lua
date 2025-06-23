@@ -60,4 +60,9 @@ return {
       require("nvim-dap-projects").search_project_config()
     end,
   },
+  {
+    "julianolf/nvim-dap-lldb",
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = true,
+  },
 }
