@@ -12,6 +12,9 @@ nnoremap("<leader>cc", [["+]])
 noremap("0", "^")
 noremap("^", "0")
 
+noremap("v", "<C-v>")
+noremap("<leader>v", "v")
+
 noremap("<leader>c", [["+]]) -- clipboard
 
 unmap("<leader>l") -- because of latex

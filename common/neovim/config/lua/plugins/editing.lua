@@ -1,3 +1,28 @@
+---@return Regex
+local function start_of_line_matcher()
+  local regex = vim.regex("\\S")
+  local window = require("hop.window")
+
+  return {
+    oneshot = true,
+    ---@param jctx JumpContext
+    match = function(s, jctx)
+      if window.is_active_line(jctx.win_ctx, jctx.line_ctx) then
+        return
+      end
+      local match = regex:match_str(s)
+      return match or 0, 1
+    end,
+  }
+end
+
+---@param matcher Regex
+---@param opts Options
+local function hop_matcher(matcher, opts, callback)
+  opts = setmetatable(opts, { __index = require("hop").opts })
+  require("hop").hint_with_regex(matcher, opts, callback)
+end
+
 return {
   -- multiple cursor support
   {
@@ -29,9 +54,58 @@ return {
       keys = "etovxqpdygfblzhckisuran",
     },
     keys = {
-      { "s", "<cmd>HopChar1MW<cr>", desc = "Hop to any specified character anywhere on the screen" },
-      { "<leader>j", "<cmd>HopLineStartAC<cr>", desc = "Hop to any line below the current one" },
-      { "<leader>k", "<cmd>HopLineStartBC<cr>", desc = "Hop to any line above the current one" },
+      {
+        "s",
+        "<cmd>HopChar1MW<cr>",
+        desc = "Hop to any specified character anywhere on the screen",
+        mode = { "n", "v", "o" },
+      },
+      {
+        "<leader>j",
+        function()
+          local opts = {
+            direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+          }
+          hop_matcher(start_of_line_matcher(), opts)
+        end,
+        desc = "Hop to any line below the current one",
+        mode = { "n", "v" },
+      },
+      {
+        "<leader>j",
+        function()
+          local opts = {
+            direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+          }
+          vim.cmd("normal! V")
+          hop_matcher(start_of_line_matcher(), opts)
+        end,
+        desc = "Hop to any line below the current one",
+        mode = { "o" },
+      },
+      {
+        "<leader>k",
+        function()
+          local opts = {
+            direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+          }
+          hop_matcher(start_of_line_matcher(), opts)
+        end,
+        desc = "Hop to any line above the current one",
+        mode = { "n", "v" },
+      },
+      {
+        "<leader>k",
+        function()
+          local opts = {
+            direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+          }
+          vim.cmd("normal! V")
+          hop_matcher(start_of_line_matcher(), opts)
+        end,
+        desc = "Hop to any line below the current one",
+        mode = { "o" },
+      },
     },
   },
   -- {
