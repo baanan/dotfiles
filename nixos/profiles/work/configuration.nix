@@ -2,14 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, xremap-flake, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./../../system/hardware-configuration.nix
+    [
       ./../../system/fonts/fonts.nix
       ./../../system/wm/gnome/gnome.nix
+      ./../../system/hardware/xremap.nix
+      xremap-flake.nixosModules.default
     ];
 
   # Bootloader.

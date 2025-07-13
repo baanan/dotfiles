@@ -12,7 +12,7 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, fenix, neovim-nightly-overlay, ... } : 
+  outputs = inputs @ { self, nixpkgs, home-manager, fenix, neovim-nightly-overlay, xremap-flake, ... } : 
     let
       systemSettings = {
         profile = "personal";
@@ -31,13 +31,15 @@
     in {
 
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      laptop = lib.nixosSystem {
         system = systemSettings.system;
         modules = [ 
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
-          inputs.xremap-flake.nixosModules.default
-          ./system/hardware/xremap.nix
+          ./system/hardware/devices/laptop.nix
         ];
+        specialArgs = {
+          inherit xremap-flake;
+        };
       };
     };
 
