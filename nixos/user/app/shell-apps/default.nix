@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    eza bat erdtree ripgrep fd
+    eza bat erdtree ripgrep fd ranger
   ];
 
   programs.zsh.shellAliases = {

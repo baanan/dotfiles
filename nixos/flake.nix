@@ -15,7 +15,7 @@
   outputs = inputs @ { self, nixpkgs, home-manager, fenix, neovim-nightly-overlay, ... } : 
     let
       systemSettings = {
-        profile = "work";
+        profile = "personal";
         system = "x86_64-linux";
       };
 

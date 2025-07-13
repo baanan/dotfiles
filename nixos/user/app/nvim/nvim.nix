@@ -8,7 +8,10 @@
   # home.file.".config/nvim".source = ./../../../../common/neovim/config;
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/projects/dotfiles/common/neovim/config";
   # home.file.".config/nvim".recursive = true;
-  programs.neovim.withPython3 = true;
+  programs.neovim = {
+    defaultEditor = true;
+    withPython3 = true;
+  };
 
   programs.git.enable = true;
   programs.git.ignores = [
