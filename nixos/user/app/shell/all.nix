@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  imports =
+    [
+      ./kitty.nix
+    ];
+
   home.packages = with pkgs; [
     eza bat erdtree ripgrep fd ranger
   ];

@@ -3,12 +3,13 @@
 {
   imports =
     [
+      ./../../user/app/code/all.nix
+      ./../../user/app/audio-picture/all.nix
+      ./../../user/app/online/firefox.nix
+      ./../../user/app/shell/all.nix
+      ./../../user/app/system/all.nix
+      ./../../user/app/transfer/all.nix
       ./../../user/shell/sh.nix
-      ./../../user/app/shell-apps/default.nix
-      ./../../user/app/terminal/kitty.nix
-      ./../../user/app/nvim/nvim.nix
-      ./../../user/app/work/work.nix
-      ./../../user/app/lang/all.nix
       ./../../user/wm/gnome/gnome.nix
     ];
 
@@ -45,8 +46,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    google-chrome
-    chromium
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

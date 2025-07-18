@@ -5,4 +5,8 @@
     [
       ./minecraft.nix
     ];
+
+  services.flatpak.packages = [
+    "org.vinegarhq.Sober"
+  ];
 }

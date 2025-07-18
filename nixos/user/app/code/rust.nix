@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, bugstalker, ... }:
 
 {
   home.packages = with pkgs; [
@@ -11,6 +11,7 @@
      "rust-docs"
     ])
     bacon
+    bugstalker.packages."x86_64-linux".default
   ];
   programs.git.enable = true;
   programs.git.ignores = [

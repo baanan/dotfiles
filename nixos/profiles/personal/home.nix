@@ -5,9 +5,6 @@
     [
       ./../work/home.nix
       ./../../user/app/games/all.nix
+      ./../../user/app/online/discord.nix
     ];
-
-  home.packages = with pkgs; [
-    discord
-  ];
 }

@@ -7,6 +7,7 @@
 {
   imports =
     [
+      ./../../system/apps/flatpak.nix
       ./../../system/fonts/fonts.nix
       ./../../system/wm/gnome/gnome.nix
       ./../../system/hardware/xremap.nix
@@ -91,9 +92,6 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -102,7 +100,6 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    neovim
     git
   ];
 

@@ -8,7 +8,7 @@
       appicon-margin=4;
       appicon-padding=4;
       appicon-style="NORMAL";
-      available-monitors=[0];
+      available-monitors=[0 1];
       dot-color-dominant=false;
       dot-color-override=false;
       dot-color-unfocused-different=false;
@@ -24,11 +24,11 @@
       hotkeys-overlay-combo="TEMPORARILY";
       intellihide=false;
       leftbox-padding=-1;
-      panel-anchors=''{"0":"MIDDLE"}'';
-      panel-element-positions=''{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true, "position":"centered"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":true,"position":"stacke dTL"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'';
-      panel-lengths=''{"0":100}'';
-      panel-positions=''{"0":"TOP"}'';
-      panel-sizes=''{"0":32}'';
+      panel-anchors=''{"0":"MIDDLE","1":"MIDDLE"}'';
+      panel-element-positions=''{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centered"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":true,"position":null},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centered"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":true,"position":null},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'';
+      panel-lengths=''{"0":100,"1":100}'';
+      panel-positions=''{"0":"TOP","1":"TOP"}'';
+      panel-sizes=''{"0":32,"1":32}'';
       primary-monitor=0;
       status-icon-padding=-1;
       stockgs-keep-top-panel=false;
