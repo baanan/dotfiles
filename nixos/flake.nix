@@ -64,7 +64,6 @@
       thate = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          inputs.nix-flatpak.homeManagerModules.nix-flatpak
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
         ];
         extraSpecialArgs = {
@@ -72,6 +71,7 @@
           inherit pkgsUnstable;
           system = systemSettings.system;
           bugstalker = inputs.bugstalker;
+          nix-flatpak = inputs.nix-flatpak;
         };
       };
     };

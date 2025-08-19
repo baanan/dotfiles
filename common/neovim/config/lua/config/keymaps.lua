@@ -9,8 +9,8 @@ local unmap = remap.unmap
 
 nnoremap("<leader>cc", [["+]])
 
-noremap("0", "^")
-noremap("^", "0")
+vim.keymap.set({"n", "x", "o"}, "0", "^", { noremap = true, silent = true })
+vim.keymap.set({"n", "x", "o"}, "^", "0", { noremap = true, silent = true })
 
 noremap("v", "<C-v>")
 noremap("<leader>v", "v")

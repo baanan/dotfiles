@@ -9,6 +9,7 @@
       ./../../user/app/shell/all.nix
       ./../../user/app/system/all.nix
       ./../../user/app/transfer/all.nix
+      ./../../user/app/flatpak.nix
       ./../../user/shell/sh.nix
       ./../../user/wm/gnome/gnome.nix
     ];

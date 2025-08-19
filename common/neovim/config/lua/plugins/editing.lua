@@ -58,7 +58,7 @@ return {
         "s",
         "<cmd>HopChar1MW<cr>",
         desc = "Hop to any specified character anywhere on the screen",
-        mode = { "n", "v", "o" },
+        mode = { "n", "x", "o" },
       },
       {
         "<leader>j",
@@ -69,7 +69,7 @@ return {
           hop_matcher(start_of_line_matcher(), opts)
         end,
         desc = "Hop to any line below the current one",
-        mode = { "n", "v" },
+        mode = { "n", "x" },
       },
       {
         "<leader>j",
@@ -92,7 +92,7 @@ return {
           hop_matcher(start_of_line_matcher(), opts)
         end,
         desc = "Hop to any line above the current one",
-        mode = { "n", "v" },
+        mode = { "n", "x" },
       },
       {
         "<leader>k",
@@ -129,10 +129,10 @@ return {
   {
     "bkad/CamelCaseMotion",
     keys = {
-      { "gw", "<plug>CamelCaseMotion_w", mode = { "n", "v", "o" } },
-      { "gb", "<plug>CamelCaseMotion_b", mode = { "n", "v", "o" } },
-      { "ge", "<plug>CamelCaseMotion_e", mode = { "n", "v", "o" } },
-      { "gE", "<plug>CamelCaseMotion_ge", mode = { "n", "v", "o" } },
+      { "gw", "<plug>CamelCaseMotion_w", mode = { "n", "x", "o" } },
+      { "gb", "<plug>CamelCaseMotion_b", mode = { "n", "x", "o" } },
+      { "ge", "<plug>CamelCaseMotion_e", mode = { "n", "x", "o" } },
+      { "gE", "<plug>CamelCaseMotion_ge", mode = { "n", "x", "o" } },
       { "gw", "<plug>CamelCaseMotion_iw", mode = { "o", "x" } },
       { "gb", "<plug>CamelCaseMotion_ib", mode = { "o", "x" } },
       { "ge", "<plug>CamelCaseMotion_ie", mode = { "o", "x" } },

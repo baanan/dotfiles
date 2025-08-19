@@ -13,6 +13,18 @@
     withPython3 = true;
   };
 
+  programs.neovide = {
+    enable = true;
+    settings = {
+      font = {
+        normal = "JetBrainsMono Nerd Font";
+        size = 4;
+      };
+      maximized = true;
+      fork = true;
+    };
+  };
+
   programs.git.enable = true;
   programs.git.ignores = [
     "neovide_backtraces.log"

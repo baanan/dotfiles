@@ -21,4 +21,8 @@
       userName = "baanan";
     };
   };
+
+  services.flatpak.packages = [
+    "org.gnome.design.IconLibrary"
+  ];
 }
