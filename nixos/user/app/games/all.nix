@@ -9,4 +9,8 @@
   services.flatpak.packages = [
     "org.vinegarhq.Sober"
   ];
+
+  home.packages = with pkgs; [
+    gamescope
+  ];
 }
