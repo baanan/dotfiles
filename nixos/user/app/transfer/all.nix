@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    nextcloud-client pkgsUnstable.bitwarden filezilla
+    nextcloud-client pkgsUnstable.bitwarden filezilla sshfs
   ];
 }
