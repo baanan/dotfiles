@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, profile, ... }:
 
 {
   home.packages = [];
@@ -9,12 +9,12 @@
       default = {
         id = 0;
         name = "default";
-        isDefault = true;
+        isDefault = profile != "laptop";
       };
       school = {
         id = 1;
         name = "school";
-        isDefault = false;
+        isDefault = profile == "laptop";
       };
       guest = {
         id = 2;

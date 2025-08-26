@@ -35,6 +35,13 @@
         system = systemSettings.system;
         config.allowUnfree = true;
       };
+      extraSpecialArgs = {
+        inherit neovim-nightly-overlay;
+        inherit pkgsUnstable;
+        system = systemSettings.system;
+        bugstalker = inputs.bugstalker;
+        nix-flatpak = inputs.nix-flatpak;
+      };
     in {
 
     nixosConfigurations = {
@@ -61,18 +68,19 @@
     };
 
     homeConfigurations = {
-      thate = home-manager.lib.homeManagerConfiguration {
+      laptop = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = extraSpecialArgs // { profile = "laptop"; };
         modules = [
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
         ];
-        extraSpecialArgs = {
-          inherit neovim-nightly-overlay;
-          inherit pkgsUnstable;
-          system = systemSettings.system;
-          bugstalker = inputs.bugstalker;
-          nix-flatpak = inputs.nix-flatpak;
-        };
+      };
+      desktop = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = extraSpecialArgs // { profile = "desktop"; };
+        modules = [
+          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+        ];
       };
     };
   };
