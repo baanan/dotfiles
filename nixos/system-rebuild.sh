@@ -7,12 +7,13 @@ fi
 
 pushd ~/Documents/projects/dotfiles/nixos/
 ./../commit.sh
-home-manager switch --flake .#$1
+sudo nixos-rebuild switch --flake .#$1
 if [[ $? -eq 0 ]]; then
   git push
+  popd
+  exit 0
 else
   git reset HEAD~
+  popd
+  exit 1
 fi
-popd
-
-exit 0
