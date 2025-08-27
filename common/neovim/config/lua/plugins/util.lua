@@ -17,7 +17,14 @@ return {
     "nosduco/remote-sshfs.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     config = function()
-      require("remote-sshfs").setup({})
+      require("remote-sshfs").setup({
+        sshfs_args = {
+          "-o reconnect",
+          "-o ConnectTimeout=5",
+          "-o ServerAliveInterval=60",
+          "-o ServerAliveCountMax=3",
+        },
+      })
       require('telescope').load_extension 'remote-sshfs'
     end,
   }
