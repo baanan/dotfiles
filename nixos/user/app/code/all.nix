@@ -5,6 +5,7 @@
     ./java.nix 
     ./rust.nix 
     ./nvim.nix 
+    ./c.nix 
   ];
 
   programs = {
