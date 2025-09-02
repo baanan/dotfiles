@@ -15,6 +15,11 @@
 
     initExtra = ''
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+      mkcdir () {
+          mkdir -p $1;
+          cd $1;
+      }
     '';
 
     oh-my-zsh = {
