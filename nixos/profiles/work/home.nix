@@ -6,6 +6,7 @@
       ./../../user/app/code/all.nix
       ./../../user/app/audio-picture/all.nix
       ./../../user/app/online/firefox.nix
+      ./../../user/app/online/kdeconnect.nix
       ./../../user/app/shell/all.nix
       ./../../user/app/system/all.nix
       ./../../user/app/transfer/all.nix

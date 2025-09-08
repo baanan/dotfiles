@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.gnomeExtensions.blur-my-shell pkgs.gnomeExtensions.dash-to-panel ];
+  home.packages = [
+    pkgs.gnomeExtensions.blur-my-shell
+    pkgs.gnomeExtensions.dash-to-panel
+    pkgs.gnomeExtensions.gsconnect
+  ];
   dconf.settings = {
     "org/gnome/shell/extensions/dash-to-panel" = {
       animate-appicon-hover-animation-extent=''{"RIPPLE": 4, "PLANK": 4, "SIMPLE": 1}'';
