@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  services.kdeconnect = {
-    enable = true;
-  };
+  home.packages = with pkgs; [ kdePackages.kdeconnect-kde ];
+  #
+  # services.kdeconnect = {
+  #   enable = true;
+  # };
 }
