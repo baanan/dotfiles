@@ -5,6 +5,12 @@ return {
     dependencies = {
       { "akinsho/toggleterm.nvim" },
     },
+    opts = {
+      quickfix = {
+        enabled = true,
+        event_trigger = true,
+      }
+    },
     init = function()
       -- create bacon terminal when started so it can be opened later
       bacon = require("toggleterm.terminal").Terminal:new({
