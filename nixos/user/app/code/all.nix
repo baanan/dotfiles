@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [ 
@@ -25,5 +25,9 @@
 
   services.flatpak.packages = [
     "org.gnome.design.IconLibrary"
+  ];
+
+  home.packages = with pkgs; [
+    thonny
   ];
 }
