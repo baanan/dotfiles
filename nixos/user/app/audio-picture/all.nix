@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    obsidian gimp gthumb ffmpeg
+    obsidian gimp gthumb ffmpeg anki
   ];
 
   programs.yt-dlp = {

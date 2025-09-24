@@ -41,4 +41,15 @@ return {
       },
     },
   },
+  opts = {
+    server = {
+      default_settings = {
+        ["rust-analyzer"] = {
+          cargo = {
+            targetDir = true,
+          },
+        },
+      },
+    },
+  }
 }
