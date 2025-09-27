@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    nextcloud-client pkgsUnstable.bitwarden filezilla sshfs
+    nextcloud-client pkgsUnstable.bitwarden filezilla sshfs scrcpy
   ];
 
   services.flatpak.packages = [
