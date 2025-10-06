@@ -68,5 +68,10 @@ return {
   {
     "mason-org/mason-lspconfig.nvim",
     enabled = false,
-  }
+  },
+  {
+    "mason-org/mason.nvim",
+    config = false,
+    opts = false,
+  },
 }
