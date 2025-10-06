@@ -28,6 +28,6 @@
   ];
 
   home.packages = with pkgs; [
-    thonny
+    thonny tree-sitter
   ];
 }

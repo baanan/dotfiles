@@ -65,4 +65,8 @@ return {
     dependencies = { "mfussenegger/nvim-dap" },
     config = true,
   },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    enabled = false,
+  }
 }
