@@ -25,7 +25,7 @@
 
       extraConfig = {
         safe = {
-          directory = "/home/thate/.sshfs/";
+          directory = "*";
         };
       };
     };
