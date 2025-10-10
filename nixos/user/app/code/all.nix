@@ -22,6 +22,12 @@
       enable = true;
       userEmail = "thatepicbanana132@gmail.com";
       userName = "baanan";
+
+      extraConfig = {
+        safe = {
+          directory = "/home/thate/.sshfs/";
+        };
+      };
     };
   };
 
