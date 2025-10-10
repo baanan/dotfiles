@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    vtsls
+    vtsls vscode-langservers-extracted
   ];
 }

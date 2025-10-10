@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    stylua pkgsUnstable.emmylua-ls
+    stylua lua-language-server
   ];
 }
