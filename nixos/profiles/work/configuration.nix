@@ -9,7 +9,6 @@
     [
       ./../../system/apps/flatpak.nix
       ./../../system/fonts/fonts.nix
-      ./../../system/wm/gnome/gnome.nix
       ./../../system/hardware/xremap.nix
       xremap-flake.nixosModules.default
     ];
