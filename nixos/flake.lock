@@ -730,20 +730,34 @@
         "type": "github"
       }
     },
-    "nixpkgs-unstable": {
+    "nixpkgs-master": {
       "locked": {
-        "lastModified": 1758916627,
-        "narHash": "sha256-fB2ISCc+xn+9hZ6gOsABxSBcsCgLCjbJ5bC6U9bPzQ4=",
-        "owner": "nixos",
+        "lastModified": 1761095137,
+        "narHash": "sha256-xGBsWT/oYUVpCIPVp0MSEdkrycQBEve7fKMgbihfmME=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "53614373268559d054c080d070cfc732dbe68ac4",
+        "rev": "0a96514417855327087bb611f9ad7d2e7e89534c",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
+        "id": "nixpkgs",
+        "ref": "master",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1760965567,
+        "narHash": "sha256-0JDOal5P7xzzAibvD0yTE3ptyvoVOAL0rcELmDdtSKg=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
+        "rev": "cb82756ecc37fa623f8cf3e88854f9bf7f64af93",
         "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixpkgs-unstable",
+        "type": "indirect"
       }
     },
     "nixpkgs_2": {
@@ -905,6 +919,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_4",
+        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "xremap-flake": "xremap-flake"
       }
