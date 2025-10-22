@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
+    nixpkgs-master.url = "nixpkgs/master";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -15,7 +16,7 @@
     bugstalker.url = "github:baanan/BugStalker";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, fenix, neovim-nightly-overlay, xremap-flake, nixpkgs-unstable, ... } : 
+  outputs = inputs @ { self, nixpkgs, home-manager, fenix, neovim-nightly-overlay, xremap-flake, nixpkgs-unstable, nixpkgs-master, ... } : 
     let
       systemSettings = {
         profile = "personal";
@@ -35,9 +36,14 @@
         system = systemSettings.system;
         config.allowUnfree = true;
       };
+      pkgsMaster = import nixpkgs-master {
+        system = systemSettings.system;
+        config.allowUnfree = true;
+      };
       extraSpecialArgs = {
         inherit neovim-nightly-overlay;
         inherit pkgsUnstable;
+        inherit pkgsMaster;
         system = systemSettings.system;
         bugstalker = inputs.bugstalker;
         nix-flatpak = inputs.nix-flatpak;

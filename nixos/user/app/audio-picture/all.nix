@@ -1,12 +1,12 @@
-{ pkgs, pkgsUnstable, ... }:
+{ pkgs, pkgsUnstable, pkgsMaster, ... }:
 
 {
   home.packages = with pkgs; [
-    obsidian gimp gthumb ffmpeg anki pkgsUnstable.spotdl
+    obsidian gimp gthumb ffmpeg anki pkgsMaster.spotdl
   ];
 
   programs.yt-dlp = {
     enable = true;
-    package = pkgsUnstable.yt-dlp;
+    package = pkgsMaster.yt-dlp;
   };
 }
