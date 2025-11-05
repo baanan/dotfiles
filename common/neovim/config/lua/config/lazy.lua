@@ -22,10 +22,10 @@ require("lazy").setup({
     {
       "flippette/LazyVim",
       opts = {
-        -- colorscheme = "catppuccin-latte",
-        colorscheme = "tokyonight-moon",
+        colorscheme = "catppuccin-latte",
+        -- colorscheme = "tokyonight-moon",
       },
-    }
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
