@@ -6,6 +6,7 @@
     enable = true;
     settings = {
       theme = "tokyonight_moon";
+      mouse-scroll-multiplier = 1;
       keybind = [
         "ctrl+q=close_surface"
 
@@ -25,6 +26,8 @@
         "ctrl+shift+t=new_tab"
         "ctrl+shift+h=previous_tab"
         "ctrl+shift+l=next_tab"
+
+        "ctrl+shift+f=toggle_fullscreen"
       ];
     };
   };
