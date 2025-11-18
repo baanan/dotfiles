@@ -22,8 +22,8 @@ require("lazy").setup({
     {
       "flippette/LazyVim",
       opts = {
-        colorscheme = "catppuccin-latte",
-        -- colorscheme = "tokyonight-moon",
+        -- colorscheme = "catppuccin-latte",
+        colorscheme = "tokyonight-moon",
       },
     },
   },

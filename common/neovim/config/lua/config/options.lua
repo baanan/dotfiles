@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 if vim.g.neovide then
-  vim.o.guifont = "JetBrainsMono Nerd Font:h14"
+  vim.o.guifont = "JetBrainsMonoNL Nerd Font:h14"
   -- vim.o.guifont = "Hack Nerd Font:h14"
 
   vim.g.neovide_scale_factor = 1.0
@@ -17,3 +17,5 @@ if vim.g.neovide then
     change_scale_factor(1 / 1.25)
   end)
 end
+
+vim.opt.clipboard = ""
