@@ -8,6 +8,9 @@
       theme = "tokyonight_moon";
       mouse-scroll-multiplier = 0.5;
       background-opacity = 0.8;
+      maximize = true;
+      # window-show-tab-bar = "never";
+      gtk-tabs-location = "hidden";
       keybind = [
         "ctrl+q=close_surface"
 
