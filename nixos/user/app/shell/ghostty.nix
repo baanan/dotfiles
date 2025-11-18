@@ -6,7 +6,8 @@
     enable = true;
     settings = {
       theme = "tokyonight_moon";
-      mouse-scroll-multiplier = 1;
+      mouse-scroll-multiplier = 0.5;
+      background-opacity = 0.8;
       keybind = [
         "ctrl+q=close_surface"
 
