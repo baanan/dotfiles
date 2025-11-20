@@ -7,7 +7,7 @@
     ];
 
   services.flatpak.packages = [
-    "org.vinegarhq.Sober"
+    "org.vinegarhq.Sober" "io.mrarm.mcpelauncher"
   ];
 
   home.packages = with pkgs; [
