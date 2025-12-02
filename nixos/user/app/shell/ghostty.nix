@@ -6,7 +6,6 @@
     enable = true;
     settings = {
       theme = "tokyonight_moon";
-      mouse-scroll-multiplier = 0.1;
       background-opacity = 0.9;
       maximize = true;
       # window-show-tab-bar = "never";

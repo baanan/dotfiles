@@ -1,8 +1,8 @@
-{ pkgs, config, neovim-nightly-overlay, system, ... }:
+{ pkgs, config, neovim-nightly-overlay, system, pkgsUnstable, ... }:
 
 {
   home.packages = with pkgs; [
-    python313 clang nodePackages.npm wl-clipboard fzf
+    pkgsUnstable.python315 clang nodePackages.npm wl-clipboard fzf
     neovim-nightly-overlay.packages.${system}.default
   ];
   # home.file.".config/nvim".source = ./../../../../common/neovim/config;

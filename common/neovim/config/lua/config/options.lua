@@ -19,3 +19,4 @@ if vim.g.neovide then
 end
 
 vim.opt.clipboard = ""
+vim.opt.mousescroll = "ver:1"
