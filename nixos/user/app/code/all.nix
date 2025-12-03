@@ -36,6 +36,6 @@
   ];
 
   home.packages = with pkgs; [
-    thonny tree-sitter
+    thonny tree-sitter gdb
   ];
 }
