@@ -2,7 +2,7 @@
   description = "Flake :)";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "nixpkgs/master";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
@@ -14,9 +14,13 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     bugstalker.url = "github:baanan/BugStalker";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, fenix, neovim-nightly-overlay, xremap-flake, nixpkgs-unstable, nixpkgs-master, ... } : 
+  outputs = inputs @ { self, nixpkgs, home-manager, fenix, neovim-nightly-overlay, xremap-flake, nixpkgs-unstable, nixpkgs-master, lanzaboote, ... } : 
     let
       systemSettings = {
         profile = "personal";
@@ -48,6 +52,9 @@
         bugstalker = inputs.bugstalker;
         nix-flatpak = inputs.nix-flatpak;
       };
+      modules = [
+        lanzaboote.nixosModules.lanzaboote
+      ];
     in {
 
     nixosConfigurations = {
@@ -56,7 +63,7 @@
         modules = [ 
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
           ./system/hardware/devices/laptop.nix
-        ];
+        ] ++ modules;
         specialArgs = {
           inherit xremap-flake;
         };
@@ -66,7 +73,7 @@
         modules = [ 
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
           ./system/hardware/devices/desktop.nix
-        ];
+        ] ++ modules;
         specialArgs = {
           inherit xremap-flake;
         };

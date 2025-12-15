@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, xremap-flake, ... }:
+{ config, pkgs, xremap-flake, lib, ... }:
 
 {
   imports =
@@ -17,6 +17,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # lanzaboote
+  # boot.loader.systemd-boot.enable = lib.mkForce false;
+  # boot.lanzaboote = {
+  #   enable = true;
+  #   pkiBundle = "/var/lib/sbctl";
+  # };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -101,6 +108,7 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     git
+    sbctl
   ];
 
   environment.shells = with pkgs; [ zsh ];

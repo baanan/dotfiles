@@ -2,6 +2,7 @@
 
 {
   services.xremap = {
+    enable = true;
     serviceMode = "user";
     userName = "thate";
     withGnome = true;
