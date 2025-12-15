@@ -5,7 +5,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      theme = "tokyonight_moon";
+      theme = "TokyoNight Moon";
       background-opacity = 0.9;
       maximize = true;
       # window-show-tab-bar = "never";
