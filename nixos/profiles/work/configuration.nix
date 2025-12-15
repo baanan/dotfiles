@@ -8,6 +8,7 @@
   imports =
     [
       ./../../system/apps/flatpak.nix
+      ./../../system/apps/system-utils.nix
       ./../../system/fonts/fonts.nix
       ./../../system/hardware/xremap.nix
       xremap-flake.nixosModules.default
