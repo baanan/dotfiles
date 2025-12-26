@@ -66,6 +66,7 @@
         ] ++ modules;
         specialArgs = {
           inherit xremap-flake;
+          profile = "laptop";
         };
       };
       desktop = lib.nixosSystem {
@@ -76,6 +77,7 @@
         ] ++ modules;
         specialArgs = {
           inherit xremap-flake;
+          profile = "desktop";
         };
       };
     };
