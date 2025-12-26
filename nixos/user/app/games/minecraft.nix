@@ -1,7 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, config, pkgsUnstable, ... }:
 
 {
-  home.packages = with pkgs; [
-    prismlauncher
+  home.packages = [
+    pkgsUnstable.prismlauncher
   ];
 }
