@@ -2,10 +2,10 @@
 
 {
   home.packages = [
-    # pkgsUnstable.prismlauncher
+    pkgsUnstable.prismlauncher
   ];
 
   services.flatpak.packages = [
-    "org.prismlauncher.PrismLauncher"
+    # "org.prismlauncher.PrismLauncher"
   ];
 }
