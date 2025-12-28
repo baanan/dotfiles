@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    mission-center protonvpn-gui unzip
+    mission-center protonvpn-gui unzip pkgsUnstable.sbctl
   ];
 
   services.flatpak.packages = [
