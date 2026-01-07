@@ -1,8 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, profile, ... }:
 
+let
+  package = if profile == "macos" then pkgs.ghostty-bin else pkgs.ghostty;
+in
 {
-  home.packages = [ pkgs.ghostty ];
+  home.packages = [ package ];
   programs.ghostty = {
+    inherit package;
     enable = true;
     settings = {
       theme = "TokyoNight Moon";

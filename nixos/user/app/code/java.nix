@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, profile, ... }:
 
 {
   home.packages = with pkgs; [
-    jdk21 eclipses.eclipse-java
-  ];
+    jdk21
+  ] ++ (if profile != "macos" then [
+    eclipses.eclipse-java
+  ] else []);
 }

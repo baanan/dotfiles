@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./kitty.nix
+      # ./kitty.nix
       ./ghostty.nix
     ];
 

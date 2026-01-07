@@ -1,6 +1,6 @@
-{ pkgs, pkgsUnstable, ... }:
+{ pkgs, pkgsUnstable, profile, lib, ... }:
 
-{
+lib.recursiveUpdate {
   imports = [ 
     ./java.nix 
     ./rust.nix 
@@ -31,11 +31,16 @@
     };
   };
 
+  home.packages = with pkgs; [
+    tree-sitter gdb
+  ];
+} 
+(if profile != "macos" then {
   services.flatpak.packages = [
     "org.gnome.design.IconLibrary"
   ];
 
   home.packages = with pkgs; [
-    thonny tree-sitter gdb
+    thonny
   ];
-}
+} else {})

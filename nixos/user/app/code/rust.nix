@@ -1,4 +1,4 @@
-{ pkgs, bugstalker, ... }:
+{ pkgs, bugstalker, system, profile, ... }:
 
 {
   home.packages = with pkgs; [
@@ -11,8 +11,9 @@
      "rust-docs"
     ])
     bacon
-    bugstalker.packages."x86_64-linux".default
-  ];
+  ] ++ (if profile != "macos" then [
+    bugstalker.packages.${system}.default
+  ] else []);
   programs.git.enable = true;
   programs.git.ignores = [
     "bacon.toml"

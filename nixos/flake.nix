@@ -8,6 +8,9 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     xremap-flake.url = "github:xremap/nix-flake";
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +23,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, fenix, neovim-nightly-overlay, xremap-flake, nixpkgs-unstable, nixpkgs-master, lanzaboote, ... } : 
+  outputs = inputs @ { self, nixpkgs, home-manager, neovim-nightly-overlay, xremap-flake, nixpkgs-unstable, nixpkgs-master, nix-darwin, ... } : 
     let
       systemSettings = {
         profile = "personal";
@@ -33,7 +36,14 @@
         system = systemSettings.system;
         config.allowUnfree = true;
         overlays = [
-          fenix.overlays.default
+          inputs.fenix.overlays.default
+        ];
+      };
+      pkgsAarch64 = import nixpkgs {
+        system = "aarch64-darwin";
+        config.allowUnfree = true;
+        overlays = [
+          inputs.fenix.overlays.default
         ];
       };
       pkgsUnstable = import nixpkgs-unstable {
@@ -53,7 +63,7 @@
         nix-flatpak = inputs.nix-flatpak;
       };
       modules = [
-        lanzaboote.nixosModules.lanzaboote
+        inputs.lanzaboote.nixosModules.lanzaboote
       ];
     in {
 
@@ -96,6 +106,22 @@
         modules = [
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
         ];
+      };
+      macos = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgsAarch64;
+        extraSpecialArgs = extraSpecialArgs // { profile = "macos"; system = "aarch64-darwin"; };
+        modules = [
+          ./profiles/macos/home.nix
+        ];
+      };
+    };
+
+    darwinConfigurations = {
+      laptop = nix-darwin.lib.darwinSystem {
+        modules = [ ./profiles/macos/configuration.nix ];
+        specialArgs = {
+          inherit self;
+        };
       };
     };
   };
