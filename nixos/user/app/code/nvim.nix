@@ -28,6 +28,8 @@
     };
   };
 
+  programs.zsh.sessionVariables.EDITOR = "nvim";
+
   programs.git.enable = true;
   programs.git.ignores = [
     "neovide_backtraces.log"
