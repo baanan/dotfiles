@@ -4,6 +4,7 @@
   home.packages = [
     pkgs.gnomeExtensions.blur-my-shell
     pkgs.gnomeExtensions.dash-to-panel
+    pkgs.gnomeExtensions.pop-shell
   ];
   dconf.settings = {
     "org/gnome/shell/extensions/dash-to-panel" = {
