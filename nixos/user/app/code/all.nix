@@ -32,7 +32,7 @@ lib.recursiveUpdate {
   };
 
   home.packages = with pkgs; [
-    tree-sitter gdb
+    tree-sitter gdb balls
   ];
 } 
 (if profile != "macos" then {
