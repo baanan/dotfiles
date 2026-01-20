@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    ruby-lsp rubocop
+    ruby-lsp rubocop ruby
   ];
 }
