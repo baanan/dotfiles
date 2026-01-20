@@ -8,6 +8,7 @@ lib.recursiveUpdate {
     ./lua.nix 
     ./c.nix 
     ./js.nix 
+    ./ruby.nix
   ];
 
   programs = {
