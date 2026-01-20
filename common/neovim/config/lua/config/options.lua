@@ -20,3 +20,5 @@ end
 
 vim.opt.clipboard = ""
 vim.opt.mousescroll = "ver:1"
+
+vim.g.lazyvim_ruby_lsp = "solargraph"
