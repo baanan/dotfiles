@@ -32,15 +32,13 @@ lib.recursiveUpdate {
   };
 
   home.packages = with pkgs; [
-    tree-sitter gdb balls
-  ];
+    tree-sitter gdb
+  ] ++ (if profile != "macos" then [ 
+    thonny
+  ] else []);
 } 
 (if profile != "macos" then {
   services.flatpak.packages = [
     "org.gnome.design.IconLibrary"
-  ];
-
-  home.packages = with pkgs; [
-    thonny
   ];
 } else {})
