@@ -21,6 +21,11 @@
       url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    # Or, if you follow Nixkgs release 25.05:
+    # aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-25.05";
+    aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, neovim-nightly-overlay, xremap-flake, nixpkgs-unstable, nixpkgs-master, nix-darwin, ... } : 
@@ -61,6 +66,7 @@
         system = systemSettings.system;
         bugstalker = inputs.bugstalker;
         nix-flatpak = inputs.nix-flatpak;
+        aagl = inputs.aagl;
       };
       modules = [
         inputs.lanzaboote.nixosModules.lanzaboote
