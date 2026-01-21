@@ -1,4 +1,4 @@
-{ pkgs, config, pkgsUnstable, aagl, ... }:
+{ pkgs, config, aagl, ... }:
 
 {
   imports = [ aagl.nixosModules.default ];

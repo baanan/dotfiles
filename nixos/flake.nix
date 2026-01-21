@@ -22,9 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-    # Or, if you follow Nixkgs release 25.05:
-    # aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-25.05";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -59,6 +57,10 @@
         system = systemSettings.system;
         config.allowUnfree = true;
       };
+      specialArgs = {
+        inherit xremap-flake;
+        aagl = inputs.aagl;
+      };
       extraSpecialArgs = {
         inherit neovim-nightly-overlay;
         inherit pkgsUnstable;
@@ -66,7 +68,6 @@
         system = systemSettings.system;
         bugstalker = inputs.bugstalker;
         nix-flatpak = inputs.nix-flatpak;
-        aagl = inputs.aagl;
       };
       modules = [
         inputs.lanzaboote.nixosModules.lanzaboote
@@ -80,8 +81,7 @@
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
           ./system/hardware/devices/laptop.nix
         ] ++ modules;
-        specialArgs = {
-          inherit xremap-flake;
+        specialArgs = specialArgs // {
           profile = "laptop";
         };
       };
@@ -91,8 +91,7 @@
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
           ./system/hardware/devices/desktop.nix
         ] ++ modules;
-        specialArgs = {
-          inherit xremap-flake;
+        specialArgs = specialArgs // {
           profile = "desktop";
         };
       };
