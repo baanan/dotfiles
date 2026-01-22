@@ -9,6 +9,7 @@ lib.recursiveUpdate {
     ./c.nix 
     ./js.nix 
     ./ruby.nix
+    ./zed.nix
   ];
 
   programs = {
