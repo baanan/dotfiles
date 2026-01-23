@@ -1,15 +1,16 @@
 { pkgs, pkgsUnstable, profile, lib, ... }:
 
 lib.recursiveUpdate {
-  imports = [ 
-    ./java.nix 
-    ./rust.nix 
-    ./nvim.nix 
-    ./lua.nix 
-    ./c.nix 
-    ./js.nix 
+  imports = [
+    ./java.nix
+    ./rust.nix
+    ./nvim.nix
+    ./lua.nix
+    ./c.nix
+    ./js.nix
     ./ruby.nix
     ./zed.nix
+    ./nix.nix
   ];
 
   programs = {
@@ -35,10 +36,10 @@ lib.recursiveUpdate {
 
   home.packages = with pkgs; [
     tree-sitter gdb
-  ] ++ (if profile != "macos" then [ 
+  ] ++ (if profile != "macos" then [
     thonny
   ] else []);
-} 
+}
 (if profile != "macos" then {
   services.flatpak.packages = [
     "org.gnome.design.IconLibrary"
