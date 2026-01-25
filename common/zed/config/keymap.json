@@ -10,7 +10,7 @@
 // `zed: open key context view`
 [
   {
-    "context": "VimControl || !vim_mode && !CommandPalette",
+    "context": "VimControl || !vim_mode && !CommandPalette && !BufferSearchBar",
     "bindings": {
       // telescope
       "space space": "file_finder::Toggle",
@@ -58,6 +58,8 @@
       "a": "project_panel::NewFile",
       "A": "project_panel::NewDirectory",
       "d": "project_panel::Delete",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
       "r": "project_panel::Rename",
       "q": "workspace::CloseActiveDock",
       "H": "project_panel::ToggleHideHidden"

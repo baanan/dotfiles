@@ -16,16 +16,20 @@
   "theme": {
     "mode": "dark",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
+    "dark": "Tokyo Night Moon"
   },
   "auto_install_extensions": {
     "catppuccin": true,
     "catppuccin-icons": true,
-    "nix": true
+    "nix": true,
+    "ron": true,
+    "toml": true,
+    "cargo-tom": true
   },
   "disable_ai": true,
   "vim_mode": true,
   "relative_line_numbers": "enabled",
+  "always_treat_brackets_as_autoclosed": true,
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
