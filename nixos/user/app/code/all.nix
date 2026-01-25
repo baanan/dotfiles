@@ -11,6 +11,7 @@ lib.recursiveUpdate {
     ./ruby.nix
     ./zed.nix
     ./nix.nix
+    ./go.nix
   ];
 
   programs = {

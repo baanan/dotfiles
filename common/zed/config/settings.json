@@ -1,4 +1,27 @@
 {
+  "ssh_connections": [
+    {
+      "host": "stu",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/cs/home/stu/craigbh"
+          ]
+        },
+        {
+          "paths": [
+            "/cs/home/stu/craigbh/cs430-craigbh"
+          ]
+        },
+        {
+          "paths": [
+            "/cs/home/stu/craigbh/cs430-craigbh/project/./"
+          ]
+        }
+      ]
+    }
+  ],
   "git": {
     "inline_blame": {
       "enabled": false
