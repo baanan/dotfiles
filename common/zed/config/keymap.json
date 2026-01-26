@@ -59,6 +59,7 @@
       "A": "project_panel::NewDirectory",
       "d": "project_panel::Delete",
       "y": "project_panel::Copy",
+      "x": "project_panel::Cut",
       "p": "project_panel::Paste",
       "r": "project_panel::Rename",
       "q": "workspace::CloseActiveDock",

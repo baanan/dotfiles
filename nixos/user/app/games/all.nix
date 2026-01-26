@@ -11,6 +11,6 @@
   ];
 
   home.packages = with pkgs; [
-    gamescope
+    gamescope r2modman
   ];
 }
