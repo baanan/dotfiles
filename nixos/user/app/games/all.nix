@@ -11,6 +11,6 @@
   ];
 
   home.packages = with pkgs; [
-    gamescope pkgsUnstable.r2modman
+    pkgsUnstable.gamescope pkgsUnstable.r2modman
   ];
 }
