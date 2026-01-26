@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgsUnstable, ... }:
 
 {
   imports =
@@ -11,6 +11,6 @@
   ];
 
   home.packages = with pkgs; [
-    gamescope r2modman
+    gamescope pkgsUnstable.r2modman
   ];
 }
