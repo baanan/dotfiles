@@ -38,7 +38,7 @@ lib.recursiveUpdate {
   home.packages = with pkgs; [
     tree-sitter gdb
     # typst
-    typst typst-live
+    typst typst-live tinymist
   ] ++ (if profile != "macos" then [
     thonny
   ] else []);
