@@ -11,6 +11,11 @@
         },
         {
           "paths": [
+            "/cs/home/stu/craigbh/cs361"
+          ]
+        },
+        {
+          "paths": [
             "/cs/home/stu/craigbh/cs430-craigbh"
           ]
         },
@@ -28,7 +33,7 @@
     }
   },
   "project_panel": {
-    "hide_hidden": true
+    "hide_hidden": false
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "telemetry": {

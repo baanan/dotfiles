@@ -40,16 +40,16 @@
 
       // opening side panels
       "space e": "vim::ToggleProjectPanelFocus",
-      "space a": "outline_panel::ToggleFocus"
-    }
+      "space a": "outline_panel::ToggleFocus",
+    },
   },
   // normal mode
   {
     "context": "VimControl",
     "bindings": {
       "0": "vim::FirstNonWhitespace",
-      "^": "vim::StartOfLine"
-    }
+      "^": "vim::StartOfLine",
+    },
   },
   // project panel
   {
@@ -63,8 +63,8 @@
       "p": "project_panel::Paste",
       "r": "project_panel::Rename",
       "q": "workspace::CloseActiveDock",
-      "H": "project_panel::ToggleHideHidden"
-    }
+      "H": "project_panel::ToggleHideHidden",
+    },
   },
   // subwords
   {
@@ -73,15 +73,22 @@
       "space w": "vim::NextSubwordStart",
       // "space b": "vim::PreviousSubwordStart",
       // "space e": "vim::NextSubwordEnd",
-      "space g e": "vim::PreviousSubwordEnd"
-    }
+      "space g e": "vim::PreviousSubwordEnd",
+    },
   },
   // sneak
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
       "s": "vim::PushSneak",
-      "shift-s": "vim::PushSneakBackward"
-    }
-  }
+      "shift-s": "vim::PushSneakBackward",
+    },
+  },
+  // typst
+  {
+    "context": "vim_mode == insert && extension == typ",
+    "bindings": {
+      "m k": ["workspace::SendKeystrokes", "$"],
+    },
+  },
 ]
