@@ -6,11 +6,6 @@
       "projects": [
         {
           "paths": [
-            "/cs/home/stu/craigbh"
-          ]
-        },
-        {
-          "paths": [
             "/cs/home/stu/craigbh/cs361"
           ]
         },
@@ -19,32 +14,31 @@
             "/cs/home/stu/craigbh/cs430-craigbh"
           ]
         },
-        {
-          "paths": [
-            "/cs/home/stu/craigbh/cs430-craigbh/project/./"
-          ]
-        }
-      ]
-    }
+      ],
+    },
   ],
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "project_panel": {
-    "hide_hidden": false
+    "hide_hidden": true,
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
-  "icon_theme": "Catppuccin Frappé",
-  "theme": {
-    "mode": "dark",
+  "icon_theme": {
+    "mode": "light",
     "light": "Catppuccin Latte",
-    "dark": "Tokyo Night Moon"
+    "dark": "Catppuccin Frappé"
+  },
+  "theme": {
+    "mode": "light",
+    "light": "Catppuccin Latte",
+    "dark": "Tokyo Night Moon",
   },
   "auto_install_extensions": {
     "catppuccin": true,
@@ -52,7 +46,12 @@
     "nix": true,
     "ron": true,
     "toml": true,
-    "cargo-tom": true
+    "cargo-tom": true,
+    "tokyo-night": true,
+    "ruby": true,
+  },
+  "session": {
+    "trust_all_worktrees": true,
   },
   "disable_ai": true,
   "vim_mode": true,
@@ -62,9 +61,11 @@
     "rust-analyzer": {
       "initialization_options": {
         "diagnostics": {
-          "disabled": ["trait-impl-incorrect-safety"]
-        }
-      }
-    }
-  }
+          "disabled": [
+            "trait-impl-incorrect-safety"
+          ],
+        },
+      },
+    },
+  },
 }
