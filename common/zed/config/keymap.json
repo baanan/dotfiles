@@ -10,16 +10,15 @@
 // `zed: open key context view`
 [
   {
+    "context": "true",
+    "bindings": {
+      // managing docks
+      "ctrl-q": "workspace::CloseActiveDock",
+    },
+  },
+  {
     "context": "VimControl || !vim_mode && !CommandPalette && !BufferSearchBar",
     "bindings": {
-      // telescope
-      "space space": "file_finder::Toggle",
-      // tab management
-      "space b o": "pane::CloseOtherItems",
-      "space b d": "pane::CloseActiveItem",
-      // switching between tabs ("buffers")
-      "shift-l": "pane::ActivateNextItem",
-      "shift-h": "pane::ActivatePreviousItem",
       // switching between panes
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-j": "workspace::ActivatePaneDown",
@@ -30,11 +29,30 @@
       "alt-j": "vim::ResizePaneDown",
       "alt-k": "vim::ResizePaneUp",
       "alt-l": "vim::ResizePaneRight",
-      // managing docks
-      "ctrl-q": "workspace::CloseActiveDock",
+    },
+  },
+  {
+    "context": "VimControl || !vim_mode && !CommandPalette && !BufferSearchBar && !Terminal",
+    "bindings": {
+      // telescope
+      "space space": "file_finder::Toggle",
+      // tab management
+      "space b o": "pane::CloseOtherItems",
+      "space b d": "pane::CloseActiveItem",
+      // switching between tabs ("buffers")
+      "shift-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
       // opening side panels
-      "space e": "vim::ToggleProjectPanelFocus",
+      "space e": "project_panel::ToggleFocus",
       "space a": "outline_panel::ToggleFocus",
+      "space t": "terminal_panel::Toggle",
+      "space b c": [
+        "action::Sequence",
+        [
+          "pane::SplitRight",
+          ["task::Spawn", { "task_name": "bacon", "reveal_target": "center" }],
+        ],
+      ],
     },
   },
   // normal mode
@@ -82,10 +100,7 @@
   {
     "context": "vim_mode == insert && extension == typ",
     "bindings": {
-      "m k": [
-        "workspace::SendKeystrokes",
-        "$"
-      ],
+      "m k": ["workspace::SendKeystrokes", "$"],
     },
   },
 ]
