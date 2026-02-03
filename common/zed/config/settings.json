@@ -32,7 +32,7 @@
     "dark": "Catppuccin Frappé",
   },
   "theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Catppuccin Latte",
     "dark": "Tokyo Night Moon",
   },
