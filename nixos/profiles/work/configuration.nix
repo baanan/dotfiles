@@ -11,6 +11,7 @@
       ./../../system/apps/appimage.nix
       ./../../system/apps/openrgb.nix
       ./../../system/apps/system-utils.nix
+      ./../../system/apps/nix.nix
       ./../../system/fonts/fonts.nix
       ./../../system/hardware/xremap.nix
       xremap-flake.nixosModules.default
