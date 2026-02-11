@@ -11,6 +11,7 @@
       ./../../user/app/system/all.nix
       ./../../user/app/transfer/all.nix
       ./../../user/app/flatpak.nix
+      ./../../user/app/nix.nix
       ./../../user/shell/sh.nix
       ./../../user/wm/gnome/gnome.nix
     ];
