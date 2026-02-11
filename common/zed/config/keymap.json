@@ -32,7 +32,7 @@
     },
   },
   {
-    "context": "VimControl || !vim_mode && !CommandPalette && !BufferSearchBar && !Terminal",
+    "context": "VimControl || !vim_mode && !CommandPalette && !BufferSearchBar && !Terminal && !renaming",
     "bindings": {
       // telescope
       "space space": "file_finder::Toggle",

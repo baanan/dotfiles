@@ -1,13 +1,4 @@
 {
-  "languages": {
-    "Markdown": {
-      
-    },
-    "C": {
-      "tab_size": 2,
-      "format_on_save": "on"
-    }
-  },
   "preferred_line_length": 100,
   "soft_wrap": "preferred_line_length",
   "ssh_connections": [
@@ -43,7 +34,7 @@
     "dark": "Catppuccin Frappé",
   },
   "theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Catppuccin Latte",
     "dark": "Tokyo Night Moon",
   },
