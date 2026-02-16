@@ -58,7 +58,16 @@
       "space t": "terminal_panel::Toggle",
       "space b c": [
         "action::Sequence",
-        ["pane::SplitRight", ["task::Spawn", { "task_name": "bacon", "reveal_target": "center" }]],
+        [
+          "pane::SplitRight",
+          [
+            "task::Spawn",
+            {
+              "task_name": "bacon",
+              "reveal_target": "center"
+            }
+          ]
+        ],
       ],
     },
   },
@@ -107,7 +116,10 @@
   {
     "context": "vim_mode == insert && extension == typ",
     "bindings": {
-      "m k": ["workspace::SendKeystrokes", "$"],
+      "m k": [
+        "workspace::SendKeystrokes",
+        "$"
+      ],
     },
   },
 ]
