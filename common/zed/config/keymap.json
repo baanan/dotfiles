@@ -10,10 +10,17 @@
 // `zed: open key context view`
 [
   {
-    "context": "true",
+    "context": "Dock",
     "bindings": {
       // managing docks
-      "ctrl-q": "workspace::CloseActiveDock",
+      "ctrl-shift-q": "workspace::CloseActiveDock",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      // managing docks
+      "ctrl-shift-q": "pane::CloseAllItems",
     },
   },
   {
@@ -29,6 +36,9 @@
       "alt-j": "vim::ResizePaneDown",
       "alt-k": "vim::ResizePaneUp",
       "alt-l": "vim::ResizePaneRight",
+      // splitting
+      "ctrl-s": "workspace::NewFileSplitHorizontal",
+      "ctrl-v": "workspace::NewFileSplitVertical",
     },
   },
   {
@@ -48,10 +58,7 @@
       "space t": "terminal_panel::Toggle",
       "space b c": [
         "action::Sequence",
-        [
-          "pane::SplitRight",
-          ["task::Spawn", { "task_name": "bacon", "reveal_target": "center" }],
-        ],
+        ["pane::SplitRight", ["task::Spawn", { "task_name": "bacon", "reveal_target": "center" }]],
       ],
     },
   },

@@ -5,6 +5,7 @@
     pkgs.gnomeExtensions.blur-my-shell
     pkgs.gnomeExtensions.dash-to-panel
     pkgs.gnomeExtensions.pop-shell
+    pkgs.gnomeExtensions.appindicator
   ];
   dconf.settings = {
     "org/gnome/shell/extensions/dash-to-panel" = {
