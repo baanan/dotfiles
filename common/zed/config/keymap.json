@@ -39,6 +39,15 @@
       // splitting
       "ctrl-s": "workspace::NewFileSplitHorizontal",
       "ctrl-v": "workspace::NewFileSplitVertical",
+      // terminal stuff
+      "ctrl-t": "workspace::NewCenterTerminal",
+      // forced stuff - such as when in the terminal
+      //   tab management
+      "ctrl-space b d": "pane::CloseActiveItem",
+      "ctrl-space b o": "pane::CloseOtherItems",
+      //   switching between tabs
+      "ctrl-shift-l": "pane::ActivateNextItem",
+      "ctrl-shift-h": "pane::ActivatePreviousItem",
     },
   },
   {
@@ -64,9 +73,9 @@
             "task::Spawn",
             {
               "task_name": "bacon",
-              "reveal_target": "center"
-            }
-          ]
+              "reveal_target": "center",
+            },
+          ],
         ],
       ],
     },
@@ -116,10 +125,7 @@
   {
     "context": "vim_mode == insert && extension == typ",
     "bindings": {
-      "m k": [
-        "workspace::SendKeystrokes",
-        "$"
-      ],
+      "m k": ["workspace::SendKeystrokes", "$"],
     },
   },
 ]
