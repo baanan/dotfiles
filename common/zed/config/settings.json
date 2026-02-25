@@ -31,7 +31,7 @@
     },
   },
   "project_panel": {
-    "hide_hidden": false,
+    "hide_hidden": true,
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "telemetry": {
