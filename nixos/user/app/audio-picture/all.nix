@@ -7,6 +7,7 @@
 
   services.flatpak.packages = [
     "com.github.johnfactotum.Foliate"
+    "io.gitlab.news_flash.NewsFlash"
   ];
 
   programs.yt-dlp = {
