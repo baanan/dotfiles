@@ -17,22 +17,16 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/cs/home/stu/craigbh/cs327"
-          ]
+          "paths": ["/cs/home/stu/craigbh/cs327"],
         },
         {
-          "paths": [
-            "/cs/home/stu/craigbh/cs361"
-          ]
+          "paths": ["/cs/home/stu/craigbh/cs361"],
         },
         {
-          "paths": [
-            "/cs/home/stu/craigbh/cs430-craigbh"
-          ]
-        }
-      ]
-    }
+          "paths": ["/cs/home/stu/craigbh/cs430-craigbh"],
+        },
+      ],
+    },
   ],
   "git": {
     "inline_blame": {
@@ -80,6 +74,12 @@
         "diagnostics": {
           "disabled": ["trait-impl-incorrect-safety"],
         },
+      },
+    },
+    "haskell": {
+      "binary": {
+        "ignore_system_version": false,
+        "path": "/home/thate/.nix-profile/bin/haskell-language-server",
       },
     },
   },
