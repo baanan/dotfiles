@@ -48,12 +48,12 @@
     "metrics": false,
   },
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Frappé",
   },
   "theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Catppuccin Latte",
     "dark": "Tokyo Night Moon",
   },
