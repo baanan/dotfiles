@@ -17,13 +17,22 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/cs/home/stu/craigbh/cs361"],
+          "paths": [
+            "/cs/home/stu/craigbh/cs327"
+          ]
         },
         {
-          "paths": ["/cs/home/stu/craigbh/cs430-craigbh"],
+          "paths": [
+            "/cs/home/stu/craigbh/cs361"
+          ]
         },
-      ],
-    },
+        {
+          "paths": [
+            "/cs/home/stu/craigbh/cs430-craigbh"
+          ]
+        }
+      ]
+    }
   ],
   "git": {
     "inline_blame": {

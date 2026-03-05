@@ -97,7 +97,7 @@
   users.users.thate = {
     isNormalUser = true;
     description = "Brennan Craig";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     packages = with pkgs; [
     #  thunderbird
     ];
