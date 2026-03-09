@@ -1,8 +1,19 @@
-{ pkgs, pkgsUnstable, pkgsMaster, ... }:
+{
+  pkgs,
+  pkgsUnstable,
+  pkgsMaster,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
-    obsidian gimp gthumb ffmpeg anki pkgsMaster.spotdl presenterm
+    obsidian
+    gimp
+    gthumb
+    ffmpeg
+    anki
+    pkgsMaster.spotdl
+    presenterm
   ];
 
   services.flatpak.packages = [

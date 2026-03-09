@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    mission-center protonvpn-gui unzip pkgsUnstable.sbctl pika-backup
+    mission-center protonvpn-gui unzip pkgsUnstable.sbctl pika-backup cloudflared
   ];
 
   services.flatpak.packages = [

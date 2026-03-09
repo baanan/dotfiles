@@ -17,13 +17,24 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/cs/home/stu/craigbh/cs327"],
+          "paths": [
+            "/cs/home/stu/craigbh/cs327"
+          ],
         },
         {
-          "paths": ["/cs/home/stu/craigbh/cs361"],
+          "paths": [
+            "/cs/home/stu/craigbh/cs327/pa1"
+          ],
         },
         {
-          "paths": ["/cs/home/stu/craigbh/cs430-craigbh"],
+          "paths": [
+            "/cs/home/stu/craigbh/cs361"
+          ],
+        },
+        {
+          "paths": [
+            "/cs/home/stu/craigbh/cs430-craigbh"
+          ],
         },
       ],
     },
@@ -72,7 +83,9 @@
     "rust-analyzer": {
       "initialization_options": {
         "diagnostics": {
-          "disabled": ["trait-impl-incorrect-safety"],
+          "disabled": [
+            "trait-impl-incorrect-safety"
+          ],
         },
       },
     },
