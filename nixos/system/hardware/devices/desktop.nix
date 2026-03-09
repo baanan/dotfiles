@@ -35,11 +35,11 @@
       fsType = "ext4";
     };
 
-  fileSystems."/mnt/tera" =
-    { device = "/dev/disk/by-uuid/8832ECEB32ECDF66";
-      fsType = "ntfs";
-      options = [ "rw" ];
-    };
+  # fileSystems."/mnt/tera" =
+  #   { device = "/dev/disk/by-uuid/8832ECEB32ECDF66";
+  #     fsType = "ntfs";
+  #     options = [ "rw" ];
+  #   };
 
   fileSystems."/mnt/windows" =
     { device = "/dev/disk/by-uuid/48006C94006C8B30";
