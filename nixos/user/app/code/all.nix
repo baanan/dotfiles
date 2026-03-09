@@ -42,10 +42,6 @@ lib.recursiveUpdate
       };
     };
 
-    home.shellAliases = {
-      hls = "haskell-language-server";
-    };
-
     home.packages =
       with pkgs;
       [

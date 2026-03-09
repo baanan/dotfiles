@@ -86,6 +86,9 @@
     "bindings": {
       "0": "vim::FirstNonWhitespace",
       "^": "vim::StartOfLine",
+      "Y": "vim::YankToEndOfLine",
+      "D": "vim::DeleteToEndOfLine",
+      "C": "vim::ChangeToEndOfLine",
     },
   },
   // project panel

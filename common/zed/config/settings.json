@@ -45,7 +45,7 @@
     },
   },
   "project_panel": {
-    "hide_hidden": true,
+    "hide_hidden": false,
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "telemetry": {
@@ -87,13 +87,15 @@
             "trait-impl-incorrect-safety"
           ],
         },
+        "check": {
+          "command": "clippy",
+        },
       },
     },
-    "haskell": {
-      "binary": {
-        "ignore_system_version": false,
-        "path": "/home/thate/.nix-profile/bin/haskell-language-server",
-      },
-    },
+    // "hls": {
+    //   "binary": {
+    //     "path": "/home/thate/.nix-profile/bin/haskell-language-server",
+    //   },
+    // },
   },
 }
