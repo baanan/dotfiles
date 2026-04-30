@@ -1,0 +1,5 @@
+
+(pika-backup-monitor:120270): pika-backup-CRITICAL **: 19:28:28.350: src/daemon/init.rs:63:0: Error setting background status: Portal(NotAllowed("Only sandboxed applications can set background status"))
+GApplication service mode takes no arguments.
+
+(pika-backup-monitor:120556): pika-backup-CRITICAL **: 19:29:27.861: src/daemon/init.rs:63:0: Error setting background status: Portal(NotAllowed("Only sandboxed applications can set background status"))

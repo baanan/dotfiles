@@ -2,11 +2,11 @@
   "languages": {
     "C++": {
       "format_on_save": "on",
-      "tab_size": 2,
+      "tab_size": 4,
     },
     "C": {
       "format_on_save": "on",
-      "tab_size": 2,
+      "tab_size": 4,
     },
   },
   "preferred_line_length": 100,
@@ -17,24 +17,13 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/cs/home/stu/craigbh/cs327"
-          ],
+          "paths": ["/cs/home/stu/craigbh/cs327"],
         },
         {
-          "paths": [
-            "/cs/home/stu/craigbh/cs327/pa1"
-          ],
+          "paths": ["/cs/home/stu/craigbh/cs361"],
         },
         {
-          "paths": [
-            "/cs/home/stu/craigbh/cs361"
-          ],
-        },
-        {
-          "paths": [
-            "/cs/home/stu/craigbh/cs430-craigbh"
-          ],
+          "paths": ["/cs/home/stu/craigbh/cs430-craigbh"],
         },
       ],
     },
@@ -83,9 +72,7 @@
     "rust-analyzer": {
       "initialization_options": {
         "diagnostics": {
-          "disabled": [
-            "trait-impl-incorrect-safety"
-          ],
+          "disabled": ["trait-impl-incorrect-safety"],
         },
         "check": {
           "command": "clippy",
