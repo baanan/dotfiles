@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgsUnstable, ... }:
 
 {
   home.packages = [
-    pkgs.vesktop
+    pkgsUnstable.vesktop
   ];
 }
