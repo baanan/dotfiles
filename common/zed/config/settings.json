@@ -1,4 +1,18 @@
 {
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "languages": {
     "C++": {
       "format_on_save": "on",
@@ -17,16 +31,38 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/cs/home/stu/craigbh/cs327"],
+          "paths": [
+            "/cs/home/stu/craigbh/cs327"
+          ]
         },
         {
-          "paths": ["/cs/home/stu/craigbh/cs361"],
+          "paths": [
+            "/cs/home/stu/craigbh/cs361"
+          ]
         },
         {
-          "paths": ["/cs/home/stu/craigbh/cs430-craigbh"],
-        },
-      ],
+          "paths": [
+            "/cs/home/stu/craigbh/cs430-craigbh"
+          ]
+        }
+      ]
     },
+    {
+      "host": "server",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/thate"
+          ]
+        },
+        {
+          "paths": [
+            "/home/thate/glance"
+          ]
+        }
+      ]
+    }
   ],
   "git": {
     "inline_blame": {
@@ -34,7 +70,8 @@
     },
   },
   "project_panel": {
-    "hide_hidden": false,
+    "dock": "left",
+    "hide_hidden": true,
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "telemetry": {
@@ -42,12 +79,12 @@
     "metrics": false,
   },
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Frappé",
   },
   "theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Catppuccin Latte",
     "dark": "Tokyo Night Moon",
   },

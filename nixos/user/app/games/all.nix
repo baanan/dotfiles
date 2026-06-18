@@ -1,17 +1,23 @@
-{ config, pkgs, pkgsUnstable, ... }:
+{
+  config,
+  pkgs,
+  pkgsUnstable,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./minecraft.nix
-    ];
+  imports = [
+    ./minecraft.nix
+  ];
 
   services.flatpak.packages = [
-    "org.vinegarhq.Sober" "io.mrarm.mcpelauncher"
+    "org.vinegarhq.Sober"
+    "io.mrarm.mcpelauncher"
   ];
 
   home.packages = with pkgs; [
     # pkgsUnstable.gamescope
     pkgsUnstable.r2modman
+    pkgsUnstable.cemu
   ];
 }
