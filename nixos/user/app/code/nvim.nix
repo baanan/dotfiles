@@ -1,15 +1,34 @@
-{ pkgs, config, neovim-nightly-overlay, system, pkgsUnstable, profile, ... }:
+{
+  pkgs,
+  config,
+  neovim-nightly-overlay,
+  system,
+  pkgsUnstable,
+  profile,
+  ...
+}:
 
 {
-  home.packages = with pkgs; [
-    pkgsUnstable.python315 clang fzf
-    neovim-nightly-overlay.packages.${system}.default
-  ] ++ (if profile != "macos" then [
-    wl-clipboard nodePackages.npm 
-  ] else []);
+  home.packages =
+    with pkgs;
+    [
+      pkgsUnstable.python315
+      clang
+      fzf
+      neovim-nightly-overlay.packages.${system}.default
+    ]
+    ++ (
+      if profile != "macos" then
+        [
+          wl-clipboard
+        ]
+      else
+        [ ]
+    );
 
   # home.file.".config/nvim".source = ./../../../../common/neovim/config;
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/projects/dotfiles/common/neovim/config";
+  home.file.".config/nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/projects/dotfiles/common/neovim/config";
   # home.file.".config/nvim".recursive = true;
   programs.neovim = {
     defaultEditor = true;

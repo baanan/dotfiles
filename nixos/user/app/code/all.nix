@@ -52,8 +52,8 @@ lib.recursiveUpdate
         typst-live
         tinymist
         # haskell
-        ghc
-        haskellPackages.haskell-language-server
+        # ghc
+        # haskellPackages.haskell-language-server
       ]
       ++ (
         if profile != "macos" then
