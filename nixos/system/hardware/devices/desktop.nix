@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+  pkgsUnstable,
   modulesPath,
   ...
 }:
@@ -26,7 +27,7 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgsUnstable.linuxPackages_latest;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/cdad1a6c-19f9-4680-880c-6827304d84a6";

@@ -26,7 +26,18 @@
     aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, neovim-nightly-overlay, xremap-flake, nixpkgs-unstable, nixpkgs-master, nix-darwin, ... } : 
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      neovim-nightly-overlay,
+      xremap-flake,
+      nixpkgs-unstable,
+      nixpkgs-master,
+      nix-darwin,
+      ...
+    }:
     let
       systemSettings = {
         profile = "personal";
@@ -60,6 +71,7 @@
       specialArgs = {
         inherit xremap-flake;
         aagl = inputs.aagl;
+        inherit pkgsUnstable;
       };
       extraSpecialArgs = {
         inherit neovim-nightly-overlay;
@@ -72,62 +84,72 @@
       modules = [
         inputs.lanzaboote.nixosModules.lanzaboote
       ];
-    in {
+    in
+    {
 
-    nixosConfigurations = {
-      laptop = lib.nixosSystem {
-        system = systemSettings.system;
-        modules = [ 
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
-          ./system/hardware/devices/laptop.nix
-        ] ++ modules;
-        specialArgs = specialArgs // {
-          profile = "laptop";
+      nixosConfigurations = {
+        laptop = lib.nixosSystem {
+          system = systemSettings.system;
+          modules = [
+            (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+            ./system/hardware/devices/laptop.nix
+          ]
+          ++ modules;
+          specialArgs = specialArgs // {
+            profile = "laptop";
+          };
+        };
+        desktop = lib.nixosSystem {
+          system = systemSettings.system;
+          modules = [
+            (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+            ./system/hardware/devices/desktop.nix
+          ]
+          ++ modules;
+          specialArgs = specialArgs // {
+            profile = "desktop";
+          };
         };
       };
-      desktop = lib.nixosSystem {
-        system = systemSettings.system;
-        modules = [ 
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
-          ./system/hardware/devices/desktop.nix
-        ] ++ modules;
-        specialArgs = specialArgs // {
-          profile = "desktop";
+
+      homeConfigurations = {
+        laptop = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = extraSpecialArgs // {
+            profile = "laptop";
+          };
+          modules = [
+            (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+          ];
+        };
+        desktop = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = extraSpecialArgs // {
+            profile = "desktop";
+          };
+          modules = [
+            (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+          ];
+        };
+        macos = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgsAarch64;
+          extraSpecialArgs = extraSpecialArgs // {
+            profile = "macos";
+            system = "aarch64-darwin";
+          };
+          modules = [
+            ./profiles/macos/home.nix
+          ];
+        };
+      };
+
+      darwinConfigurations = {
+        laptop = nix-darwin.lib.darwinSystem {
+          modules = [ ./profiles/macos/configuration.nix ];
+          specialArgs = {
+            inherit self;
+          };
         };
       };
     };
-
-    homeConfigurations = {
-      laptop = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = extraSpecialArgs // { profile = "laptop"; };
-        modules = [
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
-        ];
-      };
-      desktop = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = extraSpecialArgs // { profile = "desktop"; };
-        modules = [
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
-        ];
-      };
-      macos = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgsAarch64;
-        extraSpecialArgs = extraSpecialArgs // { profile = "macos"; system = "aarch64-darwin"; };
-        modules = [
-          ./profiles/macos/home.nix
-        ];
-      };
-    };
-
-    darwinConfigurations = {
-      laptop = nix-darwin.lib.darwinSystem {
-        modules = [ ./profiles/macos/configuration.nix ];
-        specialArgs = {
-          inherit self;
-        };
-      };
-    };
-  };
 }
