@@ -30,8 +30,8 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    mkdir -p $out/usr/local/bin/
-    cp bin/release/sdgyrodsu $out/usr/local/bin/
+    mkdir -p $out/bin
+    cp bin/release/sdgyrodsu $out/bin
 
     mkdir -p $out/etc/sdgyrodsu
     cp pkg/sdgyrodsu.service $out/etc/sdgyrodsu/
