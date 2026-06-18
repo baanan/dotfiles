@@ -8,6 +8,7 @@
 {
   imports = [
     ./minecraft.nix
+    ./sdgyrodsu.nix
   ];
 
   services.flatpak.packages = [
