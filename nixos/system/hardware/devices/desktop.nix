@@ -76,6 +76,10 @@
     settings = {
       General = {
         Disable = "Headset";
+        Experimental = "true";
+      };
+      Policy = {
+        AutoEnable = "true";
       };
     };
   };
