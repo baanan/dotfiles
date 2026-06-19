@@ -48,6 +48,14 @@
       //   switching between tabs
       "ctrl-shift-l": "pane::ActivateNextItem",
       "ctrl-shift-h": "pane::ActivatePreviousItem",
+      //   opening side panels
+      "ctrl-space b h": [
+        "task::Spawn",
+        {
+          "task_name": "bacon",
+          "reveal_target": "center",
+        },
+      ],
     },
   },
   {
@@ -65,6 +73,13 @@
       "space e": "project_panel::ToggleFocus",
       "space a": "outline_panel::ToggleFocus",
       "space t": "terminal_panel::Toggle",
+      "space b h": [
+        "task::Spawn",
+        {
+          "task_name": "bacon",
+          "reveal_target": "center",
+        },
+      ],
       "space b c": [
         "action::Sequence",
         [

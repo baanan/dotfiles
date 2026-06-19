@@ -110,7 +110,9 @@
     "rust-analyzer": {
       "initialization_options": {
         "diagnostics": {
-          "disabled": ["trait-impl-incorrect-safety"],
+          "disabled": [
+            "trait-impl-incorrect-safety"
+          ],
         },
         "check": {
           "command": "clippy",
