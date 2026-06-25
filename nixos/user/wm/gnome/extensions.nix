@@ -4,7 +4,14 @@
   home.packages = [
     pkgs.gnomeExtensions.blur-my-shell
     pkgs.gnomeExtensions.dash-to-panel
-    pkgsUnstable.gnomeExtensions.pop-shell
+    (pkgs.gnomeExtensions.pop-shell.overrideAttrs (_: {
+      src = pkgs.fetchFromGitHub {
+        owner = "pop-os";
+        repo = "shell";
+        rev = "7898b65c20735057faf0797f8ed056704ca55f0d";
+        hash = "sha256-MmHoOxymo0QSRbRcSbFiv82+QWAwIwXwg/wyGQGVYiI=";
+      };
+    }))
     pkgs.gnomeExtensions.appindicator
   ];
   dconf.settings = {
