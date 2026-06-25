@@ -1,21 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
 {
   home.packages = [
     pkgs.gnomeExtensions.blur-my-shell
     pkgs.gnomeExtensions.dash-to-panel
-    pkgs.gnomeExtensions.pop-shell
+    pkgsUnstable.gnomeExtensions.pop-shell
     pkgs.gnomeExtensions.appindicator
   ];
-  # 238 │ [org/gnome/desktop/wm/keybindings]
-  # 239 │ close=['<Super>q']
-  # 240 │ maximize=@as []
-  # 241 │ minimize=@as []
-  # 242 │ move-to-monitor-down=@as []
-  # 243 │ move-to-monitor-left=@as []
-  # 244 │ move-to-monitor-right=@as []
-  # 245 │ move-to-monitor-up=@as []
-  # 246 │ unmaximize=@as []
   dconf.settings = {
     "org/gnome/shell/extensions/dash-to-panel" = {
       animate-appicon-hover-animation-extent = ''{"RIPPLE": 4, "PLANK": 4, "SIMPLE": 1}'';
