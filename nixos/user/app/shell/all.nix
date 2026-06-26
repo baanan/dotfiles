@@ -1,14 +1,19 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      # ./kitty.nix
-      ./ghostty.nix
-    ];
+  imports = [
+    # ./kitty.nix
+    ./ghostty.nix
+  ];
 
   home.packages = with pkgs; [
-    eza bat erdtree ripgrep fd ranger ast-grep
+    eza
+    bat
+    erdtree
+    ripgrep
+    fd
+    ranger
+    ast-grep
   ];
 
   programs.zsh.shellAliases = {
@@ -17,4 +22,8 @@
     la = "ll --all";
     erd = "erd --human --icons --layout inverted";
   };
+
+  programs.git.ignores = [
+    ".direnv"
+  ];
 }
