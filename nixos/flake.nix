@@ -17,10 +17,6 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     bugstalker.url = "github:baanan/BugStalker";
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-26.05";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
@@ -82,7 +78,6 @@
         nix-flatpak = inputs.nix-flatpak;
       };
       modules = [
-        inputs.lanzaboote.nixosModules.lanzaboote
       ];
     in
     {
