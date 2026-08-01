@@ -25,5 +25,6 @@
 
   programs.git.ignores = [
     ".direnv"
+    ".zed"
   ];
 }
