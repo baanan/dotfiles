@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     xremap-flake.url = "github:xremap/nix-flake";
@@ -55,6 +55,10 @@
         overlays = [
           inputs.fenix.overlays.default
         ];
+      };
+      pkgsAarch64Unstable = import nixpkgs-unstable {
+        system = "aarch64-darwin";
+        config.allowUnfree = true;
       };
       pkgsUnstable = import nixpkgs-unstable {
         system = systemSettings.system;
@@ -131,6 +135,7 @@
           extraSpecialArgs = extraSpecialArgs // {
             profile = "macos";
             system = "aarch64-darwin";
+            pkgsUnstable = pkgsAarch64Unstable;
           };
           modules = [
             ./profiles/macos/home.nix
