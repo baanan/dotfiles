@@ -4,3 +4,5 @@ test.sh
 *.swp
 **/.DS_Store
 **/lazy-lock.json
+den/nixos.qcow2
+den/result/

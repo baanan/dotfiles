@@ -45,6 +45,11 @@
           "paths": [
             "/cs/home/stu/craigbh/cs430-craigbh"
           ]
+        },
+        {
+          "paths": [
+            "/cs/home/stu/craigbh/cs432"
+          ]
         }
       ]
     },

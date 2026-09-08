@@ -52,16 +52,19 @@
   fileSystems."/mnt/popos" = {
     device = "/dev/disk/by-uuid/d39cbf96-6894-4fba-bc09-b325bb53c0b9";
     fsType = "ext4";
+    options = [ "nofail" ];
   };
 
   fileSystems."/mnt/tera" = {
     device = "/dev/disk/by-uuid/8832ECEB32ECDF66";
     fsType = "ntfs";
+    options = [ "nofail" ];
   };
 
   fileSystems."/mnt/windows" = {
-    device = "/dev/disk/by-uuid/48006C94006C8B30";
+    device = "/dev/disk/by-uuid/1CC2204AC2202B0A";
     fsType = "ntfs";
+    options = [ "nofail" ];
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
