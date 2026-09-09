@@ -6,10 +6,10 @@
   # enable hm by default
   den.schema.user.classes = lib.mkDefault [ "homeManager" ];
 
-  # # User TODO: REMOVE THIS
-  den.aspects.thate.nixos = {
-    boot.loader.grub.enable = false;
-    fileSystems."/".device = "/dev/fake";
-    fileSystems."/".fsType = "auto";
+  den.default.nixos = {
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 }

@@ -1,8 +1,8 @@
 { ... }:
 
 {
-  imports = [ 
-    ./extensions.nix 
+  imports = [
+    ./extensions.nix
     ./theming.nix
   ];
 
@@ -11,7 +11,6 @@
       favorite-apps = [
         "firefox.desktop"
         "vesktop.desktop"
-        # "kitty.desktop"
         "com.mitchellh.ghostty.desktop"
         "org.gnome.Nautilus.desktop"
       ];

@@ -1,0 +1,4 @@
+{ den, ... }:
+{
+  den.aspects.minimal = { };
+}

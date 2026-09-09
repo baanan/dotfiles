@@ -3,15 +3,41 @@
 # instead of having to reboot each time.
 { inputs, den, ... }:
 {
+  # use home manager module
+  den.aspects.thate = {
+    provides.vm = {
+      includes = [
+        den.aspects.vm
+      ];
+    };
+  };
+
   den.hosts.x86_64-linux.vm = {
-    users.thate = { };
+    users.thate = {
+      includes = [ den.aspects.minimal ];
+    };
+
+    home-manager.enable = true;
   };
 
   den.aspects.vm = {
     includes = [
-      den.aspects.desktop
-      (den.batteries.tty-autologin "thate")
+      den.aspects.work
+      den.aspects.gaming
     ];
+
+    nixos = { pkgs, ... }: {
+      environment.systemPackages = [
+        pkgs.wget
+      ];
+
+      virtualisation.vmVariant = {
+        virtualisation.cores = 12;
+        virtualisation.memorySize = 16384;
+      };
+
+      home-manager.useUserPackages = true;
+    };
   };
 
   perSystem =
