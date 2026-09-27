@@ -18,6 +18,9 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     bugstalker.url = "github:baanan/BugStalker";
 
+    lanzaboote.url = "github:nix-community/lanzaboote/v1.1.0";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
+
     aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-26.05";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -72,6 +75,7 @@
         inherit xremap-flake;
         aagl = inputs.aagl;
         inherit pkgsUnstable;
+        lanzaboote = inputs.lanzaboote;
       };
       extraSpecialArgs = {
         inherit neovim-nightly-overlay;

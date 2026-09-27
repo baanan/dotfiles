@@ -1,4 +1,7 @@
 {
+  "audio": {
+    "experimental.input_audio_device": "alsa:pipewire"
+  },
   "cli_default_open_behavior": "existing_window",
   "outline_panel": {
     "dock": "left"
@@ -31,6 +34,11 @@
       "host": "stu",
       "args": [],
       "projects": [
+        {
+          "paths": [
+            "/cs/home/stu/craigbh"
+          ]
+        },
         {
           "paths": [
             "/cs/home/stu/craigbh/cs327"

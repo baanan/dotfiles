@@ -2,25 +2,39 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, xremap-flake, lib, ... }:
+{
+  config,
+  pkgs,
+  xremap-flake,
+  lanzaboote,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./../../system/apps/flatpak.nix
-      ./../../system/apps/appimage.nix
-      ./../../system/apps/openrgb.nix
-      ./../../system/apps/system-utils.nix
-      ./../../system/apps/nix.nix
-      ./../../system/fonts/fonts.nix
-      ./../../system/hardware/xremap.nix
-      xremap-flake.nixosModules.default
-    ];
+  imports = [
+    ./../../system/apps/flatpak.nix
+    ./../../system/apps/appimage.nix
+    ./../../system/apps/openrgb.nix
+    ./../../system/apps/system-utils.nix
+    ./../../system/apps/nix.nix
+    ./../../system/fonts/fonts.nix
+    ./../../system/hardware/xremap.nix
+    xremap-flake.nixosModules.default
+    lanzaboote.nixosModules.lanzaboote
+  ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
   boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl";
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -90,9 +104,13 @@
   users.users.thate = {
     isNormalUser = true;
     description = "Brennan Craig";
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "dialout"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -102,8 +120,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     git
     sbctl
   ];
@@ -139,5 +157,8 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
