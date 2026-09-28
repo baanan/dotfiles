@@ -1,0 +1,112 @@
+{ den, ... }:
+{
+  # host configuration
+  den.hosts.x86_64-linux.laptop = {
+    includes = [ den.aspects.laptop.hardware ];
+  };
+
+  # host aspect
+  den.aspects.laptop = {
+    includes = [
+      den.aspects.work
+      den.aspects.gaming
+      den.aspects.laptop.hardware
+    ];
+  };
+
+  den.aspects.laptop.hardware.nixos =
+    {
+      modulesPath,
+      config,
+      lib,
+      ...
+    }:
+    {
+      imports = [
+        (modulesPath + "/installer/scan/not-detected.nix")
+      ];
+
+      boot.initrd.availableKernelModules = [
+        "xhci_pci"
+        "nvme"
+        "usb_storage"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
+      ];
+      boot.initrd.kernelModules = [ ];
+      boot.kernelModules = [ "kvm-intel" ];
+      boot.extraModulePackages = [ ];
+
+      fileSystems."/" = {
+        device = "/dev/disk/by-uuid/33f1fea8-d5ce-416d-b675-ec483219a024";
+        fsType = "ext4";
+      };
+
+      fileSystems."/boot" = {
+        device = "/dev/disk/by-uuid/02D7-2FE9";
+        fsType = "vfat";
+        options = [
+          "fmask=0077"
+          "dmask=0077"
+        ];
+      };
+
+      swapDevices = [ ];
+
+      # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+      # (the default) this is the recommended approach. When using systemd-networkd it's
+      # still possible to use this option, but it's recommended to use it in conjunction
+      # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+      networking.useDHCP = lib.mkDefault true;
+      # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
+      # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
+
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+      hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+      # Load nvidia driver for Xorg and Wayland
+      services.xserver.videoDrivers = [ "nvidia" ];
+
+      hardware.graphics.enable = true;
+      # services.xserver.videoDrivers = [ "nvidia" ];
+      # hardware.nvidia.open = true;
+
+      hardware.nvidia.prime.offload.enable = true;
+      hardware.nvidia.prime.intelBusId = "PCI:0:2:0";
+      hardware.nvidia.prime.nvidiaBusId = "PCI:1:0:0";
+
+      # powerManagement.enable = true;
+      # hardware.nvidia.powerManagement.enable = true;
+      # hardware.nvidia.powerManagement.finegrained = true;
+
+      hardware.nvidia = {
+        # Modesetting is required.
+        modesetting.enable = true;
+
+        # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+        # Enable this if you have graphical corruption issues or application crashes after waking
+        # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
+        # of just the bare essentials.
+        powerManagement.enable = true;
+
+        # Fine-grained power management. Turns off GPU when not in use.
+        # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+        powerManagement.finegrained = true;
+
+        # Use the NVidia open source kernel module (not to be confused with the
+        # independent third-party "nouveau" open source driver).
+        # Support is limited to the Turing and later architectures. Full list of
+        # supported GPUs is at:
+        # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
+        # Only available from driver 515.43.04+
+        open = true;
+
+        # Enable the Nvidia settings menu,
+        # accessible via `nvidia-settings`.
+        nvidiaSettings = true;
+
+        # Optionally, you may need to select the appropriate driver version for your specific GPU.
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+      };
+    };
+}

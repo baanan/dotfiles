@@ -3,34 +3,22 @@
 # instead of having to reboot each time.
 { inputs, den, ... }:
 {
-  # use home manager module
-  den.aspects.thate = {
-    provides.vm = {
-      includes = [
-        den.aspects.vm
-      ];
-    };
-  };
-
   den.hosts.x86_64-linux.vm = {
-    users.thate = {
-      includes = [ den.aspects.minimal ];
-    };
-
     home-manager.enable = true;
   };
 
-  den.aspects.vm = {
+  den.hosts.x86_64-linux.vm = { };
+  den.hosts.x86_64-linux.vm-desktop = { };
+
+  den.aspects.vm-desktop = {
     includes = [
-      den.aspects.work
-      den.aspects.gaming
+      den.aspects.vm
+      den.aspects.desktop
     ];
+  };
 
-    nixos = { pkgs, ... }: {
-      environment.systemPackages = [
-        pkgs.wget
-      ];
-
+  den.aspects.vm = {
+    nixos = { ... }: {
       virtualisation.vmVariant = {
         virtualisation.cores = 12;
         virtualisation.memorySize = 16384;
@@ -47,7 +35,7 @@
         name = "vm";
         text =
           let
-            host = inputs.self.nixosConfigurations.vm.config;
+            host = inputs.self.nixosConfigurations.vm-desktop.config;
           in
           ''
             ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"

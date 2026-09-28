@@ -1,6 +1,7 @@
 { den, ... }:
 {
+  # personal w/ games
   den.aspects.gaming = {
-    includes = [ den.aspects.minimal ];
+    includes = [ den.aspects.personal ];
   };
 }
