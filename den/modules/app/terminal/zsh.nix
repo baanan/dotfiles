@@ -21,7 +21,7 @@
       autosuggestion.enable = true;
       historySubstringSearch.enable = true;
 
-      initExtra = ''
+      initContent = ''
         source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
         mkcdir () {
@@ -46,7 +46,9 @@
     programs.oh-my-posh = {
       enable = true;
       settings = builtins.fromJSON (
-        builtins.unsafeDiscardStringContext (builtins.readFile ../../../common/config/omp/takuya.omp.json)
+        builtins.unsafeDiscardStringContext (
+          builtins.readFile ../../../../common/config/omp/takuya.omp.json
+        )
       );
     };
   };
