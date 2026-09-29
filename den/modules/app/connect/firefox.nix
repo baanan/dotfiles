@@ -25,7 +25,7 @@
       in
       {
         programs.firefox = {
-          enable = false;
+          enable = true;
           profiles = {
             default = {
               id = 0;
