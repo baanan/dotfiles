@@ -15,7 +15,7 @@
       den.batteries.define-user
       den.batteries.primary-user
 
-      den.aspects.secrets
+      # den.aspects.secrets
 
       den.batteries.host-aspects
     ];
