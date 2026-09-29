@@ -17,8 +17,6 @@
 
       den.aspects.secrets
 
-      (den.batteries.user-shell "zsh")
-
       den.batteries.host-aspects
     ];
 
