@@ -17,4 +17,11 @@
       "com.github.tchx84.Flatseal"
     ];
   };
+
+  den.aspects.apps-system.nixos = { pkgs, host, ... }: {
+    services.hardware.openrgb = {
+      enable = host.name == "desktop";
+      package = pkgs.openrgb-with-all-plugins;
+    };
+  };
 }

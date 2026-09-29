@@ -17,10 +17,10 @@
 
       git = {
         enable = true;
-        userEmail = "thatepicbanana132@gmail.com";
-        userName = "baanan";
 
-        extraConfig = {
+        settings = {
+          user.email = "thatepicbanana132@gmail.com";
+          user.name = "baanan";
           safe = {
             directory = "*";
           };

@@ -10,10 +10,10 @@
     fenix.url = "github:nix-community/fenix";
   };
 
-  den.aspects.default-langs.homeManager = { pkgs, ... }: {
+  den.aspects.default-langs.homeManager = { pkgs, host, ... }: {
     home.packages = with pkgs; [
       # rust
-      (inputs.fenix.stable.withComponents [
+      (inputs.fenix.packages.${host.system}.latest.withComponents [
         "cargo"
         "clippy"
         "rust-src"
