@@ -7,8 +7,6 @@
   den.aspects.apps-system.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       mission-center
-      protonvpn-gui
-      unzip
       sbctl
       pika-backup
       cloudflared
