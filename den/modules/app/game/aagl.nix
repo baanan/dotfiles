@@ -5,7 +5,7 @@
   };
 
   flake-file.inputs = {
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-26.05";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix/main";
   };
 
   den.aspects.aagl.nixos = { ... }: {

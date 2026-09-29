@@ -7,7 +7,7 @@
   };
 
   den.aspects.xremap.nixos = {
-    includes = [
+    imports = [
       inputs.xremap-flake.nixosModules.default
     ];
 
