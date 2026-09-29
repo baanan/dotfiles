@@ -7,7 +7,6 @@
   # host aspect
   den.aspects.desktop = {
     includes = [
-      den.aspects.work
       den.aspects.gaming
     ];
   };

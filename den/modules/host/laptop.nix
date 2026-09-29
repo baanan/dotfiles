@@ -8,7 +8,6 @@
   # host aspect
   den.aspects.laptop = {
     includes = [
-      den.aspects.work
       den.aspects.gaming
     ];
   };
