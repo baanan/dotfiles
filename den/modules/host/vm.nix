@@ -3,28 +3,34 @@
 # instead of having to reboot each time.
 { inputs, den, ... }:
 {
-  den.hosts.x86_64-linux.vm = {
-    home-manager.enable = true;
-  };
-
   den.hosts.x86_64-linux.vm = { };
-  den.hosts.x86_64-linux.vm-desktop = { };
+  den.hosts.x86_64-linux.vm-desktop-host = { };
+  den.hosts.x86_64-linux.vm-laptop-host = { };
 
-  den.aspects.vm-desktop = {
+  den.aspects.vm-desktop-host = {
     includes = [
       den.aspects.vm
       den.aspects.desktop
     ];
   };
 
+  den.aspects.vm-laptop-host = {
+    includes = [
+      den.aspects.vm
+      den.aspects.laptop
+    ];
+  };
+
   den.aspects.vm = {
+    # home-manager.enable = true;
+
     nixos = { ... }: {
       virtualisation.vmVariant = {
         virtualisation.cores = 12;
         virtualisation.memorySize = 16384;
       };
 
-      home-manager.useUserPackages = true;
+      # home-manager.useUserPackages = true;
     };
   };
 
@@ -32,10 +38,21 @@
     { pkgs, ... }:
     {
       packages.vm-desktop = pkgs.writeShellApplication {
-        name = "vm";
+        name = "vm-desktop";
         text =
           let
-            host = inputs.self.nixosConfigurations.vm-desktop.config;
+            host = inputs.self.nixosConfigurations.vm-desktop-host.config;
+          in
+          ''
+            ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"
+          '';
+      };
+
+      packages.vm-laptop = pkgs.writeShellApplication {
+        name = "vm-laptop";
+        text =
+          let
+            host = inputs.self.nixosConfigurations.vm-laptop-host.config;
           in
           ''
             ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"

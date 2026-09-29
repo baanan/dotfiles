@@ -1,7 +1,13 @@
 { den, ... }:
 {
-  # home configuration
-  # den.homes.x86_64-linux.thate = { };
+  den.schema.host = {
+    # Add thate as a default user.
+    #
+    # There is absolutely no way to make this a setting configurable by aspects, since policies
+    # can't use configuration defined by aspects. This includes quirks, since they're collected
+    # after all entities are defined.
+    users.thate = { };
+  };
 
   # user aspect
   den.aspects.thate = {
@@ -12,6 +18,8 @@
       den.aspects.secrets
 
       (den.batteries.user-shell "zsh")
+
+      den.batteries.host-aspects
     ];
 
     nixos = {
