@@ -32,6 +32,9 @@
             "dash-to-panel@jderose9.github.com"
             "pop-shell@system76.com"
           ];
+
+          # disable the welcome screen (update whenever needed)
+          "welcome-dialog-last-shown-version" = "50.4";
         };
       };
     };

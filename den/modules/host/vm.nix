@@ -26,6 +26,7 @@
       virtualisation.vmVariant = {
         virtualisation.cores = 12;
         virtualisation.memorySize = 16384;
+        virtualisation.diskSize = 8192;
       };
     };
   };

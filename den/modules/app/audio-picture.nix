@@ -8,7 +8,7 @@
 
   den.aspects.audio-picture = {
     includes = [
-      (den.batteries.unfree [ "google-chrome" ])
+      (den.batteries.unfree [ "obsidian" ])
     ];
 
     homeManager = { pkgs, ... }: {
