@@ -30,12 +30,19 @@
       };
     };
 
-    homeManager = { lib, ... }: {
-      home.activation = {
-        makePotato = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          mkdir -p ~/Documents/projects/
-          git clone https://github.com/baanan/dotfiles.git ~/Documents/projects/
-        '';
+    homeManager = { pkgs, ... }: {
+      systemd.user.services.clone-dotfiles = {
+        Service = {
+          Type = "oneshot";
+          ExecStart = pkgs.writeShellScript "my-script" ''
+            mkdir -p ~/Documents/projects/
+            test -d ~/Documents/projects/dotfiles/ || git clone https://github.com/baanan/dotfiles.git ~/Documents/projects/dotfiles/
+          '';
+        };
+
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
       };
     };
   };

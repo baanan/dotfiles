@@ -13,6 +13,7 @@
       erdtree
       ripgrep
       fd
+      git
     ];
   };
 }
