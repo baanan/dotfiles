@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.minimal = {
+  den.aspects.personal = {
     includes = [ den.aspects.gnome ];
   };
 

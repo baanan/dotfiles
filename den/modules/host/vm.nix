@@ -22,15 +22,11 @@
   };
 
   den.aspects.vm = {
-    # home-manager.enable = true;
-
     nixos = { ... }: {
       virtualisation.vmVariant = {
         virtualisation.cores = 12;
         virtualisation.memorySize = 16384;
       };
-
-      # home-manager.useUserPackages = true;
     };
   };
 

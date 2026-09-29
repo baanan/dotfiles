@@ -10,7 +10,6 @@
     includes = [
       den.aspects.work
       den.aspects.gaming
-      den.aspects.laptop.hardware
     ];
   };
 

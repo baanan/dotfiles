@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.minimal = {
+  den.aspects.connect = {
     includes = [
       den.aspects.connect.firefox
     ];
@@ -13,8 +13,9 @@
   den.aspects.desktop.defaultFirefoxProfile = "default";
   den.aspects.laptop.defaultFirefoxProfile = "school";
 
-  den.aspects.connect.firefox = { defaultFirefoxProfile, ... }: {
+  den.aspects.connect.firefox = {
     homeManager =
+      { defaultFirefoxProfile, ... }:
       let
         default =
           if builtins.length defaultFirefoxProfile > 0 then
