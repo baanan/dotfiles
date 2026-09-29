@@ -29,6 +29,15 @@
         virtualisation.diskSize = 8192;
       };
     };
+
+    homeManager = { lib, ... }: {
+      home.activation = {
+        makePotato = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          mkdir -p ~/Documents/projects/
+          git clone https://github.com/baanan/dotfiles.git ~/Documents/projects/
+        '';
+      };
+    };
   };
 
   perSystem =
