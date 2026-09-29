@@ -25,6 +25,15 @@
             directory = "*";
           };
         };
+
+        ignores = [
+          # direnv
+          ".direnv"
+
+          # editors
+          ".vscode"
+          ".zed"
+        ];
       };
     };
   };

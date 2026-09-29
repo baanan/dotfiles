@@ -39,5 +39,11 @@
       stylua
       lua-language-server
     ];
+
+    programs.git.ignores = [
+      # rust
+      "bacon.toml"
+      ".bacon-locations"
+    ];
   };
 }
