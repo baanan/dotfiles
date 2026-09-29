@@ -1,8 +1,10 @@
 { den, inputs, ... }:
 {
-  flake-file.inputs = {
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-  };
+  # nightly stuff:
+  #
+  # flake-file.inputs = {
+  #   neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+  # };
 
   den.aspects.personal = {
     includes = [
@@ -14,13 +16,14 @@
     {
       pkgs,
       config,
-      user,
+      # user,
       ...
     }:
     {
       home.packages = with pkgs; [
         fzf
-        inputs.neovim-nightly-overlay.packages.${user.host.system}.default
+        # inputs.neovim-nightly-overlay.packages.${user.host.system}.default
+        neovim
         wl-clipboard
       ];
 
