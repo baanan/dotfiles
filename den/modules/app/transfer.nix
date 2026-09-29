@@ -4,7 +4,7 @@
     includes = [ den.aspects.transfer ];
   };
 
-  den.aspects.apps-system.homeManager = { pkgs, ... }: {
+  den.aspects.transfer.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       nextcloud-client
       bitwarden-desktop
