@@ -9,6 +9,10 @@
   den.aspects.laptop = {
     includes = [
       den.aspects.gaming
+      (den.batteries.unfree [
+        "nvidia-x11"
+        "nvidia-settings"
+      ])
     ];
   };
 
