@@ -7,6 +7,8 @@
   den.hosts.x86_64-linux.vm-desktop-host = { };
   den.hosts.x86_64-linux.vm-laptop-host = { };
 
+  den.hosts.x86_64-linux.vm-temporary-host = { };
+
   den.aspects.vm-desktop-host = {
     includes = [
       den.aspects.vm
@@ -19,6 +21,24 @@
       den.aspects.vm
       den.aspects.laptop
     ];
+  };
+
+  den.aspects.vm-temporary-host = {
+    includes = [
+      den.aspects.vm
+      den.aspects.laptop
+    ];
+
+    excludes = [
+      den.aspects.zed
+    ];
+
+    # don't include zed config
+    den.aspects.zed.homeManager = {
+      programs.zed-editor = {
+        enable = true;
+      };
+    };
   };
 
   den.aspects.vm = {
@@ -66,6 +86,17 @@
         text =
           let
             host = inputs.self.nixosConfigurations.vm-laptop-host.config;
+          in
+          ''
+            ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"
+          '';
+      };
+
+      packages.vm-temporary = pkgs.writeShellApplication {
+        name = "vm-temporary";
+        text =
+          let
+            host = inputs.self.nixosConfigurations.vm-temporary-host.config;
           in
           ''
             ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"
