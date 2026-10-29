@@ -19,6 +19,7 @@
     import-tree.url = "github:denful/import-tree";
     lanzaboote.url = "github:nix-community/lanzaboote/v1.1.0";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
     sops-nix.url = "github:Mic92/sops-nix";
     xremap-flake.url = "github:xremap/nix-flake";

@@ -1,6 +1,10 @@
-{ inputs, ... }:
+{ den, inputs, ... }:
 {
-  den.default.homeManager = { pkgs, ... }: {
+  den.aspects.minimal.includes = [ den.aspects.flatpak ];
+
+  den.aspects.flatpak = {
+
+  homeManager = { pkgs, ... }: {
     imports = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
 
     services.flatpak.enable = true;
@@ -8,9 +12,10 @@
     services.flatpak.uninstallUnmanaged = true;
   };
 
-  den.default.nixos = {
+  nixos = {
     services.flatpak.enable = true;
   };
+};
 
   flake-file.inputs = {
     nix-flatpak.url = "github:gmodena/nix-flatpak";
