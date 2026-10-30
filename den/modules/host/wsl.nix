@@ -12,6 +12,8 @@
       den.aspects.nvim
       den.aspects.zed
       den.aspects.connect.firefox
+
+      (den.batteries.unfree [ "obsidian" ])
     ];
 
     excludes = [
@@ -19,7 +21,7 @@
     ];
 
     homeManager = { pkgs, ... }: {
-      home.packages = [ pkgs.nextcloud-client ];
+      home.packages = [ pkgs.nextcloud-client pkgs.obsidian ];
     };
   };
 
