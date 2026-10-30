@@ -1,4 +1,4 @@
-{ den, inputs, ... }: 
+{ den, inputs, ... }:
 {
   # host configuration
   den.hosts.x86_64-linux.wsl = {
@@ -22,6 +22,10 @@
 
     homeManager = { pkgs, ... }: {
       home.packages = [ pkgs.nextcloud-client pkgs.obsidian ];
+
+      programs.zsh.envExtra = ''
+        export ZED_ALLOW_EMULATED_GPU=1
+      '';
     };
   };
 
@@ -62,4 +66,3 @@
     };
   };
 }
-
