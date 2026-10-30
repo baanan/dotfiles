@@ -11,7 +11,7 @@
       den.aspects.minimal
       den.aspects.nvim
       den.aspects.zed
-      den.aspects.firefox
+      den.aspects.connect.firefox
     ];
 
     excludes = [
