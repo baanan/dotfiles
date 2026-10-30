@@ -17,6 +17,10 @@
     excludes = [
       den.aspects.flatpak
     ];
+
+    homeManager = { pkgs, ... }: {
+      home.packages = [ pkgs.nextcloud-client ];
+    };
   };
 
   flake-file.inputs = {
