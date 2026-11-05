@@ -34,7 +34,7 @@
     ];
 
     # don't include zed config
-    den.aspects.zed.homeManager = {
+    homeManager = {
       programs.zed-editor = {
         enable = true;
       };

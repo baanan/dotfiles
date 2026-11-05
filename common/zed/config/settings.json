@@ -20,7 +20,7 @@
   },
   "languages": {
     "Python": {
-      "preferred_line_length": 79
+      "preferred_line_length": 100
     },
     "C++": {
       "format_on_save": "on",
@@ -61,6 +61,11 @@
         {
           "paths": [
             "/cs/home/stu/craigbh/cs432"
+          ]
+        },
+        {
+          "paths": [
+            "/cs/home/stu/craigbh/temp/cs432-decaf-compilier-p2"
           ]
         }
       ]
