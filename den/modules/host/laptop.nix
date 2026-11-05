@@ -8,7 +8,7 @@
   # host aspect
   den.aspects.laptop = {
     includes = [
-      den.aspects.personal
+      den.aspects.gaming
       (den.batteries.unfree [
         "nvidia-x11"
         "nvidia-settings"
