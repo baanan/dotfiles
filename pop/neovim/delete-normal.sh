@@ -1,1 +1,0 @@
-../../common/neovim/pop/delete-normal.sh

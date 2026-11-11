@@ -1,1 +1,0 @@
-/home/thate/Documents/projects/dotfiles/common/discord/discord.sh
