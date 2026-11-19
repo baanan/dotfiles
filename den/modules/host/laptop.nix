@@ -112,15 +112,16 @@
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
 
-      hardware.firmware = [
-        pkgs.runCommand
-        "custom-vbt"
-        { }
-        ''
-          mkdir -p $out/lib/firmware/i915
-          cp ${./laptop_vbt_fixed.bin} $out/lib/firmware/i915/custom_vbt.bin
-        ''
-      ];
+      hardware.firmware =
+        let
+          customVbt = pkgs.runCommand "custom-vbt" { } ''
+            mkdir -p $out/lib/firmware/i915
+            cp ${./laptop_vbt_fixed.bin} $out/lib/firmware/i915/custom_vbt.bin
+          '';
+        in
+        [
+          customVbt
+        ];
 
       boot.kernelParams = [
         "i915.vbt_firmware=i915/custom_vbt.bin"
