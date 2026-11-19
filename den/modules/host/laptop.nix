@@ -21,6 +21,7 @@
       modulesPath,
       config,
       lib,
+      pkgs,
       ...
     }:
     {
@@ -110,5 +111,19 @@
         # Optionally, you may need to select the appropriate driver version for your specific GPU.
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
+
+      hardware.firmware = [
+        pkgs.runCommand
+        "custom-vbt"
+        { }
+        ''
+          mkdir -p $out/lib/firmware/i915
+          cp ${./laptop_vbt_fixed.bin} $out/lib/firmware/i915/custom_vbt.bin
+        ''
+      ];
+
+      boot.kernelParams = [
+        "i915.vbt_firmware=i915/custom_vbt.bin"
+      ];
     };
 }

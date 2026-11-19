@@ -20,4 +20,5 @@ if [[ $commited ]]; then
     fi
 fi
 
+popd
 exit $success
