@@ -4,6 +4,12 @@
     includes = [ den.aspects.apps-system ];
   };
 
+  den.aspects.apps-system.includes = [
+    (den.batteries.unfree [
+      "canon-cups-ufr2"
+    ])
+  ];
+
   den.aspects.apps-system.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       mission-center
