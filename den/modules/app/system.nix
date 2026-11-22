@@ -10,6 +10,9 @@
       sbctl
       pika-backup
       cloudflared
+
+      # printing
+      canon-cups-ufr2
     ];
 
     services.flatpak.packages = [

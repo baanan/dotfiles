@@ -112,6 +112,9 @@
         package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
 
+      # Fix suspend by patching the vbt - for some reason there's a duplicate thingy or something.
+      # https://wiki.archlinux.org/title/Intel_graphics#Freeze_after_wake_from_sleep/suspend_with_Raptor_Lake_and_Alder_Lake-P
+      # https://github.com/CachyOS/linux-cachyos/issues/1043#issuecomment-5838628225
       hardware.firmware =
         let
           customVbt = pkgs.runCommand "custom-vbt" { } ''
